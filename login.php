@@ -2,7 +2,7 @@
 <html>
   <head>
     <?php require('head.php'); ?>
-    <link rel="stylesheet" href="vendor/login.css">
+    <link rel="stylesheet" href="vendor/logIn.css">
   </head>
   <body>
     <?php require('topNav.php'); ?>

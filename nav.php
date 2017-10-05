@@ -74,10 +74,10 @@
                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="blank.html">Registro de usuario</a>
+                        <a href="registro.php">Registro de usuario</a>
                     </li>
                     <li>
-                        <a href="login.html">Iniciar Sesión</a>
+                        <a href="login.php">Iniciar Sesión</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

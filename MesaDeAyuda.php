@@ -1,21 +1,23 @@
-<!DOCTYPE html>
+<?php
+require 'includes/conexion.php';
+if (@!$_SESSION['Rol_idRol']) {
+  header("Location:login.php");
+}?><!DOCTYPE html>
 <html lang="es">
 
 <head>
 <?php require('head.php'); ?>
 </head>
-
 <body>
-
     <div id="wrapper">
-
         <!-- Navigation -->
         <?php require('nav.php'); ?>
         <!-- Navigation -->
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Mesa de ayuda</h1>
+                    <img src="images/BannerMesaDeAyuda.png" class="page-header" width="100%">
+
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -34,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="SolicitarTicket.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Solicita un ticket</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -116,22 +118,6 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="vendor/raphael/raphael.min.js"></script>
-    <script src="vendor/morrisjs/morris.min.js"></script>
-    <script src="data/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
 
 </body>
 

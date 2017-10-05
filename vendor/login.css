@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background-image: url('../images/209.jpg');
+    background-image: url('../images/FondoLogin.png');
     background-size: cover;
 }
 
@@ -21,11 +21,11 @@ input[type="email"],
 input[type="url"],
 input[type="number"],
 textarea {
-    width: 97%;
-    height: 25px;
-    margin: 0 0 15px;
-    padding: 10px 1%;
-    font-size: 18px;
+    width: 95%; /* Largo del textBox */
+    height: 1px;
+    margin: 0 0 9px; /*Separación del texto */
+    padding: 15px 1%; /*Alto del texto */
+    font-size: 20px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -35,8 +35,8 @@ input[type="submit"],
 input[type="button"],
 input[type="reset"] {
     display: inline-block;
-    background: #2394D5;
-    padding: 5px 15px;
+    background: #ff362e;
+    padding: 5px 10px;
     color: #fff;
     border: 0 none;
     font-size: 18px;
@@ -49,6 +49,7 @@ input[type="reset"] {
 input[type="submit"]:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover {
+    background: #020284;
     opacity: .8;
 }
 
@@ -66,11 +67,11 @@ input[type="reset"]:hover {
 }
 
 .main {
-    width: 30%;
+    width: 35%;
     background-color: rgba(255, 255, 255, .4);
     text-align: center;
     border-radius: 5px;
-    margin: 17% auto 0 auto;
+    margin: 9% auto 0 auto; /*Margen del cuadro blanco que rodea */
     padding: 3%;
     position: relative;
 }
