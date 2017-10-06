@@ -1,3 +1,7 @@
+<?php if(!isset($_SESSION))
+    {
+        session_start();
+    }  ?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -9,7 +13,6 @@
         <a class="navbar-brand" href="index.php">Interpuerto Multimodal de México</a>
     </div>
     <!-- /.navbar-header -->
-
     <ul class="nav navbar-top-links navbar-right">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -207,19 +210,18 @@
                 <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-              <?php
-                session_start(); 
-                  if(isset($_SESSION['u_nombre'])){
+              <?php if(isset($_SESSION['Rol_idRol'])){
                                 echo '<li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>
                                 </li>';
                                 echo '<li class="divider"></li>';
                                 echo ' <li><a href="cerrarSesion.php"><i class="fa fa-sign-out fa-fw"></i> Salir</a></li>';
-                        }
-                            else{
+                        }else{
                                 echo '<li><a href="login.php"><i class="fa fa-user fa-fw"></i> Iniciar sesión</a>
                                 </li>';
-                            }
-                   ?>
+                                echo '<li class="divider"></li>';
+                                echo '<li><a href="registro.php"><i class="fa fa-user-plus fa-fw"></i> Regístrate</a>
+                                </li>';
+                            }?>
             </ul>
             <!-- /.dropdown-user -->
         </li>

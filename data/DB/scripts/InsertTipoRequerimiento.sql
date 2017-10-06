@@ -1,0 +1,1 @@
+INSERT INTO `tiporequerimiento` (`idTipoRequerimiento`, `TipoRequerimiento`) VALUES ('1', 'Soporte menor'), ('2', 'Soporte mayor'), ('3', 'Desarrollo menor'), ('4', 'Desarrollo mayor'), ('5', 'Mantenimiento menor'), ('6', 'Mantenimiento mayor');

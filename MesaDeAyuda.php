@@ -1,8 +1,13 @@
 <?php
 require 'includes/conexion.php';
-if (@!$_SESSION['Rol_idRol']) {
+if(!isset($_SESSION))
+    {
+        session_start();
+    }
+if (isset($_SESSION['Rol_idRol'])==FALSE) {
   header("Location:login.php");
-}?><!DOCTYPE html>
+}?>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>

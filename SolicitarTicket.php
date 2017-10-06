@@ -1,3 +1,7 @@
+<?php
+require 'includes/conexion.php';
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,35 +21,53 @@
             </div>
           <div class="container">
             <div class="row">
-              <form class="form-horizontal" action="guardarTicket.php" method="post" autocomplete="off">
+              <form class="form-horizontal" enctype="multipart/form-data" action="guardarReporte.php" method="post" autocomplete="off">
                 <div class="form-group">
-                    <label for="dirigido" class="col-sm-2 control-label">Dirigido a:</label>
-                    <div class="col-sm-3">
-                      <select class="form-control" id="CategoriaReporte_idCategoriaReporte">
-                        <option>Soporte</option>
-                        <option>Desarrollo</option>
-                        <option>Mantenimiento</option>
+                    <label for="dirigido" class="col-sm-1 control-label">Tipo de requerimiento:</label>
+                    <div class="col-sm-2">
+                      <select class="form-control" id="TipoRequerimiento_idTipoRequerimiento">
+                        <?php $sqlTip = "SELECT * FROM TipoRequerimiento";
+                                $resul = $mysqli->query($sqlTip);
+                                  while($rows = $resul->fetch_array(MYSQLI_ASSOC)){ ?>
+                                    <option value="<?php echo $row['idTipoRequerimiento']; ?>"><?php echo $rows['TipoRequerimiento']; ?></option>
+                                  <?php } ?>
                       </select>
                     </div>
-                    <label for="tipoRequerimiento" class="col-sm-2 control-label">Tipo de requerimiento:</label>
-                      <div class="col-sm-3">
+                    <label for="tipoRequerimiento" class="col-sm-1 control-label">Dirigido a:</label>
+                      <div class="col-sm-2">
                         <select class="form-control" id="CategoriaReporte_idCategoriaReporte">
-                          <option>Soporte Menor</option>
-                          <option>Soporte Mayor</option>
-                          <option>Desarrollo Menor</option>
-                          <option>Desarrollo Mayor</option>
+                          <?php $sqlCat = "SELECT * FROM CategoriaReporte";
+                                  $resultado = $mysqli->query($sqlCat);
+                                    while($row = $resultado->fetch_array(MYSQLI_ASSOC)){ ?>
+                                      <option value="<?php echo $row['idCategoriaReporte']; ?>"><?php echo $row['nombreCategoriaReporte']; ?></option>
+                                    <?php } ?>
                         </select>
+                      </div>
+                    <label for="evidencia" class="col-sm-1 control-label">Anexar pantalla:</label>
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <input type="file" class="form-control" id="archivo" name="archivo" accept="image/*">
+                        </div>
                       </div>
                 </div>
                 <div class="form-group">
 
                 </div>
                 <div class="row">
-                  <div class="form-group">
-                    <label for="Descripcion">Descripción de falla o problema:</label>
-                    <textarea class="form-control"  rows="5" id="descripcion" ></textarea>
+                  <div class="col-sm-7">
+                    <div class="form-group">
+                      <label for="Descripcion">Descripción de falla o problema:</label>
+                      <textarea class="form-control"  rows="5" id="descripcion" ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <br>
+                    <br>
+                    <br>
+                    <input type="submit"class="btn-lg btn-success btn-block" name="botonlg" value="Crear Ticket" />
                   </div>
                 </div>
+
               </form>
             </div>
           </div>

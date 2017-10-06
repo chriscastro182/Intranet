@@ -1,5 +1,4 @@
 <?php require('topNav.php'); ?>
-<!-- /.navbar-top-links -->
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
@@ -15,7 +14,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Avisos</a>
+                <a href="index.php"><i class="fa fa-sticky-note fa-fw"></i> Avisos</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas<span class="fa arrow"></span></a>

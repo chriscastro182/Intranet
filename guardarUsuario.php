@@ -58,6 +58,7 @@
                 <h3>Registro Guardado Exitosamente</h3>
                 <?php } else { echo $resultado;?>
                 <h3>Error al guardar</h3>
+                <a href="registro.php" class="btn btn-primary">Volver a intentar</a>
                 <?php } ?>
                 <a href="index.php" class="btn btn-primary">Regresar</a>
                 </div>
