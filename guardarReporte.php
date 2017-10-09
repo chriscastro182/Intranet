@@ -1,13 +1,20 @@
 <?php
+if(!isset($_SESSION))
+    {
+        session_start();
+    }
 	require 'includes/conexion.php';
 
-	$CategoriaReporte_idCategoriaReporte = $_POST['CategoriaReporte_idCategoriaReporte'];
-	$TipoRequerimiento_idTipoRequerimiento = $_POST['TipoRequerimiento_idTipoRequerimiento'];
-	$descripcion = $_POST['descripcion'];
+	$CategoriaReporte_idCategoriaReporte = isset($_POST['CategoriaReporte_idCategoriaReporte']) ? $_POST['CategoriaReporte_idCategoriaReporte'] : '';
+	$TipoRequerimiento_idTipoRequerimiento = isset($_POST['TipoRequerimiento_idTipoRequerimiento']) ? $_POST['TipoRequerimiento_idTipoRequerimiento'] : '';
+	$descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
 	$idSolicitante= $_SESSION['idUsuario'];
+  $datetime = date_create()->format('Y-m-d H:i:s');
+  $
 
-	$sql = "INSERT INTO Reporte (idReporte, estatus, tiempoRespuesta, descripcion, fEmision, fSolucion, CategoriaReporte_idCategoriaReporte, Solicitante_idSolicitante,TipoRequerimiento_idTipoRequerimiento)
-                            VALUES ('1','1', '0', '$descripcion', now(), now(), '$CategoriaReporte_idCategoriaReporte', '$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento')";
+	$sql = "INSERT INTO reporte (idReporte, estatus, tiempoRespuesta, descripcion, fEmision, CategoriaReporte_idCategoriaReporte, Solucionador_idSolucionador, Solicitante_idSolicitante,TipoRequerimiento_idTipoRequerimiento)
+                            VALUES ('1','1', '0', '$descripcion', '$datetime', '$CategoriaReporte_idCategoriaReporte', '$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento')";
+echo $sql;
 	$resultado = $mysqli->query($sql);
 	$id_insert = $mysqli->insert_id;
 
@@ -21,10 +28,10 @@
 		if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024){
 
 			$ruta = 'files/'.$id_insert.'/';
-			$archivo = $ruta.$_FILES["archivo"]["name"];
 
+			$archivo = $ruta.$_FILES["archivo"]["name"];
 			if(!file_exists($ruta)){
-				mkdir($ruta);
+				mkdir($ruta, 0755, true);
 			}
 
 			if(!file_exists($archivo)){

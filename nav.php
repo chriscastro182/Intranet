@@ -17,7 +17,7 @@
                 <a href="index.php"><i class="fa fa-sticky-note fa-fw"></i> Avisos</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas (Próximamente)<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="flot.html">Gráficas</a>
@@ -32,10 +32,7 @@
                 <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tablas</a>
             </li>
             <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Formatos</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-wrench fa-fw"></i> Formatos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="panels-wells.html">Directorio</a>
@@ -51,16 +48,16 @@
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Servicios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Correo Web</a>
+                        <a href="http://webmail.alestraune.net.mx/app/" target="_blank">Correo Web</a>
                     </li>
                     <li>
-                        <a href="#">Control de inventarios</a>
+                        <a href="http://10.181.131.97:8081/login.aspx?ReturnUrl=%2f" target="_blank">Control de inventarios</a>
                     </li>
                     <li>
                         <a href="#">Más servicios <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                             <li>
-                                <a href="#">Servicio de Gafetes</a>
+                                <a href="https://webservice.aaadam.com.mx/Formatos/" target="_blank">Servicio de Gafetes</a>
                             </li>
 
                         </ul>
@@ -70,7 +67,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-files-o fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="registro.php">Registro de usuario</a>

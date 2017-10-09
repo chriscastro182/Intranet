@@ -25,17 +25,17 @@ require 'includes/conexion.php';
                 <div class="form-group">
                     <label for="dirigido" class="col-sm-1 control-label">Tipo de requerimiento:</label>
                     <div class="col-sm-2">
-                      <select class="form-control" id="TipoRequerimiento_idTipoRequerimiento">
+                      <select class="form-control" name="TipoRequerimiento_idTipoRequerimiento" id="TipoRequerimiento_idTipoRequerimiento">
                         <?php $sqlTip = "SELECT * FROM TipoRequerimiento";
                                 $resul = $mysqli->query($sqlTip);
                                   while($rows = $resul->fetch_array(MYSQLI_ASSOC)){ ?>
-                                    <option value="<?php echo $row['idTipoRequerimiento']; ?>"><?php echo $rows['TipoRequerimiento']; ?></option>
+                                    <option value="<?php echo $rows['idTipoRequerimiento']; ?>"><?php echo $rows['TipoRequerimiento']; ?></option>
                                   <?php } ?>
                       </select>
                     </div>
                     <label for="tipoRequerimiento" class="col-sm-1 control-label">Dirigido a:</label>
                       <div class="col-sm-2">
-                        <select class="form-control" id="CategoriaReporte_idCategoriaReporte">
+                        <select class="form-control" name="CategoriaReporte_idCategoriaReporte" id="CategoriaReporte_idCategoriaReporte">
                           <?php $sqlCat = "SELECT * FROM CategoriaReporte";
                                   $resultado = $mysqli->query($sqlCat);
                                     while($row = $resultado->fetch_array(MYSQLI_ASSOC)){ ?>
@@ -43,21 +43,18 @@ require 'includes/conexion.php';
                                     <?php } ?>
                         </select>
                       </div>
-                    <label for="evidencia" class="col-sm-1 control-label">Anexar pantalla:</label>
+                    <label for="archivo" class="col-sm-1 control-label">Anexar pantalla:</label>
                       <div class="col-sm-3">
                         <div class="form-group">
                           <input type="file" class="form-control" id="archivo" name="archivo" accept="image/*">
                         </div>
                       </div>
                 </div>
-                <div class="form-group">
-
-                </div>
                 <div class="row">
                   <div class="col-sm-7">
                     <div class="form-group">
                       <label for="Descripcion">Descripción de falla o problema:</label>
-                      <textarea class="form-control"  rows="5" id="descripcion" ></textarea>
+                      <textarea class="form-control" name="descripcion" rows="5" id="descripcion" ></textarea>
                     </div>
                   </div>
                   <div class="col-sm-3">
