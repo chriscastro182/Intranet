@@ -14,7 +14,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="index.php"><i class="fa fa-sticky-note fa-fw"></i> Avisos</a>
+                <a href="index.php"><i class="fa fa-sticky-note fa-fw"></i> Noticias</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas (Próximamente)<span class="fa arrow"></span></a>
@@ -28,8 +28,11 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            <li>
+            <!-- <li>
                 <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tablas</a>
+            </li> -->
+            <li>
+                <a href="Digitalizacion.php"><i class="fa fa-file-text fa-fw"></i> Digitalización</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fa arrow"></span></a>

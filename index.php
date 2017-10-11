@@ -17,7 +17,7 @@
           <?php require('slide.php'); ?>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Noticias</h1>
+                  <h5>Noticias</h5>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -31,7 +31,7 @@
                                     <i class="fa fa-birthday-cake fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">03</div>
+                                    <div class="huge">C</div>
                                     <div>Cumpleaños!</div>
                                 </div>
                             </div>
@@ -50,17 +50,17 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-money fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>Tareas</div>
+                                    <div class="huge">A</div>
+                                    <div>Abandono</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="Apps/CalculoAbandono/index.php" target="_blank">
                             <div class="panel-footer">
-                                <span class="pull-left">Detalles</span>
+                                <span class="pull-left">Realizar un cálculo</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -75,7 +75,7 @@
                                     <i class="fa fa-cloud fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">4</div>
+                                    <div class="huge">R</div>
                                     <div>Redes sociales</div>
                                 </div>
                             </div>
@@ -97,14 +97,14 @@
                                     <i class="fa fa-life-ring fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge">M</div>
                                     <div>Mesa de ayuda</div>
                                 </div>
                             </div>
                         </div>
                         <a href="MesaDeAyuda.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Abrir Mesa de Ayuda</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -118,7 +118,7 @@
     </div>
     <!-- /#wrapper -->
 
-  
+
 
 </body>
 

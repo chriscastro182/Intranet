@@ -15,5 +15,10 @@ $proceso = $mysqli->query("SELECT * FROM Usuario WHERE mail='$correo' AND pass='
           $_SESSION['correo']=$f2['mail'];
           $_SESSION['Rol_idRol']=$f2['Rol_idRol'];
         echo "<script>location.href='index.php'</script>";
+      }else {
+        echo '<div class="alert alert-danger">
+                <strong>ERROR</strong> Contraseña incorrecta.
+              </div>';
+        echo '<a href="login.php" class="btn btn-primary">Intentar de nuevo</a>';
       }
   } ?>

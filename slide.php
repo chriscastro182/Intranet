@@ -9,15 +9,15 @@
   <div class="carousel-inner">
 
     <div class="item active">
-      <img src="images/Banner1.png" alt="Los Angeles" style="width:100%;">
+      <img src="images/Banner1.png" alt="Banner 1" style="width:100%;">
       <div class="carousel-caption">
-        <h3>Intranet</h3>
+        <h3></h3>
         <p></p>
       </div>
     </div>
 
     <div class="item">
-      <img src="images/Banner2.png" alt="Chicago" style="width:100%;">
+      <img src="images/Banner2.png" alt="Banner 2" style="width:100%;">
       <div class="carousel-caption">
         <h3>Intranet</h3>
         <p></p>
