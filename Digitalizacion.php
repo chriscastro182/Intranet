@@ -26,12 +26,11 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-
             <div class="row">
               <div class="col-sm-10">
                 <form  class="form-horizontal" method="POST" action="digitalizar.php.php">
                     <!-- Aquí van los campos -->
-                      <table class="table table-bordered table-condensed">
+                      <table class="table table-bordered table-condensed" style="text-align: center">
                         <thead>
                           <tr>
                             <th>Fecha de <br> Ingreso</th>
@@ -59,9 +58,12 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
               </form>
             </div>
             <!-- Tablas que contienten datos -->
+            <div class="row" style="text-align: center">
+              <h3>Documentos Digitalizados</h3>
+            </div>
             <div class="row">
               <div class="col-sm-10">
-                    <table class="table table-striped table-condensed">
+                    <table class="table table-striped table-condensed" style="text-align: center">
                       <thead>
                         <tr>
                           <th>Fecha de <br> Ingreso</th>

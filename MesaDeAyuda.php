@@ -73,7 +73,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
+                    <!-- <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -92,10 +92,10 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                                 <div class="clearfix"></div>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <!-- <div class="panel panel-red">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -115,7 +115,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- /#page-wrapper -->

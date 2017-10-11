@@ -20,28 +20,39 @@
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas (Próximamente)<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="flot.html">Gráficas</a>
+                        <a href="#">Gráficas</a>
                     </li>
                     <li>
-                        <a href="morris.html">Morris.js Charts</a>
+                        <a href="#">Estadísticas</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            <!-- <li>
-                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tablas</a>
-            </li> -->
-            <li>
-                <a href="Digitalizacion.php"><i class="fa fa-file-text fa-fw"></i> Digitalización</a>
+             <li>
+                <a href="tables.html"><i class="fa fa-rocket fa-fw"></i> Aplicaciones<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="MesaDeAyuda.php"><i class="fa fa-life-ring fa-fw"></i>Mesa de ayuda</a>
+                    </li>
+                    <li>
+                        <a href="Apps/CalculoAbandono/index.php"><i class="fa fa-money fa-fw"></i>Cálculo de abandono</a>
+                    </li>
+                    <li>
+                        <a href="Digitalizacion.php"><i class="fa fa-file-text fa-fw"></i> Digitalización</a>
+                    </li>
+                </ul>
             </li>
+            
             <li>
                 <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="panels-wells.html">Directorio</a>
+                        <a href="descargas/direcotrio-telefonico.xlsx" download="direcotrio-telefonico.xlsx">
+                          <i class="fa fa-download fa-fw"></i>Directorio</a>
                     </li>
                     <li>
-                        <a href="buttons.html">Papelería</a>
+                        <a href="descargas/fr-cp-requisicic3b3n-de-consumibles-y-papeleria-gsb-rev04.xls" download="fr-cp-requisicic3b3n-de-consumibles-y-papeleria-gsb-rev04.xls">
+                          <i class="fa fa-download fa-fw"></i>Papelería</a>
                     </li>
 
                 </ul>

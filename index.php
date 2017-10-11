@@ -80,9 +80,17 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="https://www.facebook.com/InterpuertoMMx/" target="_blank">
                             <div class="panel-footer">
-                                <span class="pull-left">Detalles</span>
+                                <i class="fa fa-facebook-official fa-fw"></i>
+                                <span class="pull-left">Facebook</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                          <a href="https://twitter.com/interpuerto" target="_blank">
+                            <div class="panel-footer">
+                                <i class="fa fa-twitter fa-fw"></i>
+                                <span class="pull-left">Twitter</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

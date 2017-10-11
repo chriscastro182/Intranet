@@ -32,7 +32,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="https://login.microsoftonline.com/common/reprocess?ctx=rQIIAXWSvW7TUACF46SN2gpB1QUm6MACyMm1r-3YER0cJ3HdxHbTOD-OkKLEcRI7tq_j3MauV2ZQBWLpyILUkQnxCBVDxYh4AMTIxEj6ACxHOtK3HJ3veY4qUOWnDGTYUWkskMKIgyQjUIAcMTRHQhZykAbUhAUwOtjbf818SL5fWeqbn8njX8_I6TXxcI5xuCoXi3EcF9B06lh2wUJ-8QtB3BLEVXbbXpFq_zq74iDHQIor8QJD0yWOpbmCRquM6tYYzWhh1W2lAwkA01CTpuHNVWOGTaMFNaPibRiouSKtpSajGp0LXW5hTTah2gZATU3YNBbxpmO110pVQ2E1w_PMtAN_ZB_o4jme03eBIie1_2R3pyjyhyFa4avcu6we2oEykVAQ2BYu3GF2gB1rhB0UnEYotCPs2KsjbLfgxJsaE9Ad-mc2YvDAqqj19jqSVw1Xq_k8eUGzbbukNcG82wLAFzlyIdXoAYzppTIEktBILcpWaoJxQlstayRGA3YYg6Td9OQV3xnOTIXvd-S5C4dzG6XKYMkEpntSSxYARVYCqwOF71ZEvhTy0BjXu7q-NNj1TE-oXqwnZ4FLOkt3PVuzY9FQUI8TkNVfoPOeE0t6uy9Nxepx3zdkbSCOJ2K3V-cUL2qwaEGJJs9eYA72_dijO33wOZff3Oej4CZ3f7M_cCaHYYSmjmffbhG_t-6BXHlnZ28_8yhzmPm7RXzc3lhRf__tiRi-rLx99Qkc0HTmZrtoBi_W9qkUqseMJMc6xwup7snKCEhtelRt44rEVMOowcmCdcSUqcs8cZnPf939n03_AA2" target="_blank">
+                    <a href="https://login.microsoftonline.com/" target="_blank">
                         <div>
                             <strong>Interpuerto</strong>
                             <span class="pull-right text-muted">
@@ -188,7 +188,7 @@
                     </a>
                 </li>
             </ul>
-            
+
         </li> -->
         <!-- /.dropdown -->
         <li class="dropdown">
