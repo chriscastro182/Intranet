@@ -1,6 +1,10 @@
 <?php
-require('include/conexion.php');
-$query = "SELECT * FROM registroabandono ";
+require('includes/conexion.php');
+if (!isset($_GET['oficio'])) {
+  $_GET['oficio']=0;
+}
+$valor = $_GET['oficio'];
+$query = "SELECT * FROM registroabandono WHERE oficioAduana = $valor ";
 $resultado = $mysqli->query($query);
 
 if ($resultado->num_rows >0) {
@@ -170,11 +174,11 @@ $objPHPExcel->setActiveSheetIndex(0);
 
 // Inmovilizar paneles
 //$objPHPExcel->getActiveSheet(0)->freezePane('A4');
-$objPHPExcel->getActiveSheet(0)->freezePaneByColumnAndRow(0,12);
+$objPHPExcel->getActiveSheet(0)->freezePaneByColumnAndRow(0,4);
 
 // Se manda el archivo al navegador web, con el nombre que se indica, en formato 2007
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="Reportedeabandono.xlsx"');
+header('Content-Disposition: attachment;filename="Reportedeabandono'.$valor.'.xlsx"');
 header('Cache-Control: max-age=0');
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');

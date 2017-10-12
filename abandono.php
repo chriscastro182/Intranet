@@ -1,38 +1,40 @@
 <?php
-require("include/conexion.php");
+require("includes/conexion.php");
+$mostrar="";
+if (!isset($_GET['oficioAduana'])) {
+  $_GET['oficioAduana']=0;
+  $mostrar="hidden";
+}
+
+$valor = $_GET['oficioAduana'];
 if(!isset($_SESSION))
     {
         session_start();
     }
 if (isset($_SESSION['Rol_idRol'])==FALSE) {
-  header("Location:../../login.php");
+  header("Location:login.php");
 }?>
 <!DOCTYPE html>
 <html>
-  <?php require("header.php") ?>
+  <?php require("head.php") ?>
   <body>
-
     <?php
-      require("include/conexion.php");
-
-        $where = "";
-
-        if(!empty($_POST))
+      require("includes/conexion.php");
+        if(!empty($valor))
         {
-          $valor = $_POST['campo'];
+          $oficioAduana = $valor;
           if(!empty($valor)){
-            $where = "WHERE guiaMaster LIKE '%$valor'";
+            $sql = "SELECT * FROM registroabandono WHERE oficioAduana = '$oficioAduana'";
+            $resultado = $mysqli->query($sql);
           }
         }
-        $sql = "SELECT * FROM registroabandono $where";
-        $resultado = $mysqli->query($sql);
           ?>
       <div id="wrapper">
-        <?php require("../../nav.php"); ?>
+        <?php require("nav.php"); ?>
         <div id="page-wrapper">
           <div class="row">
             <div class="col-lg-12">
-                <img src="../../images/BannerAbandono.png" class="page-header" width="100%">
+                <img src="images/BannerAbandono.png" class="page-header" width="100%">
             </div>
           </div>
           <!-- row -->
@@ -106,7 +108,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
             </form>
           </div>
           <!-- row -->
-          <div class="row">
+          <div class="row" <?php echo $mostrar; ?>>
             <div class="col-sm-10">
                   <table class="table table-striped">
                     <thead>
@@ -146,7 +148,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                   </table>
               </div>
             <div class="col-sm-2">
-              <a href="informeExcel.php" class="btn btn-success btn-block" type="button" name="excel"><i class="fa fa-file-excel-o fa-2x"></i> Descargar <br> informe en EXCEL</a>
+              <a href="informeExcel.php?oficio=<?php echo $valor; ?>" class="btn btn-success btn-block" type="button" name="excel"><i class="fa fa-file-excel-o fa-2x"></i> Descargar <br> informe en EXCEL</a>
             </div>
           </div>
         </div>

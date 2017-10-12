@@ -1,5 +1,5 @@
 <?php
-require("include/conexion.php");
+require("includes/conexion.php");
 
 
 $ingreso="";
@@ -67,24 +67,19 @@ $resultado = $mysqli->query($sql);
   <div class="container">
     <div class="row">
       <div class="row" style="text-align:center">
-
-        <?php if($resultado) {
-          echo '<script type="text/javascript">MensajeExito()</script>';
-          ?>
+        <?php if($resultado) {?>
+          <script type="text/javascript">MensajeExito()</script>
           <div id="snackbar">Registro Guardado Exitosamente</div>
-          <?php
-          header( 'Location: index.php' ); } else { ?>
-          <h3>ERROR AL GUARDAR</h3>
-        <?php } ?>
+          <?php header( 'Location: abandono.php?oficioAduana='.$oficioAduana.'' );
+        } else { ?>
+            <h3>ERROR AL GUARDAR</h3>
+          <?php } ?>
 
-        <a href="index.php" class="btn btn-primary">Regresar</a>
+        <a href="abandono.php" class="btn btn-primary">Regresar</a>
 
       </div>
     </div>
   </div>
-
-
-
   <script>
   function MensajeExito() {
       var x = document.getElementById("snackbar")

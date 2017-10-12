@@ -35,14 +35,14 @@
                         <a href="MesaDeAyuda.php"><i class="fa fa-life-ring fa-fw"></i>Mesa de ayuda</a>
                     </li>
                     <li>
-                        <a href="Apps/CalculoAbandono/index.php"><i class="fa fa-money fa-fw"></i>Cálculo de abandono</a>
+                        <a href="abandono.php"><i class="fa fa-money fa-fw"></i>Cálculo de abandono</a>
                     </li>
                     <li>
                         <a href="Digitalizacion.php"><i class="fa fa-file-text fa-fw"></i> Digitalización</a>
                     </li>
                 </ul>
             </li>
-            
+
             <li>
                 <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

@@ -3,7 +3,7 @@
   <?php require("head.php") ?>
   <body>
     <?php
-      require("include/conexion.php");
+      require("includes/conexion.php");
         require("nav.php");
         $where = "";
 

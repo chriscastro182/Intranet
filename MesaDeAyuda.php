@@ -63,7 +63,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="estadoTickets.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Detalles</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

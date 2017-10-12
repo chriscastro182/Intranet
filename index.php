@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="Apps/CalculoAbandono/index.php" target="_blank">
+                        <a href="abandono.php" target="_blank">
                             <div class="panel-footer">
                                 <span class="pull-left">Realizar un cálculo</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
