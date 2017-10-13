@@ -51,7 +51,7 @@
             <div class"row" style="text-align:center">
                 <?php
                 if($resultado) {
-                  $sql ="INSERT INTO Solicitante (Usuario_idUsuario,Usuario_Rol_idRol)
+                  $sql ="INSERT INTO solicitante (Usuario_idUsuario,Usuario_Rol_idRol)
                   VALUES ('$idUsiario','3')";
                   $resultado = $mysqli->query($sql);
                   ?>

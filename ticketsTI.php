@@ -28,7 +28,7 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <img src="images/BannerEstadoTickets.png" class="page-header" width="100%">
+                    <img src="images/BannerTicketsTI.png" class="page-header" width="100%">
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -42,7 +42,13 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                     <i class="fa fa-ticket fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                      <?php $sql= "SELECT * FROM reporte WHERE Solucionador_idSolucionador ='$idSolucionador' AND estatus = 1";
+                                      <?php
+                                      if ($idSolucionador==1) {
+                                        $sql= "SELECT * FROM reporte WHERE estatus = 1";
+                                      }else {
+                                        $sql= "SELECT * FROM reporte WHERE Solucionador_idSolucionador ='$idSolucionador' AND estatus = 1";
+                                      }
+
                                       $resulTicketA = $mysqli->query($sql);
                                       $numTotal=0;
                                       while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) {
@@ -67,12 +73,14 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
 
                                       <tr>
                                           <?php $resulTicketA = $mysqli->query($sql);
-                                          while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { ?>
-                                          <td><?php echo $ticketsA['idReporte']; ?></td>
-                                          <td><a href="#"><?php echo $ticketsA['descripcion']; ?></a></td>
+                                          while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsA['idReporte'];?>
+                                          <td><?php echo $idTicket;?></td>
+                                          <td><p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p></td>
                                           <td>
+                                            <?php require 'pages/modalTicket.php'; ?>
                                             <span class="pull-left"></span>
                                             <span class="pull-right">
+
                                               <i class="fa fa-arrow-circle-right"></i>
                                             </span>
                                             <div class="clearfix"></div>
@@ -93,13 +101,19 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                  <?php $sql= "SELECT * FROM reporte WHERE Solucionador_idSolucionador ='$idSolucionador' AND estatus = 3";
-                                  $resulTicketP = $mysqli->query($sql);
-                                  $numProceso=0;
-                                  while ($ticketsP = $resulTicketP->fetch_array(MYSQLI_ASSOC)) {
-                                      $numProceso++;
-                                  } ?>
-                                    <div class="huge"><?php echo $numProceso; ?></div>
+                                      <?php
+                                      if ($idSolucionador==1) {
+                                        $sql= "SELECT * FROM reporte WHERE estatus = 3";
+                                      }else {
+                                        $sql= "SELECT * FROM reporte WHERE Solucionador_idSolucionador ='$idSolucionador' AND estatus = 3";
+                                      }
+
+                                      $resulTicketA = $mysqli->query($sql);
+                                      $numTotal=0;
+                                      while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) {
+                                          $numTotal++;
+                                      } ?>
+                                    <div class="huge"><?php echo $numTotal;?></div>
                                     <div>Ticket en Proceso</div>
                                 </div>
                             </div>
@@ -115,24 +129,27 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       </tr>
                                     </thead>
                                     <tbody>
+
                                       <tr>
-                                        <?php $resulTicketP = $mysqli->query($sql);
-                                        while ($ticketsP = $resulTicketP->fetch_array(MYSQLI_ASSOC)) { ?>
-                                        <td><?php echo $ticketsP['idReporte']; ?></td>
-                                        <td><a href="#"><?php echo $ticketsP['descripcion']; ?></a></td>
-                                        <td>
-                                          <span class="pull-left"></span>
-                                          <span class="pull-right">
-                                            <i class="fa fa-arrow-circle-right"></i>
-                                          </span>
-                                          <div class="clearfix"></div>
-                                        </td>
+                                          <?php $resulTicketA = $mysqli->query($sql);
+                                          while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsA['idReporte'];?>
+                                          <td><?php echo $idTicket;?></td>
+                                          <td><p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p></td>
+                                          <td>
+                                            <?php require 'pages/modalTicket.php'; ?>
+                                            <span class="pull-left"></span>
+                                            <span class="pull-right">
+
+                                              <i class="fa fa-arrow-circle-right"></i>
+                                            </span>
+                                            <div class="clearfix"></div>
+                                          </td>
                                       </tr>
-                                    <?php } ?>
-                                  </tbody>
-                                </table>
+                                      <?php } ?>
+                                    </tbody>
+                                  </table>
                             </div>
-                        </a>
+                          </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -143,13 +160,20 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                     <i class="fa fa-check fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                  <?php $sql= "SELECT * FROM reporte WHERE Solucionador_idSolucionador ='$idSolucionador' AND estatus = 5";
-                                  $resulTicketC = $mysqli->query($sql);
-                                  $numCerrados=0;
-                                  while ($ticketsC = $resulTicketC->fetch_array(MYSQLI_ASSOC)) {
-                                      $numCerrados++;
-                                  } ?>
-                                    <div class="huge"><?php echo $numCerrados ?></div>
+                                      <?php
+                                      if ($idSolucionador==1) {
+                                        $sql= "SELECT * FROM reporte WHERE estatus = 5";
+                                      }else {
+                                        $sql= "SELECT * FROM reporte WHERE Solucionador_idSolucionador ='$idSolucionador' AND estatus = 5";
+                                      }
+
+                                      $resulTicketA = $mysqli->query($sql);
+                                      $numTotal=0;
+                                      while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) {
+                                          $numTotal++;
+                                      } ?>
+                                    <div class="huge"><?php echo $numTotal;?></div>
+                                    <div>Tickets Cerrados</div>
                                 </div>
                             </div>
                         </div>
@@ -164,14 +188,17 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       </tr>
                                     </thead>
                                     <tbody>
+
                                       <tr>
-                                          <?php $resulTicketC = $mysqli->query($sql);
-                                          while ($ticketsC = $resulTicketC->fetch_array(MYSQLI_ASSOC)) { ?>
-                                          <td><?php echo $ticketsC['idReporte']; ?></td>
-                                          <td><?php echo $ticketsC['descripcion']; ?></td> <a href="#"></a>
+                                          <?php $resulTicketA = $mysqli->query($sql);
+                                          while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsA['idReporte'];?>
+                                          <td><?php echo $idTicket;?></td>
+                                          <td><p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p></td>
                                           <td>
+                                            <?php require 'pages/modalTicket.php'; ?>
                                             <span class="pull-left"></span>
                                             <span class="pull-right">
+
                                               <i class="fa fa-arrow-circle-right"></i>
                                             </span>
                                             <div class="clearfix"></div>
@@ -181,9 +208,10 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                     </tbody>
                                   </table>
                             </div>
-                        </a>
+                          </a>
                     </div>
                 </div>
+              <!-- Acaban las 3 columnas -->
         </div>
         <!-- /#page-wrapper -->
 

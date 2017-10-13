@@ -4,10 +4,6 @@
     <?php require('head.php'); ?>
     <link rel="stylesheet" href="vendor/signin.css">
     <style media="screen">
-    /*body {
-        background-image: url('../images/FondoSignUp.png');
-        background-size: cover;
-    }*/
     </style>
   </head>
   <body>

@@ -7,11 +7,8 @@ if(!isset($_SESSION))
 if (isset($_SESSION['Rol_idRol'])==FALSE) {
   header("Location:login.php");
 }
-$idUsuario=$_SESSION['idUsuario'];
-$sql= "SELECT idSolicitante FROM solicitante WHERE Usuario_idUsuario ='$idUsuario'";
-$resul = $mysqli->query($sql);
-$rowSolicitante = $resul->fetch_array(MYSQLI_ASSOC);
-$idSolicitante= $rowSolicitante['idSolicitante']; // Consulta para obtener el id del solicitante, sólo el número que servirá en la siguiente consulta
+require 'pages\querySolicitante.php'; 
+// Consulta para obtener el id del solicitante, sólo el número que servirá en la siguiente consulta
 
 ?>
 <!DOCTYPE html>

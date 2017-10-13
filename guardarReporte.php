@@ -8,7 +8,6 @@ if(!isset($_SESSION))
 	$CategoriaReporte_idCategoriaReporte = isset($_POST['CategoriaReporte_idCategoriaReporte']) ? $_POST['CategoriaReporte_idCategoriaReporte'] : '';
 	$TipoRequerimiento_idTipoRequerimiento = isset($_POST['TipoRequerimiento_idTipoRequerimiento']) ? $_POST['TipoRequerimiento_idTipoRequerimiento'] : '';
 	$descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
-	$idSolicitante= $_SESSION['idUsuario'];
   $datetime = date_create()->format('Y-m-d H:i:s');
   $id_insert=0;
 
@@ -36,8 +35,11 @@ if(!isset($_SESSION))
           $solucionador=3;
           break;
       }
+      require 'pages/querySolicitante.php';
+
 	$sql = "INSERT INTO reporte (idReporte, estatus, descripcion, evidencia, fEmision,  Solucionador_idSolucionador, Solicitante_idSolicitante,TipoRequerimiento_idTipoRequerimiento)
                             VALUES ('$id_insert', '1', '$descripcion','files/', '$datetime', '$solucionador', '$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento')";
+
 $resultado = $mysqli->query($sql);
 	if($_FILES["archivo"]["error"]>0){
 		echo "Error al cargar archivo";
@@ -62,11 +64,17 @@ $resultado = $mysqli->query($sql);
 				if($resultado){
           $sql= "UPDATE reporte SET evidencia='$archivo' WHERE idReporte= $id_insert";
           $resultado = $mysqli->query($sql);
-          $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
-          $resultado = $mysqli->query($desc);
-	           $row = $resultado->fetch_array(MYSQLI_ASSOC);
-            $asunto='Mesa: '.$row['nombreCategoriaReporte'];
-          mail('soporte.sistemas@braniff.com',$asunto, $descripcion);
+          // $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
+          // $resultado = $mysqli->query($desc);
+	        //    $row = $resultado->fetch_array(MYSQLI_ASSOC);
+          //   $asunto='Mesa: '.$row['nombreCategoriaReporte'];
+          //   $nombreUsr= $_SESSION['u_nombre'];
+          //   $correoUsr= $_SESSION['correo'];
+          //   $headers =  'MIME-Version: 1.0' . "\r\n";
+          //   $headers .= 'From: '.$nombreUsr.'<'.$correoUsr.'>' . "\r\n";
+          //   $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+          //   mail('soporte.sistemas@braniff.com',$asunto, $descripcion,$headers);
+          //   mail('christian.castro@interpuerto.com',$asunto, $descripcion,$headers);
 					} else {
 					echo "Error al guardar archivo";
 				}
@@ -85,7 +93,6 @@ $resultado = $mysqli->query($sql);
 
 <html lang="es">
 	<head>
-
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/bootstrap-theme.css" rel="stylesheet">
@@ -99,12 +106,10 @@ $resultado = $mysqli->query($sql);
 				<div class="row" style="text-align:center">
 					<?php if($resultado) { ?>
 						<h3>REGISTRO GUARDADO</h3>
-						<?php } else { ?>
+						<?php  } else { ?>
 						<h3>ERROR AL GUARDAR</h3>
 					<?php } ?>
-
 					<a href="SolicitarTicket.php" class="btn btn-primary">Regresar</a>
-
 				</div>
 			</div>
 		</div>

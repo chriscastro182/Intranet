@@ -28,17 +28,17 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-birthday-cake fa-5x"></i>
+                                    <i class="fa fa-file-text fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">C</div>
-                                    <div>Cumpleaños!</div>
+                                    <div class="huge">D</div>
+                                    <div>Digitalización</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Fechas de cumpleaños</span>
+                                <span class="pull-left">Digitaliza y guarda documentos</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

@@ -10,15 +10,15 @@ $proceso = $mysqli->query("SELECT * FROM Usuario WHERE mail='$correo' AND pass='
   if($f2=mysqli_fetch_assoc($proceso)){
       if($contrasena==$f2['pass']){
         session_start();
-          $_SESSION['u_nombre']=$f2['nombres'];
+          $_SESSION['u_nombre']=$f2['nombresU'];
           $_SESSION['idUsuario']=$f2['idUsuario'];
           $_SESSION['correo']=$f2['mail'];
           $_SESSION['Rol_idRol']=$f2['Rol_idRol'];
         echo "<script>location.href='index.php'</script>";
-      }else {
-        echo '<div class="alert alert-danger">
+      }else { ?>
+        <div class="alert alert-danger">
                 <strong>ERROR</strong> Contraseña incorrecta.
-              </div>';
-        echo '<a href="login.php" class="btn btn-primary">Intentar de nuevo</a>';
-      }
+              </div>
+        <a href="login.php" class="btn btn-primary">Intentar de nuevo</a>
+    <?php }
   } ?>

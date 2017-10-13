@@ -1,17 +1,23 @@
 <?php
 require 'includes/conexion.php';
 $hide= "hidden";
-if(!isset($_SESSION))
-    {
+$hideTI= "";
+if(!isset($_SESSION)){
         session_start();
         if ($_SESSION['Rol_idRol']==1) {
-          echo "Eres TI";
           $hide= "";
+          $hideTI= "hidden";
         }
     }
 if (isset($_SESSION['Rol_idRol'])==FALSE) {
   header("Location:login.php");
-}?>
+}
+require 'pages\querySolicitante.php';
+if ($rowSolicitante['idSolicitante']==NULL) {
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,7 +39,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -55,8 +61,8 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel panel-green" <?php echo $hideTI; ?>>
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -77,7 +83,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="panel panel-danger" <?php echo $hide; ?>>
                         <div class="panel-heading">
                             <div class="row">
