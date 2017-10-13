@@ -1,8 +1,13 @@
 <?php
 require 'includes/conexion.php';
+$hide= "hidden";
 if(!isset($_SESSION))
     {
         session_start();
+        if ($_SESSION['Rol_idRol']==1) {
+          echo "Eres TI";
+          $hide= "";
+        }
     }
 if (isset($_SESSION['Rol_idRol'])==FALSE) {
   header("Location:login.php");
@@ -73,26 +78,26 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <!-- <div class="panel panel-yellow">
+                    <div class="panel panel-danger" <?php echo $hide; ?>>
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                    <i class="fa fa-cogs fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">124</div>
-                                    <div>New Orders!</div>
+                                    <div>Atender tickets</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="ticketsTI.php">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">Ver tickets</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
                         </a>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <!-- <div class="panel panel-red">
