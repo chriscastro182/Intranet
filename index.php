@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <?php require('head.php') ?>
+    <?php
+    require('includes/conexion.php');
+    require('head.php'); ?>
 </head>
 
 <body>
-
     <div id="wrapper">
-
         <!-- Navigation -->
         <?php
         require('nav.php');        ?>
         <!-- Navigation -->
         <div id="page-wrapper">
           <?php require('slide.php'); ?>
-            <div class="row">
-                <div class="col-lg-12">
-                  <h5>Noticias</h5>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -36,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="Digitalizacion.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Digitaliza y guarda documentos</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -119,6 +112,40 @@
                         </a>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                  <h5>Noticias</h5>
+                  <div class="row">
+                    <?php  $indexReport= "SELECT * FROM post";
+                        $resul = $mysqli->query($indexReport);
+                        $renglones=0;
+                        $visibilidad= "hidden";
+                        while($row = $resul->fetch_assoc()){ $renglones++;?>
+                          <?php if ($renglones!=0):
+                            $visibilidad="";
+                          endif; ?>
+                    <div class="col-lg-2">
+                      <?php echo $row['fechaPost']; ?>
+                    </div>
+                    <div class="col-lg-10">
+                      <ul>
+                            <h2 <?php $visibilidad ?>><?php echo $row['tituloPost']; ?></h2>
+                            <h3 <?php $visibilidad ?>><?php echo $row['contenidoPost']; ?></h3>
+                            <?php if ($row['imagenPost']!='post/'): ?>
+                              <img <?php $visibilidad ?> src="<?php echo $row['imagenPost']; ?>"class="img-thumbnail" alt="">
+                            <?php endif;
+                            if (isset($_SESSION['idUsuario'])) {
+                              require('pages/queryComentario.php');
+                              require('nuevoComentario.php');
+                            } ?>
+                            <li class="divider"></li>
+                      </ul>
+                    </div>
+                    <?php } ?>
+                  </div>
+                </div>
+                <!-- /.col-lg-12 -->
             </div>
         </div>
         <!-- /#page-wrapper -->

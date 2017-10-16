@@ -39,14 +39,14 @@ if(!isset($_SESSION))
 
 	$sql = "INSERT INTO reporte (idReporte, estatus, descripcion, evidencia, fEmision,  Solucionador_idSolucionador, Solicitante_idSolicitante,TipoRequerimiento_idTipoRequerimiento)
                             VALUES ('$id_insert', '1', '$descripcion','files/', '$datetime', '$solucionador', '$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento')";
-
+  echo $sql;
 $resultado = $mysqli->query($sql);
 	if($_FILES["archivo"]["error"]>0){
 		echo "Error al cargar archivo";
 		} else {
 
 		$permitidos = array("image/jpg","image/png","application/pdf");
-		$limite_kb = 2024;
+		$limite_kb = 5024;
 
 		if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024){
 
@@ -93,11 +93,7 @@ $resultado = $mysqli->query($sql);
 
 <html lang="es">
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/bootstrap-theme.css" rel="stylesheet">
-		<script src="js/jquery-3.1.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<?php require ('head.php'); ?>
 	</head>
 
 	<body>
@@ -105,9 +101,9 @@ $resultado = $mysqli->query($sql);
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php if($resultado) { ?>
-						<h3>REGISTRO GUARDADO</h3>
+						<h3>Ticket Enviado</h3>
 						<?php  } else { ?>
-						<h3>ERROR AL GUARDAR</h3>
+						<h3>Error al Solicitar Ticket</h3>
 					<?php } ?>
 					<a href="SolicitarTicket.php" class="btn btn-primary">Regresar</a>
 				</div>

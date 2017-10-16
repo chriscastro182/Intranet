@@ -17,6 +17,9 @@
                 <a href="index.php"><i class="fa fa-sticky-note fa-fw"></i> Noticias</a>
             </li>
             <li>
+                <a href="nuevoPost.php"><i class="fa fa-sticky-note fa-fw"></i> Nuevo Post</a>
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas (Próximamente)<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>

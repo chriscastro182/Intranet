@@ -12,6 +12,7 @@ $proceso = $mysqli->query("SELECT * FROM Usuario WHERE mail='$correo' AND pass='
         session_start();
           $_SESSION['u_nombre']=$f2['nombresU'];
           $_SESSION['idUsuario']=$f2['idUsuario'];
+          $_SESSION['apellidos']=$f2['apellidosU'];
           $_SESSION['correo']=$f2['mail'];
           $_SESSION['Rol_idRol']=$f2['Rol_idRol'];
         echo "<script>location.href='index.php'</script>";
