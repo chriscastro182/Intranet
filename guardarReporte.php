@@ -39,7 +39,7 @@ if(!isset($_SESSION))
 
 	$sql = "INSERT INTO reporte (idReporte, estatus, descripcion, evidencia, fEmision,  Solucionador_idSolucionador, Solicitante_idSolicitante,TipoRequerimiento_idTipoRequerimiento)
                             VALUES ('$id_insert', '1', '$descripcion','files/', '$datetime', '$solucionador', '$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento')";
-  echo $sql;
+
 $resultado = $mysqli->query($sql);
 	if($_FILES["archivo"]["error"]>0){
 		echo "Error al cargar archivo";

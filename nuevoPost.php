@@ -33,13 +33,12 @@ require 'includes/conexion.php';
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-9">
+                  <div class="col-sm-8">
                     <div class="form-group">
                       <label for="contenido">Texto de la noticia:</label>
                       <textarea class="form-control" name="contenido" rows="5" id="contenido" required></textarea>
                     </div>
                   </div>
-
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label for="archivo" class="col-sm-1 control-label">Anexar foto:</label>
