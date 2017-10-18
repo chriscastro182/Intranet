@@ -11,7 +11,7 @@ while ($rowPost = $resulPost->fetch_array(MYSQLI_ASSOC)) {
   $sqlUsr="SELECT * FROM usuario WHERE idUsuario = $usrComent";
   $resulUsr = $mysqli->query($sqlUsr);
   $rowUsr = $resulUsr->fetch_array(MYSQLI_ASSOC);?>
-<div class="well" style="text-justify">
+<div class="well" style="width: 60%" >
   <div class="row">
     <div class="col-sm-2">
       <img src="images/Logo_imm.png" alt="" class="img-thumbnail" width="45px">

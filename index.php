@@ -3,7 +3,7 @@
 <head>
     <?php
     require('includes/conexion.php');
-    require('head.php'); ?>
+    require('head.php'); ?>  
 </head>
 
 <body>
@@ -117,7 +117,7 @@
                 <div class="col-lg-12">
                   <h5>Noticias</h5>
                   <div class="row">
-                    <?php  $indexReport= "SELECT * FROM post";
+                    <?php  $indexReport= "SELECT * FROM post ORDER BY idPost DESC ";
                         $resul = $mysqli->query($indexReport);
                         $renglones=0;
                         $visibilidad= "hidden";
@@ -131,7 +131,7 @@
                     <div class="col-lg-10">
                       <ul>
                             <h2 <?php $visibilidad ?>><?php echo $row['tituloPost']; ?></h2>
-                            <h3 <?php $visibilidad ?>><?php echo $row['contenidoPost']; ?></h3>
+                            <h4 <?php $visibilidad ?> style="width: 60%; text-align: center"><?php echo $row['contenidoPost']; ?></h4>
                             <?php if ($row['imagenPost']!='post/'): ?>
                               <img <?php $visibilidad ?> src="<?php echo $row['imagenPost']; ?>"class="img-rounded" width="60%" alt="">
                             <?php endif;
@@ -139,7 +139,6 @@
                               require('pages/queryComentario.php');
                               require('nuevoComentario.php');
                             } ?>
-                            <li class="divider"></li>
                       </ul>
                     </div>
                     <?php } ?>

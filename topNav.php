@@ -5,12 +5,12 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Interpuerto Multimodal de México</span>
+            <span class="sr-only"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php">Interpuerto Multimodal de México</a>
+        <a class="navbar-brand" href="index.php"><img src="images/IMMlogo.png" "class="img-thumbnail" width="20%" alt="Interpuerto Multimodal de México"></a>
     </div>
     <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right">

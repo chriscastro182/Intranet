@@ -41,10 +41,10 @@ if ($numeroGuias!=0) {
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php if($resultado) {
-             header( 'Location: Digitalizacion.php?guiaMaster='.$guiaMaster.'&$numeroGuias='.$numeroGuias );?>
+             header( 'Location: Digitalizacion.php?guiaMaster='.$guiaMaster.'&numeroGuias='.$numeroGuias );?>
 						<h3>Documento Guardado</h3>
 						<?php  } else { ?>
-						<h3>Error al Solicitar Ticket</h3>
+						<h3>Error al Digitalizar</h3>
 					<?php } ?>
 					<a href="Digitalizacion.php" class="btn btn-primary">Regresar</a>
 				</div>

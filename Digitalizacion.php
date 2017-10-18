@@ -1,11 +1,13 @@
 <?php
 require 'includes/conexion.php';
 $mostrar="";
+$mostrarDigitalizar="hidden";
 if (!isset($_GET['guiaMaster'])) {
   $_GET['guiaMaster']=0;
+  $_GET['numeroGuias']=0;
   $mostrar="hidden";
 }
-
+$numeroGuias = $_GET['numeroGuias'];
 $guiaMaster = $_GET['guiaMaster'];
 if(!isset($_SESSION))
     {
@@ -14,6 +16,8 @@ if(!isset($_SESSION))
 if (isset($_SESSION['Rol_idRol'])==FALSE) {
   header("Location:login.php");
 }
+
+
 $sql = "SELECT * FROM archivodigital WHERE guiaMaster = $guiaMaster";
 $resultado = $mysqli->query($sql);
 $fechaArchivoDigital = "";
@@ -21,6 +25,7 @@ $registroArchivoDigital = "";
 $vueloArchivoDigital = "";
 $guiaMaster = "";
 $guiaHouse = "";
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -55,7 +60,7 @@ $guiaHouse = "";
                             <th>Vuelo</th>
                             <th>GuíaMaster</th>
                             <th>GuíaHouse</th>
-                            <th>Consolidado</th>
+                            <th>Consolidación</th>
                             <th>Archivo</th>
                           </tr>
                         </thead>
@@ -64,6 +69,7 @@ $guiaHouse = "";
                           if ($resultado) {
                             while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
                             <tr>
+                                <td></td>
                                <td><?php echo $row['fechaArchivoDigital']; ?></td>
                                <td><?php echo $row['registroArchivoDigital']; ?></td>
                                <td><?php echo $row['vueloArchivoDigital']; ?></td>
@@ -80,15 +86,19 @@ $guiaHouse = "";
                           } ?>
 
                             <tr>
-                              <td><input type="number" name="numeroGuias" class="form-control" value="" ></td>
+                              <td><input type="number" id="numeroGuias" name="numeroGuias" class="form-control" value="<?php echo $numeroGuias; ?>" autocomplete="off"></td>
                                <td><input type="date" id="ingreso" name="ingreso" class="form-control" value="<?php echo $fechaArchivoDigital; ?>" required/></td>
                                <td><input type="text" id="registro" name="registro" class="form-control" value="<?php echo $registroArchivoDigital; ?>" /></td>
                                <td><input type="text" id="Vuelo" name="Vuelo" class="form-control" value="<?php echo $vueloArchivoDigital; ?>" /></td>
                                <td><input type="text" id="guiaMaster" name="guiaMaster" class="form-control" value="<?php echo $guiaMaster; ?>" required/></td>
                                <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" value="<?php echo $guiaHouse; ?>" required/></td>
                                <td>
-                                 <input type="radio" name="Consol" value="0"> Consolidado <br>
-                                 <input type="radio" name="Consol" value="1">Desconsolidad
+                                 <div class="form-group">
+                                    <select class="form-control" id="Consol" onchange="validaExaminar()">
+                                      <option value="0">Consolidado</option>
+                                      <option value="1">Desconsolidad</option>
+                                    </select>
+                                  </div>
                                </td>
                                <td><input type="file" class="form-control" id="archivo" name="archivo" accept="application/pdf"></td>
                             </tr>
@@ -97,7 +107,8 @@ $guiaHouse = "";
                 </div>
                 <div class="col-sm-2">
                   <br>
-                  <button class="btn btn-lg btn-success btn-block "  type="submit"><i class="fa fa-file-text fa-fw"></i>Asociar Guía</button>
+                  <button class="btn btn-lg btn-success btn-block " id="asociar" type="submit"><i class="fa fa-file-text fa-fw"></i>Asociar Guía</button>
+                  <button class="btn btn-lg btn-primary btn-block " id="cerrar" type="submit"><i class="fa fa-file-text fa-fw"></i>Cerrar Vuelo</button>
                 </div>
               </form>
             </div>
@@ -133,6 +144,26 @@ $guiaHouse = "";
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+  <script type="text/javascript">
+    function validaExaminar(){
+      var btnCerrar = document.getElementById('cerrar');
+      var btnAsociar = document.getElementById('asociar');
+      var link = document.getElementById('archivo');
+      var x = document.getElementById('Consol');
+      if (x) {
+        if (link.style.visibility === 'hidden') {
+        link.style.visibility = 'visible';
+        btnCerrar.style.visibility = 'visible';
+        btnAsociar.style.visibility= 'hidden';
+          } else {
+              link.style.visibility = 'hidden';
+              btnCerrar.style.visibility = 'hidden';
+              btnAsociar.style.visibility= 'visible';
+          }
+      }
+    }
+
+  </script>
 </body>
 
 </html>

@@ -18,12 +18,11 @@ if(!isset($_SESSION))
   $sql = "INSERT INTO post (idPost, tituloPost, contenidoPost, fechaPost, imagenPost)
                       VALUES ('$id_insert', '$titulo', '$contenido', '$datetime','post/')";
 	$resultado = $mysqli->query($sql);
-  echo $sql;
 	if($_FILES["archivo"]["error"]>0){
 		echo "Error al cargar archivo";
 		} else {
 
-		$permitidos = array("image/jpg","image/png","application/pdf");
+		$permitidos = array("image/jpg","image/png","application/pdf", "image/jpeg");
 		$limite_kb = 20024;
 
 		if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024){
@@ -51,6 +50,7 @@ if(!isset($_SESSION))
 			}
 
 			} else {
+        
 			echo "Archivo no permitido o excede el tamaño";
 		}
 
