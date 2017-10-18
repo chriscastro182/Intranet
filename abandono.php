@@ -20,8 +20,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
   <body>
     <?php
       require("includes/conexion.php");
-        if(!empty($valor))
-        {
+        if(!empty($valor)){
           $oficioAduana = $valor;
           if(!empty($valor)){
             $sql = "SELECT * FROM registroabandono WHERE oficioAduana = '$oficioAduana'";

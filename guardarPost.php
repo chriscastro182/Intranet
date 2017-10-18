@@ -24,7 +24,7 @@ if(!isset($_SESSION))
 		} else {
 
 		$permitidos = array("image/jpg","image/png","application/pdf");
-		$limite_kb = 2024;
+		$limite_kb = 20024;
 
 		if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024){
 
@@ -40,7 +40,7 @@ if(!isset($_SESSION))
 				$resultado = @move_uploaded_file($_FILES["archivo"]["tmp_name"], $archivo);
 
 				if($resultado){
-          $sql= "UPDATE post SET imagenPost='$archivo' WHERE idReporte= $id_insert";
+          $sql= "UPDATE post SET imagenPost='$archivo' WHERE idPost = $id_insert";
           $resultado = $mysqli->query($sql);
 					} else {
 					echo "Error al guardar archivo";
@@ -72,7 +72,7 @@ if(!isset($_SESSION))
 						<?php } else { ?>
 						<h3>ERROR AL GUARDAR</h3>
 					<?php } ?>
-					<a href="post.php" class="btn btn-primary">Regresar</a>
+					<a href="index.php" class="btn btn-primary">Regresar</a>
 				</div>
 			</div>
 		</div>

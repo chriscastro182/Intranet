@@ -133,7 +133,7 @@
                             <h2 <?php $visibilidad ?>><?php echo $row['tituloPost']; ?></h2>
                             <h3 <?php $visibilidad ?>><?php echo $row['contenidoPost']; ?></h3>
                             <?php if ($row['imagenPost']!='post/'): ?>
-                              <img <?php $visibilidad ?> src="<?php echo $row['imagenPost']; ?>"class="img-thumbnail" alt="">
+                              <img <?php $visibilidad ?> src="<?php echo $row['imagenPost']; ?>"class="img-rounded" width="60%" alt="">
                             <?php endif;
                             if (isset($_SESSION['idUsuario'])) {
                               require('pages/queryComentario.php');

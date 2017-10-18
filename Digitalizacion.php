@@ -1,12 +1,27 @@
 <?php
 require 'includes/conexion.php';
+$mostrar="";
+if (!isset($_GET['guiaMaster'])) {
+  $_GET['guiaMaster']=0;
+  $mostrar="hidden";
+}
+
+$guiaMaster = $_GET['guiaMaster'];
 if(!isset($_SESSION))
     {
         session_start();
     }
 if (isset($_SESSION['Rol_idRol'])==FALSE) {
   header("Location:login.php");
-}?>
+}
+$sql = "SELECT * FROM archivodigital WHERE guiaMaster = $guiaMaster";
+$resultado = $mysqli->query($sql);
+$fechaArchivoDigital = "";
+$registroArchivoDigital = "";
+$vueloArchivoDigital = "";
+$guiaMaster = "";
+$guiaHouse = "";
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,35 +43,61 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
             <!-- /.row -->
             <div class="row">
               <div class="col-sm-10">
+
                 <form  class="form-horizontal" enctype="multipart/form-data" method="POST" action="digitalizar.php">
                     <!-- Aquí van los campos -->
                       <table class="table table-bordered table-condensed" style="text-align: center">
                         <thead>
                           <tr>
+                            <th># de Guías</th>
                             <th>Fecha de <br> Ingreso</th>
                             <th>Registro</th>
                             <th>Vuelo</th>
                             <th>GuíaMaster</th>
                             <th>GuíaHouse</th>
+                            <th>Consolidado</th>
+                            <th>Archivo</th>
                           </tr>
                         </thead>
                         <tbody>
+                          <?php
+                          if ($resultado) {
+                            while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
                             <tr>
-                               <td><input type="date" id="ingreso" name="ingreso" class="form-control" required/></td>
-                               <td><input type="text" id="registro" name="registro" class="form-control"/></td>
-                               <td><input type="text" id="Vuelo" name="Vuelo" class="form-control"/></td>
-                               <td><input type="text" id="guiaMaster" name="guiaMaster" class="form-control" required/></td>
-                               <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" required/></td>
+                               <td><?php echo $row['fechaArchivoDigital']; ?></td>
+                               <td><?php echo $row['registroArchivoDigital']; ?></td>
+                               <td><?php echo $row['vueloArchivoDigital']; ?></td>
+                               <td><?php echo $row['guiaMaster']; ?></td>
+                               <td><?php echo $row['guiaHouse']; ?></td>
+                            </tr>
+                        <?php
+                              $fechaArchivoDigital = $row['fechaArchivoDigital'];
+                              $registroArchivoDigital = $row['registroArchivoDigital'];
+                              $vueloArchivoDigital = $row['vueloArchivoDigital'];
+                              $guiaMaster = $row['guiaMaster'];
+                              $guiaHouse = $row['guiaHouse'];
+                            }
+                          } ?>
+
+                            <tr>
+                              <td><input type="number" name="numeroGuias" class="form-control" value="" ></td>
+                               <td><input type="date" id="ingreso" name="ingreso" class="form-control" value="<?php echo $fechaArchivoDigital; ?>" required/></td>
+                               <td><input type="text" id="registro" name="registro" class="form-control" value="<?php echo $registroArchivoDigital; ?>" /></td>
+                               <td><input type="text" id="Vuelo" name="Vuelo" class="form-control" value="<?php echo $vueloArchivoDigital; ?>" /></td>
+                               <td><input type="text" id="guiaMaster" name="guiaMaster" class="form-control" value="<?php echo $guiaMaster; ?>" required/></td>
+                               <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" value="<?php echo $guiaHouse; ?>" required/></td>
+                               <td>
+                                 <input type="radio" name="Consol" value="0"> Consolidado <br>
+                                 <input type="radio" name="Consol" value="1">Desconsolidad
+                               </td>
+                               <td><input type="file" class="form-control" id="archivo" name="archivo" accept="application/pdf"></td>
                             </tr>
                         </tbody>
                       </table>
                 </div>
                 <div class="col-sm-2">
-                  <div class="form-group">
-                    <label for="archivo" class="col-sm-1 control-label">Archivo:</label>
-                    <input type="file" class="form-control" id="archivo" name="archivo" accept="application/pdf">
-                  </div>
-                  <button class="btn btn-lg btn-success btn-block "  type="submit"><i class="fa fa-file-text fa-fw"></i>Digitalizar</button>
+                  <br>
+                  <button class="btn btn-lg btn-success btn-block "  type="submit"><i class="fa fa-file-text fa-fw"></i>Asociar Guía</button>
                 </div>
               </form>
             </div>
@@ -79,17 +120,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                         </tr>
                       </thead>
                       <tbody>
-                          <?php $sql = "SELECT * FROM archivodigital";
-                          $resultado = $mysqli->query($sql);
-                          while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
-                          <tr>
-                             <td><?php echo $row['fechaArchivoDigital']; ?></td>
-                             <td><?php echo $row['fechaArchivoDigital']; ?></td>
-                             <td><?php echo $row['vueloArchivoDigital']; ?></td>
-                             <td><?php echo $row['guiaMaster']; ?></td>
-                             <td><?php echo $row['guiaHouse']; ?></td>
-                          </tr>
-                        <?php } ?>
+
                       </tbody>
                     </table>
                   </div>

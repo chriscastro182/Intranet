@@ -1,6 +1,5 @@
 <?php
 require 'includes/conexion.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="es">

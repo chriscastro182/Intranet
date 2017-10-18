@@ -64,17 +64,21 @@ $resultado = $mysqli->query($sql);
 				if($resultado){
           $sql= "UPDATE reporte SET evidencia='$archivo' WHERE idReporte= $id_insert";
           $resultado = $mysqli->query($sql);
-          // $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
-          // $resultado = $mysqli->query($desc);
-	        //    $row = $resultado->fetch_array(MYSQLI_ASSOC);
-          //   $asunto='Mesa: '.$row['nombreCategoriaReporte'];
-          //   $nombreUsr= $_SESSION['u_nombre'];
-          //   $correoUsr= $_SESSION['correo'];
-          //   $headers =  'MIME-Version: 1.0' . "\r\n";
-          //   $headers .= 'From: '.$nombreUsr.'<'.$correoUsr.'>' . "\r\n";
-          //   $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-          //   mail('soporte.sistemas@braniff.com',$asunto, $descripcion,$headers);
-          //   mail('christian.castro@interpuerto.com',$asunto, $descripcion,$headers);
+          $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
+          $resultado = $mysqli->query($desc);
+	           $row = $resultado->fetch_array(MYSQLI_ASSOC);
+            $asunto='Mesa: '.$row['nombreCategoriaReporte'];
+            $nombreUsr= $_SESSION['u_nombre'];
+            $correoUsr= $_SESSION['correo'];
+            $headers =  'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'From: '.$nombreUsr.'<'.$correoUsr.'>' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $envio=mail('soporte.sistemas@braniff.com',$asunto, $descripcion, $headers);
+            if ($envio) {
+              echo '<div class="alert alert-success">
+                      <strong>Mensaje enviado!</strong> Revisa el estatus del ticket para dar seguimiento al mismo.
+                    </div>';
+            }
 					} else {
 					echo "Error al guardar archivo";
 				}
