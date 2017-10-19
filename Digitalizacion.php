@@ -5,10 +5,12 @@ $mostrarDigitalizar="hidden";
 if (!isset($_GET['guiaMaster'])) {
   $_GET['guiaMaster']=0;
   $_GET['numeroGuias']=0;
+  $_GET['Consol']=0;
   $mostrar="hidden";
 }
 $numeroGuias = $_GET['numeroGuias'];
 $guiaMaster = $_GET['guiaMaster'];
+$Consol = $_GET['Consol'];
 if(!isset($_SESSION))
     {
         session_start();

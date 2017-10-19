@@ -29,7 +29,6 @@ if ($Consol==0 || $numeroGuias==0) {
 if ($numeroGuias!=0) {
   $numeroGuias--;
 }
-
 ?>
 <html lang="es">
 	<head>
@@ -41,7 +40,7 @@ if ($numeroGuias!=0) {
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php if($resultado) {
-             header( 'Location: Digitalizacion.php?guiaMaster='.$guiaMaster.'&numeroGuias='.$numeroGuias );?>
+             header( 'Location: Digitalizacion.php?guiaMaster='.$guiaMaster.'&numeroGuias='.$numeroGuias.'&Consol='.$Consol);?>
 						<h3>Documento Guardado</h3>
 						<?php  } else { ?>
 						<h3>Error al Digitalizar</h3>

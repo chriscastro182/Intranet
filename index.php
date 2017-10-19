@@ -3,7 +3,7 @@
 <head>
     <?php
     require('includes/conexion.php');
-    require('head.php'); ?>  
+    require('head.php'); ?>
 </head>
 
 <body>
@@ -13,7 +13,9 @@
         require('nav.php');        ?>
         <!-- Navigation -->
         <div id="page-wrapper">
-          <?php require('slide.php'); ?>
+            <div class="page-header">
+              <?php require('slide.php'); ?>
+            </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -130,7 +132,7 @@
                     </div>
                     <div class="col-lg-10">
                       <ul>
-                            <h2 <?php $visibilidad ?>><?php echo $row['tituloPost']; ?></h2>
+                            <h2 <?php $visibilidad ?>style="width: 60%; text-align: center"><?php echo $row['tituloPost']; ?></h2>
                             <h4 <?php $visibilidad ?> style="width: 60%; text-align: center"><?php echo $row['contenidoPost']; ?></h4>
                             <?php if ($row['imagenPost']!='post/'): ?>
                               <img <?php $visibilidad ?> src="<?php echo $row['imagenPost']; ?>"class="img-rounded" width="60%" alt="">

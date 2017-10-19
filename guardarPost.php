@@ -50,7 +50,7 @@ if(!isset($_SESSION))
 			}
 
 			} else {
-        
+
 			echo "Archivo no permitido o excede el tamaño";
 		}
 
@@ -68,9 +68,9 @@ if(!isset($_SESSION))
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php if($resultado) { ?>
-						<h3>REGISTRO GUARDADO</h3>
+						<h3>Publicación guardada Satisfactoriamente</h3>
 						<?php } else { ?>
-						<h3>ERROR AL GUARDAR</h3>
+						<h3>Error al guardar la publicación</h3>
 					<?php } ?>
 					<a href="index.php" class="btn btn-primary">Regresar</a>
 				</div>

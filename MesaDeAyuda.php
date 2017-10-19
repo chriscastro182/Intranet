@@ -16,7 +16,12 @@ require 'pages\querySolicitante.php';
 if ($rowSolicitante['idSolicitante']==NULL) {
 
 }
-
+$sql= "SELECT * FROM reporte WHERE estatus = 1";
+$resulTicketA = $mysqli->query($sql);
+$numTotal=0;
+while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) {
+    $numTotal++;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -91,8 +96,8 @@ if ($rowSolicitante['idSolicitante']==NULL) {
                                     <i class="fa fa-cogs fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>Atender tickets</div>
+                                    <div class="huge"><?php echo $numTotal; ?></div>
+                                    <div>Total de tickets por atender</div>
                                 </div>
                             </div>
                         </div>

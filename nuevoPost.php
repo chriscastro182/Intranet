@@ -1,5 +1,12 @@
 <?php
 require 'includes/conexion.php';
+if(!isset($_SESSION))
+    {
+        session_start();
+    }
+if (isset($_SESSION['Rol_idRol'])!=2 || isset($_SESSION['Rol_idRol'])!=1) {
+  header("Location:login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

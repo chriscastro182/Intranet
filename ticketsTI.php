@@ -11,7 +11,7 @@ $idUsuario=$_SESSION['idUsuario'];
 $sql= "SELECT idSolucionador FROM solucionador WHERE Usuario_idUsuario ='$idUsuario'";
 $resul = $mysqli->query($sql);
 $rowSolucionador = $resul->fetch_array(MYSQLI_ASSOC);
-$idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el id del solicitante, sólo el número que servirá en la siguiente consulta
+$idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el id del solucionador, sólo el número que servirá en la siguiente consulta
 
 ?>
 <!DOCTYPE html>
