@@ -10,10 +10,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php"><img src="images/IMMlogo.png" "class="img-thumbnail" width="20%" alt="Interpuerto Multimodal de México"></a>
+        <a class="navbar-brand" href="index.php">
+          <img src="images/IMMlogo.png" class="img-thumbnail" width="20%" alt="Interpuerto Multimodal de México">
+        </a>
     </div>
+    <ul class="nav navbar-top-links navbar-left">
+      <h3>Intranet Corporativa</h3>
+    </ul>
     <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right">
+
+
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>

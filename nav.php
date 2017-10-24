@@ -2,7 +2,7 @@
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
-            <li class="sidebar-search">
+            <!-- <li class="sidebar-search">
                 <div class="input-group custom-search-form">
                     <input type="text" class="form-control" placeholder="Búsqueda...">
                     <span class="input-group-btn">
@@ -11,14 +11,19 @@
                     </button>
                 </span>
                 </div>
-                <!-- /input-group -->
-            </li>
+            </li> -->
             <li>
                 <a href="index.php"><i class="fa fa-sticky-note fa-fw"></i> Noticias</a>
             </li>
-            <li>
-                <a href="nuevoPost.php"><i class="fa fa-sticky-note fa-fw"></i> Nuevo Post</a>
-            </li>
+
+            <?php
+            
+            if ($_SESSION['Rol_idRol']==2 || $_SESSION['Rol_idRol']==1 ) { ?>
+              <li>
+                  <a  href="nuevoPost.php"><i class="fa fa-sticky-note fa-fw"></i> Nuevo Post </a>
+              </li>
+          <?php  } ?>
+
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas (Próximamente)<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

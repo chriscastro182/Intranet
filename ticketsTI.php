@@ -48,7 +48,6 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       }else {
                                         $sql= "SELECT * FROM reporte WHERE Solucionador_idSolucionador ='$idSolucionador' AND estatus = 1";
                                       }
-
                                       $resulTicketA = $mysqli->query($sql);
                                       $numTotal=0;
                                       while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) {
@@ -70,7 +69,6 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       </tr>
                                     </thead>
                                     <tbody>
-
                                       <tr>
                                           <?php $resulTicketA = $mysqli->query($sql);
                                           while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsA['idReporte'];?>
@@ -80,7 +78,6 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                             <?php require 'pages/modalTicket.php'; ?>
                                             <span class="pull-left"></span>
                                             <span class="pull-right">
-
                                               <i class="fa fa-arrow-circle-right"></i>
                                             </span>
                                             <div class="clearfix"></div>

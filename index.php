@@ -13,7 +13,7 @@
         require('nav.php');        ?>
         <!-- Navigation -->
         <div id="page-wrapper">
-            <div class="page-header">
+            <div class="container-fluid">
               <?php require('slide.php'); ?>
             </div>
             <!-- /.row -->
