@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="Digitalizacion.php">
+                        <a href="menuDigitalizacion.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Digitaliza y guarda documentos</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

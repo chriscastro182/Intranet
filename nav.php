@@ -15,14 +15,29 @@
             <li>
                 <a href="index.php"><i class="fa fa-sticky-note fa-fw"></i> Noticias</a>
             </li>
-
             <?php
-            
-            if ($_SESSION['Rol_idRol']==2 || $_SESSION['Rol_idRol']==1 ) { ?>
+            if (!isset($_SESSION)) {
+              session_start();
+            }
+             if(isset($_SESSION['Rol_idRol'])) {
+               if(($_SESSION['Rol_idRol'])==1) { ?>
+                 <li>
+                     <a href="#"><i class="fa fa-desktop fa-fw"></i> TI<span class="fa arrow"></span></a>
+                     <ul class="nav nav-second-level">
+                         <li>
+                             <a href="https://trello.com/b/CUOZ15r6/actividades" target="_blank"><i class="fa fa-trello fa-fw"></i>Trello </a>
+                         </li>
+                         <li>
+                             <a href="ticketsTi.php">Tickets Pendientes</a>
+                         </li>
+                     </ul>
+                 </li>
               <li>
                   <a  href="nuevoPost.php"><i class="fa fa-sticky-note fa-fw"></i> Nuevo Post </a>
               </li>
-          <?php  } ?>
+            <?php
+            }
+          } ?>
 
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas (Próximamente)<span class="fa arrow"></span></a>
@@ -69,19 +84,25 @@
             <li>
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Servicios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
-                        <a href="http://webmail.alestraune.net.mx/app/" target="_blank">Correo Web</a>
-                    </li>
+
                     <li>
                         <a href="http://10.181.131.97:8081/login.aspx?ReturnUrl=%2f" target="_blank">Control de inventarios</a>
                     </li>
                     <li>
-                        <a href="#">Más servicios <span class="fa arrow"></span></a>
+                        <a href="https://webservice.aaadam.com.mx/Formatos/" target="_blank">Servicio de Gafetes</a>
+                    </li>
+                    <li>
+                        <a href="https://go.reachcore.com/portal" target="_blank">ReachCore</a>
+                    </li>
+                    <li>
+                        <a href="#">Correos <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
-                            <li>
-                                <a href="https://webservice.aaadam.com.mx/Formatos/" target="_blank">Servicio de Gafetes</a>
-                            </li>
-
+                          <li>
+                              <a href="http://webmail.alestraune.net.mx/app/" target="_blank">Correo Braniff</a>
+                          </li>
+                          <li>
+                              <a href="https://login.microsoftonline.com/" target="_blank">Correo Interpuerto</a>
+                          </li>
                         </ul>
                         <!-- /.nav-third-level -->
                     </li>

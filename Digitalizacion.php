@@ -119,8 +119,7 @@ $guiaHouse = "";
               <h3>Documentos Digitalizados</h3>
             </div>
             <div class="row">
-              <?php
-               ?>
+            
               <div class="col-sm-10">
                     <table class="table table-striped table-condensed" style="text-align: center">
                       <thead>
