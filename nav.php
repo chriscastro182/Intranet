@@ -70,7 +70,7 @@
                 <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="descargas/direcotrio-telefonico.xlsx" download="direcotrio-telefonico.xlsx">
+                        <a href="descargas/direcotrio-telefonicoIMM.pdf" download="direcotrio-telefonicoIMM.pdf">
                           <i class="fa fa-download fa-fw"></i>Directorio</a>
                     </li>
                     <li>
@@ -92,7 +92,7 @@
                         <a href="https://webservice.aaadam.com.mx/Formatos/" target="_blank">Servicio de Gafetes</a>
                     </li>
                     <li>
-                        <a href="https://go.reachcore.com/portal" target="_blank">ReachCore</a>
+                        <a href="https://go.reachcore.com/portal" target="_blank">Consulta de Facturas</a>
                     </li>
                     <li>
                         <a href="#">Correos <span class="fa arrow"></span></a>

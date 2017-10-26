@@ -5,14 +5,11 @@ if(!isset($_SESSION))
     }
 	require 'includes/conexion.php';
 
-	$ingreso = isset($_POST['ingreso']) ? $_POST['ingreso'] : '';
-	$registro = isset($_POST['registro']) ? $_POST['registro'] : '';
-	$Vuelo = isset($_POST['Vuelo']) ? $_POST['Vuelo'] : '';
   $guiaMaster = isset($_POST['guiaMaster']) ? $_POST['guiaMaster'] : '';
 	$guiaHouse = isset($_POST['guiaHouse']) ? $_POST['guiaHouse'] : '';
-  $datetime = date_create()->format('Y-m-d H:i:s');
-  $Consol = isset($_POST['Consol']) ? $_POST['Consol'] : '';
   $numeroGuias = isset($_POST['numeroGuias']) ? $_POST['numeroGuias'] : 0;
+  $VueloDigitalizacion_idVueloDigitalizacion= isset($_POST['idVuelo']) ? $_POST['idVuelo'] : 0;
+
   $id_insert=0;
 
   $indexArchivo= "SELECT * FROM archivodigital";
@@ -20,6 +17,8 @@ if(!isset($_SESSION))
   while($row = $resul->fetch_assoc()){
     $id_insert++;
   }
+  $sql = "INSERT INTO registrovd(idRegistroVD, guaMaster, guiaHouse, descon, VueloDigitalizacion_idVueloDigitalizacion)
+                VALUES ($id_insert,$guiaMaster,$guiaHouse, ,$VueloDigitalizacion_idVueloDigitalizacion)"
   $sql = "INSERT INTO archivodigital (idarchivoDigital, fechaArchivoDigital, registroArchivoDigital, vueloArchivoDigital, guiaMaster, guiaHouse, documento)
                           VALUES ('$id_insert','$datetime','$registro','$Vuelo','$guiaMaster','$guiaHouse', 'PDFs/')";
 $resultado = $mysqli->query($sql);

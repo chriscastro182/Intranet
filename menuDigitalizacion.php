@@ -31,15 +31,49 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="Digitalizacion.php?numeroGuias=$numeroGuias">
                             <div class="panel-footer">
-                                <input class="form-control" type="text" name="numGuiasM" value="" placeholder="Número de guías">
-                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                <span class="pull-left">Crear nuevo vuelo </span>                                
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
+                                <form class="form-horizontal" action="Digitalizacion.php" method="post">
+                                  <div class="form-group">
+                                    <div class="col-sm-3">
+                                      <label for="numGuiasM">Guías</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control" id="numGuiasM" name="numGuiasM" placeholder="Número de guías en el vuelo">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-sm-3">
+                                      <label for="registro">Registro:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control" id="registro"name="registro" placeholder="Número de registro">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-sm-3">
+                                      <label for="vuelo">Vuelo:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control" id="vuelo" name="vuelo" placeholder="Número de vuelo">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-sm-3">
+                                      <label for="ingreso">Fecha:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <input type="date" class="form-control" id="ingreso"name="ingreso" placeholder="">
+                                    </div>
+                                  </div>
+                                  <button type="submit" class="btn btn-group-justified btn-success" name="button">
+                                    <span class="pull-left">
+                                      <i class="fa fa-plus-circle fx2" aria-hidden="true"></i> Crear nuevo vuelo
+                                    </span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                  </button>
+                                </form>
                             </div>
-                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
