@@ -61,7 +61,7 @@
                         <a href="abandono.php"><i class="fa fa-money fa-fw"></i>Cálculo de abandono</a>
                     </li>
                     <li>
-                        <a href="Digitalizacion.php"><i class="fa fa-file-text fa-fw"></i> Digitalización</a>
+                        <a href="menuDigitalizacion.php"><i class="fa fa-file-text fa-fw"></i> Digitalización</a>
                     </li>
                 </ul>
             </li>

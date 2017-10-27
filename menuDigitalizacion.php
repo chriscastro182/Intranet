@@ -38,7 +38,7 @@
                                       <label for="numGuiasM">Guías</label>
                                     </div>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" id="numGuiasM" name="numGuiasM" placeholder="Número de guías en el vuelo">
+                                      <input type="text" class="form-control" id="numGuiasM" name="numGuiasM" placeholder="Número de guías en el vuelo" required>
                                     </div>
                                   </div>
                                   <div class="form-group">
@@ -46,7 +46,7 @@
                                       <label for="registro">Registro:</label>
                                     </div>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" id="registro"name="registro" placeholder="Número de registro">
+                                      <input type="text" class="form-control" id="registro"name="registro" placeholder="Número de registro" required>
                                     </div>
                                   </div>
                                   <div class="form-group">
@@ -54,7 +54,7 @@
                                       <label for="vuelo">Vuelo:</label>
                                     </div>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" id="vuelo" name="vuelo" placeholder="Número de vuelo">
+                                      <input type="text" class="form-control" id="vuelo" name="vuelo" placeholder="Número de vuelo" required>
                                     </div>
                                   </div>
                                   <div class="form-group">
@@ -62,7 +62,7 @@
                                       <label for="ingreso">Fecha:</label>
                                     </div>
                                     <div class="col-sm-9">
-                                      <input type="date" class="form-control" id="ingreso"name="ingreso" placeholder="">
+                                      <input type="date" class="form-control" id="ingreso"name="ingreso" required>
                                     </div>
                                   </div>
                                   <button type="submit" class="btn btn-group-justified btn-success" name="button">

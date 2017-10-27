@@ -46,7 +46,7 @@ $resultado = $mysqli->query($sql);
 		} else {
 
 		$permitidos = array("image/jpg","image/png","application/pdf");
-		$limite_kb = 5024;
+		$limite_kb = 8024;
 
 		if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024){
 
