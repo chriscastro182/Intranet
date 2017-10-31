@@ -6,41 +6,41 @@ if(!isset($_SESSION))
 	require 'includes/conexion.php';
   require 'includes/conexionDigitalizacion.php';
 
-  $guiaMaster = isset($_POST['guiaMaster']) ? $_POST['guiaMaster'] : '';
-	$guiaHouse = isset($_POST['guiaHouse']) ? $_POST['guiaHouse'] : '';
-  $numeroGuias = isset($_POST['numeroGuias']) ? $_POST['numeroGuias'] : 0;
+  $guiaMaster = isset($_POST['Master']) ? $_POST['Master'] : '';
+	$numHouse = isset($_POST['numHouse']) ? $_POST['numHouse'] : '';
+
   $VueloDigitalizacion_idVueloDigitalizacion= isset($_POST['idVuelo']) ? $_POST['idVuelo'] : 0;
-  $Consol = isset($_POST['Consol']) ? $_POST['Consol'] : '';
   $id_insert=0;
 
-  $indexRegistro= "SELECT * FROM registrovd";
-  $resul = $mysqli->query($indexRegistro);
-  while($row = $resul->fetch_assoc()){
-    $id_insert++;
-  }
-  $sql = "INSERT INTO registrovd(idRegistroVD, guiaMaster, guiaHouse, descon, VueloDigitalizacion_idVueloDigitalizacion)
-                VALUES ($id_insert,$guiaMaster,'$guiaHouse', $Consol, $VueloDigitalizacion_idVueloDigitalizacion)";
-echo $sql;
-$resultado = $mysqli->query($sql);
-// if ($Consol==0 || $numeroGuias==0) {
-//   require ('cargaArchivo.php');
-// }
-
-if ($resultado) {
-  $numeroGuias--;
+  if (isset($_POST['Master'])) {
+    $indexRegistro= "SELECT * FROM registrovd";
+    $resul = $mysqli->query($indexRegistro);
+    while($row = $resul->fetch_assoc()){
+      $id_insert++;
+    }
+    $sql = "INSERT INTO registrovd(idRegistroVD, guiaMaster,  descon, VueloDigitalizacion_idVueloDigitalizacion)
+                  VALUES ($id_insert,$guiaMaster, 1, $VueloDigitalizacion_idVueloDigitalizacion)";
+  $resultado = $mysqli->query($sql);
+  $idDescon=$id_insert;
+}else {
+  $registro="SELECT * FROM registrovd WHERE guiaMaster = '$guiaMaster'";
+  $Rdesconsol = $mysqli->query($registro);
+  $rowDesc = $Rdesconsol->fetch_array(MYSQLI_ASSOC);
+  $idDescon= $rowDesc['idRegistroVD'];
 }
+
+
 ?>
 <html lang="es">
 	<head>
 		<?php require ('head.php'); ?>
 	</head>
-
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php if($resultado) {
-             header( 'Location: Digitalizacion.php?idRVD='.$VueloDigitalizacion_idVueloDigitalizacion);?>
+             header( 'Location: Digitalizacion.php?idRVD='.$VueloDigitalizacion_idVueloDigitalizacion).'&idDescon'.$idDescon;?>
 						<h3>Documento Guardado</h3>
 						<?php  } else { ?>
 						<h3>Error al Digitalizar</h3>
