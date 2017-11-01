@@ -11,7 +11,7 @@ if(!isset($_SESSION))
 
   $VueloDigitalizacion_idVueloDigitalizacion= isset($_POST['idVuelo']) ? $_POST['idVuelo'] : 0;
   $id_insert=0;
-
+  echo $VueloDigitalizacion_idVueloDigitalizacion;
   if (isset($_POST['Master'])) {
     $indexRegistro= "SELECT * FROM registrovd";
     $resul = $mysqli->query($indexRegistro);
@@ -28,8 +28,6 @@ if(!isset($_SESSION))
   $rowDesc = $Rdesconsol->fetch_array(MYSQLI_ASSOC);
   $idDescon= $rowDesc['idRegistroVD'];
 }
-
-
 ?>
 <html lang="es">
 	<head>
@@ -40,7 +38,8 @@ if(!isset($_SESSION))
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php if($resultado) {
-             header( 'Location: Digitalizacion.php?idRVD='.$VueloDigitalizacion_idVueloDigitalizacion).'&idDescon'.$idDescon;?>
+
+             header( 'Location: DigitalizacionDesconsol.php?idRVD='.$VueloDigitalizacion_idVueloDigitalizacion.'&idDescon='.$idDescon.'&numHouse='.$numHouse );?>
 						<h3>Documento Guardado</h3>
 						<?php  } else { ?>
 						<h3>Error al Digitalizar</h3>

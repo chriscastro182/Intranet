@@ -68,16 +68,17 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
               $vuelo=$rowVD['nomVuelo'];
               $registro=$rowVD['registroVD'];
               $ingreso=$rowVD['fecha']; ?>
-              <div class="row">
+
                 <div class="well well-md">
-                  <div class="col-lg-6">
-                    <h3>Vuelo <?php echo $vuelo; ?> abierto</h3>
-                    <h4>Registro número: <?php echo $registro; ?></h4>
-                  </div>
-                  <div class="col-lg-6">
-                    <?php $mysqltime = date ("d-m-Y", strtotime($ingreso)); ?>
-                    <h3>Fecha: <?php echo $mysqltime; ?></h3>
-                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <h3>Vuelo <?php echo $vuelo; ?> abierto</h3>
+                      <h4>Registro número: <?php echo $registro; ?></h4>
+                    </div>
+                    <div class="col-lg-6">
+                      <?php $mysqltime = date ("d-m-Y", strtotime($ingreso)); ?>
+                      <h3>Fecha: <?php echo $mysqltime; ?></h3>
+                    </div>
                 </div>
               </div>
           <?php  }

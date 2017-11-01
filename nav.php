@@ -65,22 +65,8 @@
                     </li>
                 </ul>
             </li>
+            <!-- Sevicios -->
 
-            <li>
-                <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="descargas/direcotrio-telefonicoIMM.pdf" download="direcotrio-telefonicoIMM.pdf">
-                          <i class="fa fa-download fa-fw"></i>Directorio</a>
-                    </li>
-                    <li>
-                        <a href="descargas/fr-cp-requisicic3b3n-de-consumibles-y-papeleria-gsb-rev04.xls" download="fr-cp-requisicic3b3n-de-consumibles-y-papeleria-gsb-rev04.xls">
-                          <i class="fa fa-download fa-fw"></i>Papelería</a>
-                    </li>
-
-                </ul>
-                <!-- /.nav-second-level -->
-            </li>
             <li>
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Servicios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -109,6 +95,71 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+
+            <!-- Procesos -->
+
+            <li>
+                <a href="#"><i class="fa fa-book" aria-hidden="true"></i> Procesos<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+
+                    <li>
+                        <a href="#">TI <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                          <li>
+                              <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>Comunicaciones</a>
+                          </li>
+                          <li>
+                              <a href="#"><i class="fa fa-users" aria-hidden="true"></i>Soporte Usuarios</a>
+                          </li>
+                          <li>
+                              <a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i>Backups</a>
+                          </li>
+                        </ul>
+                        <!-- /.nav-third-level -->
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                      <a href="descargas/Solicitud de pago.xls" download="Solicitud de pago.xls">
+                        <i class="fa fa-download fa-fw"></i>Solicitud de pago</a>
+                  </li>
+                    <li>
+                        <a href="descargas/direcotrio-telefonicoIMM.pdf" download="direcotrio-telefonicoIMM.pdf">
+                          <i class="fa fa-download fa-fw"></i>Directorio</a>
+                    </li>
+                    <li>
+                        <a href="descargas/fr-cp-requisicic3b3n-de-consumibles-y-papeleria-gsb-rev04.xls" download="fr-cp-requisicic3b3n-de-consumibles-y-papeleria-gsb-rev04.xls">
+                          <i class="fa fa-download fa-fw"></i>Papelería</a>
+                    </li>
+
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-microchip" aria-hidden="true"></i> Manuales<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                      <a href="Manuales/Live Animals Regulations.pdf" download="Live Animals Regulations.pdf">
+                        <i class="fa fa-download fa-fw"></i>Live Animals Regulations</a>
+                  </li>
+                  <li>
+                      <a href="Manuales/Perishable Cargo Regulations.pdf" download="Perishable Cargo Regulations.pdf">
+                        <i class="fa fa-download fa-fw"></i>Perishable Cargo Regulations</a>
+                  </li>
+                  <li>
+                      <a href="Manuales/Temperature Controls Regulations.pdf" download="Temperature Controls Regulations.pdf">
+                        <i class="fa fa-download fa-fw"></i>Temperature Controls Regulations</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
             <li>
                 <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
