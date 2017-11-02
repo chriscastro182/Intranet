@@ -41,12 +41,27 @@ if(!isset($_SESSION))
                             VALUES ('$id_insert', '1', '$descripcion','files/', '$datetime', '$solucionador', '$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento')";
 
 $resultado = $mysqli->query($sql);
+$desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
+							  $resultado = $mysqli->query($desc);
+								   $row = $resultado->fetch_array(MYSQLI_ASSOC);
+								$asunto='Mesa: '.$row['nombreCategoriaReporte'].' Ticket #'.$id_insert;
+								$nombreUsr= $_SESSION['u_nombre'];
+								$correoUsr= $_SESSION['correo'];
+								$headers =  'MIME-Version: 1.0' . "\r\n";
+								$headers .= 'From: '.$nombreUsr.'<'.$correoUsr.'>' . "\r\n";
+								$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+								$envio=mail('soporte.sistemas@braniff.com',$asunto, $descripcion, $headers);
+								if ($envio) {
+								  echo '<div class="alert alert-success">
+										  <strong>Mensaje enviado!</strong> Revisa el estatus del ticket para dar seguimiento al mismo.
+										</div>';
+								}
 	if($_FILES["archivo"]["error"]>0){
 		echo "Error al cargar archivo";
 		} else {
 
 		$permitidos = array("image/jpg","image/png","application/pdf");
-		$limite_kb = 8024;
+		$limite_kb = 10024;
 
 		if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024){
 
@@ -62,25 +77,12 @@ $resultado = $mysqli->query($sql);
 				$resultado = @move_uploaded_file($_FILES["archivo"]["tmp_name"], $archivo);
 
 				if($resultado){
-          $sql= "UPDATE reporte SET evidencia='$archivo' WHERE idReporte= $id_insert";
-          $resultado = $mysqli->query($sql);
-          $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
-          $resultado = $mysqli->query($desc);
-	           $row = $resultado->fetch_array(MYSQLI_ASSOC);
-            $asunto='Mesa: '.$row['nombreCategoriaReporte'];
-            $nombreUsr= $_SESSION['u_nombre'];
-            $correoUsr= $_SESSION['correo'];
-            $headers =  'MIME-Version: 1.0' . "\r\n";
-            $headers .= 'From: '.$nombreUsr.'<'.$correoUsr.'>' . "\r\n";
-            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            $envio=mail('soporte.sistemas@braniff.com',$asunto, $descripcion, $headers);
-            if ($envio) {
-              echo '<div class="alert alert-success">
-                      <strong>Mensaje enviado!</strong> Revisa el estatus del ticket para dar seguimiento al mismo.
-                    </div>';
-            }
+							  $sql= "UPDATE reporte SET evidencia='$archivo' WHERE idReporte= $id_insert";
+							  $resultado = $mysqli->query($sql);
+							  
 					} else {
 					echo "Error al guardar archivo";
+					
 				}
 
 				} else {
