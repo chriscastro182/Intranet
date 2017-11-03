@@ -99,30 +99,29 @@ if (isset($_GET['numHouse'])) {
                           </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <?php if ($regis): ?>
-                              <?php while ($rowRD = $regis->fetch_array(MYSQLI_ASSOC))  {
-                                 ?>
-                              <td><?php echo $indiceGuiaH; ?></td>
-                              <td><?php echo $Master; ?></td>
-                              <td><?php echo $rowRD['guiaHouse']; ?></td>
-                              <?php  } $indiceGuiaH--; ?>
-                            </tr>
-                          <?php endif; ?>
-                          <?php if ($indiceGuiaH<1): ?>
-                            <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                          <?php else: $hideCierre='hidden="hidden"';  ?>
-                            <tr>
-                              <td><?php echo $indiceGuiaH; ?></td>
-                              <td><?php echo $Master; ?></td>
-                              <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" value="" required/></td>
-                            </tr>
-                          <?php endif; ?>
+                              <?php if ($regis) {
+                                while ($rowRD = $regis->fetch_array(MYSQLI_ASSOC))  { ?>
+                              <tr>
+                                <td><?php echo $indiceGuiaH; ?></td>
+                                <td><?php echo $Master; ?></td>
+                                <td><?php echo $rowRD['guiaHouse']; ?></td>
+                                <?php  } $indiceGuiaH--; ?>
+                              </tr>
+                            <?php if ($indiceGuiaH<1) { ?>
+                                      <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                      </tr>
+                                  <?php  }
+                                    } else{ $hideCierre='hidden="hidden"'; ?>
+                                      <tr>
+                                        <td><?php echo $indiceGuiaH; ?></td>
+                                        <td><?php echo $Master; ?></td>
+                                        <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" value="" required/></td>
+                                      </tr>
+                                  <?php  }?>
                         </tbody>
                       </table>
                   </div>

@@ -135,11 +135,8 @@ while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) {
             </div>
         </div>
         <!-- /#page-wrapper -->
-
     </div>
     <!-- /#wrapper -->
-
-
 </body>
 
 </html>

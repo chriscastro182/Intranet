@@ -77,9 +77,30 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                           <td>
                                             <?php require 'pages/modalTicket.php'; ?>
                                             <span class="pull-left"></span>
-                                            <span class="pull-right">
-                                              <i class="fa fa-arrow-circle-right"></i>
-                                            </span>
+                                            <form class="form-horizontal" action="cambiarSolicitante.php" method="post">
+                                              <div class="row">
+                                                <select name="soluValor">
+                                                  <?php $Qsolu = "SELECT * FROM solucionador";                      // Consulta de la tabla solucionador
+                                                          $resulSolu = $mysqli->query($Qsolu);                      // Respuesta del Query
+                                                          while ($solucionadores=$resulSolu->fetch_array(MYSQLI_ASSOC)) {
+                                                            $idSolucionadores=$solucionadores['Usuario_idUsuario'];     // Esto es una asignación que extrae el idUsuario como foránea de la tabla soluciador
+
+                                                            $QsoluUnit = "SELECT * FROM usuario WHERE idUsuario = $idSolucionadores"; //consulta para obtener los datos de ese solucionador
+                                                                    $resulSoluUnitario = $mysqli->query($QsoluUnit);
+                                                                    $datosSolu=$resulSoluUnitario->fetch_array(MYSQLI_ASSOC);  //aquí sólo es un row que nos da específico el usuario para el combo box
+                                                                    $idUsuario=$datosSolu['idUsuario'];
+                                                                    $nomUsuario=$datosSolu['nombresU']; ?>
+                                                                    <option value="<?php echo $idUsuario; ?>"><?php echo $nomUsuario ?> </option>                                                             
+                                                        <?php  }  ?>                                                 
+                                                </select>
+                                              </div>
+                                              <div class="row" >
+                                                <input type="hidden" name="ticket" value="<?php echo $idTicket; ?>">
+                                                <button type="submit" class="btn btn-toolbar pull-right" name="button" >
+                                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                                </button>
+                                              </div>
+                                            </form>
                                             <div class="clearfix"></div>
                                           </td>
                                       </tr>
@@ -126,7 +147,6 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       </tr>
                                     </thead>
                                     <tbody>
-
                                       <tr>
                                           <?php $resulTicketA = $mysqli->query($sql);
                                           while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsA['idReporte'];?>
@@ -135,10 +155,18 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                           <td>
                                             <?php require 'pages/modalTicket.php'; ?>
                                             <span class="pull-left"></span>
-                                            <span class="pull-right">
-
-                                              <i class="fa fa-arrow-circle-right"></i>
-                                            </span>
+                                            <a href="cambiarSolicitante.php">
+                                              <span class="pull-right">
+                                                <div class="col-sm-">
+                                                  <select>
+                                                    <option value="volvo">Hermilan</option>
+                                                    <option value="saab">Christian</option>
+                                                    <option value="mercedes">Omar</option>
+                                                  </select>
+                                                </div>
+                                                <i class="fa fa-arrow-circle-right"></i>
+                                              </span>
+                                            </a>
                                             <div class="clearfix"></div>
                                           </td>
                                       </tr>
@@ -211,7 +239,6 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
               <!-- Acaban las 3 columnas -->
         </div>
         <!-- /#page-wrapper -->
-
     </div>
     <!-- /#wrapper -->
 </div>

@@ -7,7 +7,7 @@ if(!isset($_SESSION))
 if (isset($_SESSION['Rol_idRol'])==FALSE) {
   header("Location:login.php");
 }
-require 'pages\querySolicitante.php'; 
+require 'pages\querySolicitante.php';
 // Consulta para obtener el id del solicitante, sólo el número que servirá en la siguiente consulta
 
 ?>
@@ -61,17 +61,17 @@ require 'pages\querySolicitante.php';
                                       </tr>
                                     </thead>
                                     <tbody>
-
                                       <tr>
                                           <?php $resulTicketA = $mysqli->query($sql);
-                                          while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { ?>
-                                          <td><?php echo $ticketsA['idReporte']; ?></td>
-                                          <td><a href="#"><?php echo $ticketsA['descripcion']; ?></a></td>
+                                          while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsA['idReporte']; ?>
+                                          <td><?php echo $idTicket;?></td>
+                                            <td><p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p></td>
                                           <td>
+                                            <?php require 'pages/modalTicket.php'; ?>
                                             <span class="pull-left"></span>
-                                            <span class="pull-right">
+                                            <!-- <span class="pull-right">
                                               <i class="fa fa-arrow-circle-right"></i>
-                                            </span>
+                                            </span> -->
                                             <div class="clearfix"></div>
                                           </td>
                                       </tr>
