@@ -7,7 +7,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="images/BannerDiaDeMuertos.png" alt="Banner 1" style="width:100%;">
+      <img src="images/Banner3.png" alt="Banner 1" style="width:100%;">
       <div class="carousel-caption">
         <h3></h3>
         <p></p>

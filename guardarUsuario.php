@@ -30,10 +30,9 @@
     }
     else{
       $idUsiario=0;
-      $sqlU= "SELECT * FROM   Usuario";
+      $sqlU= "SELECT * FROM   usuario";
       $resul = $mysqli->query($sqlU);
       while($rows = $resul->fetch_array(MYSQLI_ASSOC)){
-
         $idUsiario++;
       }
         $sql ="INSERT INTO usuario (idUsuario,mail,pass,nombresU,apellidosU,Rol_idRol)
@@ -51,8 +50,15 @@
             <div class"row" style="text-align:center">
                 <?php
                 if($resultado) {
-                  $sql ="INSERT INTO solicitante (Usuario_idUsuario,Usuario_Rol_idRol)
-                  VALUES ('$idUsiario','3')";
+                  $sql="SELECT * FROM solicitante";
+                  $resultado = $mysqli->query($sql);
+                  $idSoli=0;
+                    while($rowSoli = $resultado->fetch_array(MYSQLI_ASSOC)){
+                    $idSoli++;
+                    }
+                  $sql ="INSERT INTO solicitante (idSolicitante,Usuario_idUsuario,Usuario_Rol_idRol)
+                  VALUES ('$idSoli','$idUsiario','3')";
+                  echo $sql;
                   $resultado = $mysqli->query($sql);
                   ?>
                 <h3>Registro Guardado Exitosamente</h3>

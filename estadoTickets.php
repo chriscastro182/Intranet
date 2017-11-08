@@ -114,14 +114,15 @@ require 'pages\querySolicitante.php';
                                     <tbody>
                                       <tr>
                                         <?php $resulTicketP = $mysqli->query($sql);
-                                        while ($ticketsP = $resulTicketP->fetch_array(MYSQLI_ASSOC)) { ?>
-                                        <td><?php echo $ticketsP['idReporte']; ?></td>
-                                        <td><a href="#"><?php echo $ticketsP['descripcion']; ?></a></td>
+                                        while ($ticketsP = $resulTicketP->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsP['idReporte']; ?>
+                                        <td><?php echo $idTicket; ?></td>
+                                          <td><p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsP['descripcion']; ?></p></td>
                                         <td>
+                                          <?php require 'pages/modalTicket.php'; ?>
                                           <span class="pull-left"></span>
-                                          <span class="pull-right">
+                                          <!-- <span class="pull-right">
                                             <i class="fa fa-arrow-circle-right"></i>
-                                          </span>
+                                          </span> -->
                                           <div class="clearfix"></div>
                                         </td>
                                       </tr>
@@ -163,14 +164,15 @@ require 'pages\querySolicitante.php';
                                     <tbody>
                                       <tr>
                                           <?php $resulTicketC = $mysqli->query($sql);
-                                          while ($ticketsC = $resulTicketC->fetch_array(MYSQLI_ASSOC)) { ?>
-                                          <td><?php echo $ticketsC['idReporte']; ?></td>
-                                          <td><?php echo $ticketsC['descripcion']; ?></td> <a href="#"></a>
+                                          while ($ticketsC = $resulTicketC->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsC['idReporte']; ?>
                                           <td>
-                                            <span class="pull-left"></span>
-                                            <span class="pull-right">
-                                              <i class="fa fa-arrow-circle-right"></i>
-                                            </span>
+                                            <p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsC['descripcion']; ?></p>
+                                            <div class="row">
+                                              <h4>Solución:</h4>
+                                              <span class="pull-left"><p><?php echo $ticketsC['solucion']; ?></p></span>
+                                            </div>
+                                            <?php require 'pages/modalTicket.php'; ?>
+
                                             <div class="clearfix"></div>
                                           </td>
                                       </tr>

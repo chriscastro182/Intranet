@@ -125,7 +125,6 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       }else {
                                         $sql= "SELECT * FROM reporte WHERE Solucionador_idSolucionador ='$idSolucionador' AND estatus = 3";
                                       }
-
                                       $resulTicketA = $mysqli->query($sql);
                                       $numTotal=0;
                                       while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) {
@@ -151,23 +150,30 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                           <?php $resulTicketA = $mysqli->query($sql);
                                           while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsA['idReporte'];?>
                                           <td><?php echo $idTicket;?></td>
-                                          <td><p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p></td>
+                                          <td>
+                                            <p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p>
+                                            <div class="row">
+                                                <form class="form-horizontal" action="cerrarTicket.php" method="post">
+                                                  <div class="form-group">
+                                                    <label for="Solucion">Solución:</label>
+                                                      <textarea class="form-control" name="Solucion" rows="3" ></textarea>
+                                                  </div>
+                                                  <div class="row">
+                                                    <input type="hidden" name="ticket" value="<?php echo $idTicket; ?>">
+                                                    <button type="submit" class="btn btn-toolbar pull-right" name="button">
+                                                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                                    </button>
+                                                  </div>
+                                                </form>
+                                            </div>
+                                          </td>
                                           <td>
                                             <?php require 'pages/modalTicket.php'; ?>
                                             <span class="pull-left"></span>
-                                            <a href="cambiarSolicitante.php">
-                                              <span class="pull-right">
-                                                <div class="col-sm-">
-                                                  <select>
-                                                    <option value="volvo">Hermilan</option>
-                                                    <option value="saab">Christian</option>
-                                                    <option value="mercedes">Omar</option>
-                                                  </select>
-                                                </div>
-                                                <i class="fa fa-arrow-circle-right"></i>
-                                              </span>
-                                            </a>
-                                            <div class="clearfix"></div>
+
+                                              <div class="clearfix"></div>
+                                              <br>
+                                              <br>
                                           </td>
                                       </tr>
                                       <?php } ?>
@@ -218,14 +224,19 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                           <?php $resulTicketA = $mysqli->query($sql);
                                           while ($ticketsA = $resulTicketA->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsA['idReporte'];?>
                                           <td><?php echo $idTicket;?></td>
-                                          <td><p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p></td>
                                           <td>
+                                            <p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p>
+                                            <div class="row">
+                                              <h4>Solución:</h4>
+                                              <p><?php echo $ticketsA['solucion']; ?></p>
+                                            </div>
                                             <?php require 'pages/modalTicket.php'; ?>
                                             <span class="pull-left"></span>
                                             <span class="pull-right">
 
                                               <i class="fa fa-arrow-circle-right"></i>
                                             </span>
+
                                             <div class="clearfix"></div>
                                           </td>
                                       </tr>

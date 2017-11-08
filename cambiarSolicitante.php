@@ -12,10 +12,10 @@ $resulUsuario = $mysqli->query($qUsuario);
 $datosUsuario = $resulUsuario->fetch_array(MYSQLI_ASSOC);
 $idUsuario=$datosUsuario['idUsuario'];
 $nombreUsr=$datosUsuario['nombresU'];
-echo $qUsuario;
+
   $qUPreporte = "UPDATE reporte SET estatus ='3',Solucionador_idSolucionador='$idUsuario' WHERE idReporte = $ticket";
     $resulUP = $mysqli->query($qUPreporte);
-    echo $qUPreporte;
+
  ?>
 
  <html lang="es">

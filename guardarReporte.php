@@ -39,7 +39,6 @@ if(!isset($_SESSION))
 
 	$sql = "INSERT INTO reporte (idReporte, estatus, descripcion, evidencia, fEmision,  Solucionador_idSolucionador, Solicitante_idSolicitante,TipoRequerimiento_idTipoRequerimiento)
                             VALUES ('$id_insert', '1', '$descripcion','files/', '$datetime', '$solucionador', '$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento')";
-
 $resultado = $mysqli->query($sql);
 $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
 							  $resultado = $mysqli->query($desc);
@@ -79,10 +78,10 @@ $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaRepor
 				if($resultado){
 							  $sql= "UPDATE reporte SET evidencia='$archivo' WHERE idReporte= $id_insert";
 							  $resultado = $mysqli->query($sql);
-							  
+
 					} else {
 					echo "Error al guardar archivo";
-					
+
 				}
 
 				} else {
@@ -108,10 +107,15 @@ $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaRepor
 				<div class="row" style="text-align:center">
 					<?php if($resultado) { ?>
 						<h3>Ticket Enviado</h3>
+            <div class="alert alert-success alert-dismissable">
+              <a href="ticketsTI.php" class="close" data-dismiss="alert" aria-label="close">×</a>
+              <strong>Ticket creado satisfactoriamente </strong>El equipo de TI ha sido notificado. Puedes revisar su estatus en el <a href="estadoTickets.php" >siguiente link.</a>
+            </div>
 						<?php  } else { ?>
 						<h3>Error al Solicitar Ticket</h3>
+            <a href="SolicitarTicket.php" class="btn btn-primary">Regresar</a>
 					<?php } ?>
-					<a href="SolicitarTicket.php" class="btn btn-primary">Regresar</a>
+
 				</div>
 			</div>
 		</div>
