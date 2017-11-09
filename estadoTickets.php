@@ -33,6 +33,14 @@ require 'pages\querySolicitante.php';
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <a href="MesaDeAyuda.php">
+                  <button type="button" class="btn btn-primary btn-block" name="button"><i class="fa fa-arrow-left" aria-hidden="true"></i>Volver a la Mesa de ayuda</button>
+                </a>
+              </div>
+            </div>
+            <br>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-4 col-md-6">
@@ -191,6 +199,7 @@ require 'pages\querySolicitante.php';
                     </div>
                 </div>
         </div>
+
         <!-- /#page-wrapper -->
 
     </div>

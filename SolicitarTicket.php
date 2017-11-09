@@ -21,6 +21,14 @@ require 'includes/conexion.php';
             </div>
           <div class="container">
             <div class="row">
+              <div class="col-lg-4">
+                <a href="MesaDeAyuda.php">
+                  <button type="button" class="btn btn-primary btn-block" name="button"><i class="fa fa-arrow-left" aria-hidden="true"></i>Volver a la Mesa de ayuda</button>
+                </a>
+              </div>
+            </div>
+            <br>
+            <div class="row">
               <form class="form-horizontal" enctype="multipart/form-data" action="guardarReporte.php" method="post" autocomplete="off">
                 <div class="form-group">
                     <label for="dirigido" class="col-sm-1 control-label">Tipo de requerimiento:</label>
