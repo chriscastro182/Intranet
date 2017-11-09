@@ -20,6 +20,30 @@
               session_start();
             }
              if(isset($_SESSION['Rol_idRol'])) {
+               if(($_SESSION['Rol_idRol'])==2) { ?>
+                 <li>
+                     <a href="#"><i class="fa fa-desktop fa-fw"></i> Recursos H.<span class="fa arrow"></span></a>
+                     <ul class="nav nav-second-level">
+
+                         <li>
+                             <a href="#"><i class="fa fa-birthday-cake fa-fw"></i>Cumpleaños</a>  
+
+                         </li>
+                         <li>
+                             <a  href="nuevoPost.php"><i class="fa fa-sticky-note fa-fw"></i> Nuevo Aviso </a>
+                         </li>
+                     </ul>
+                 </li>
+
+            <?php
+            }
+          } ?>
+
+            <?php
+            if (!isset($_SESSION)) {
+              session_start();
+            }
+             if(isset($_SESSION['Rol_idRol'])) {
                if(($_SESSION['Rol_idRol'])==1) { ?>
                  <li>
                      <a href="#"><i class="fa fa-desktop fa-fw"></i> TI<span class="fa arrow"></span></a>
@@ -28,7 +52,13 @@
                              <a href="https://trello.com/b/CUOZ15r6/actividades" target="_blank"><i class="fa fa-trello fa-fw"></i>Trello </a>
                          </li>
                          <li>
+                             <a href="MesaTI.php">Mesa de TI</a>
+                         </li>
+                         <li>
                              <a href="ticketsTi.php">Tickets Pendientes</a>
+                         </li>
+                         <li>
+                             <a  href="nuevoPost.php"><i class="fa fa-sticky-note fa-fw"></i> Nuevo Aviso </a>
                          </li>
                      </ul>
                  </li>
@@ -84,7 +114,7 @@
                         <a href="#">Correos <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                           <li>
-                              <a href="http://webmail.alestraune.net.mx/app/" target="_blank">Correo Braniff</a>
+                              <a href="https://login.microsoftonline.com/" target="_blank">Correo Braniff</a>
                           </li>
                           <li>
                               <a href="https://login.microsoftonline.com/" target="_blank">Correo Interpuerto</a>

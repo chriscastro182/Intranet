@@ -80,17 +80,16 @@ $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaRepor
 							  $resultado = $mysqli->query($sql);
 
 					} else {
-					echo "Error al guardar archivo";
-
-				}
+					       echo "Error al guardar archivo";
+				    }
 
 				} else {
-				echo "Archivo ya existe";
-			}
+				      echo "Archivo ya existe";
+			   }
 
 			} else {
 			echo "Archivo no permitido o excede el tamaño";
-		}
+		  }
 
 	}
 

@@ -1,11 +1,15 @@
 <?php
 require 'includes/conexion.php';
+$rol=0;
 if(!isset($_SESSION))
     {
         session_start();
     }
 if (isset($_SESSION['Rol_idRol'])==FALSE) {
   header("Location:login.php");
+}
+if (isset($_SESSION['Rol_idRol'])) {
+  $rol=$_SESSION['Rol_idRol'];
 }
 require 'pages\querySolicitante.php';
 // Consulta para obtener el id del solicitante, sólo el número que servirá en la siguiente consulta
@@ -158,21 +162,24 @@ require 'pages\querySolicitante.php';
                                       <tr>
                                         <th>No. Ticket</th>
                                         <th>Descripción</th>
-                                        <th></th>
+                                        <th>Solucion</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                           <?php $resulTicketC = $mysqli->query($sql);
                                           while ($ticketsC = $resulTicketC->fetch_array(MYSQLI_ASSOC)) { $idTicket=$ticketsC['idReporte']; ?>
+                                          <td><?php echo $idTicket; ?></td>
                                           <td>
                                             <p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsC['descripcion']; ?></p>
+                                            <?php require 'pages/modalTicket.php'; ?>
+                                          </td>
+                                          <td>
                                             <div class="row">
-                                              <h4>Solución:</h4>
+                                              <h5>Solución:</h5>
                                               <span class="pull-left"><p><?php echo $ticketsC['solucion']; ?></p></span>
                                             </div>
-                                            <?php require 'pages/modalTicket.php'; ?>
-
+                                          </td>
                                             <div class="clearfix"></div>
                                           </td>
                                       </tr>

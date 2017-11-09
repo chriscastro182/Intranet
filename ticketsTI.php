@@ -65,7 +65,7 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       <tr>
                                         <th>No. Ticket</th>
                                         <th>Descripción</th>
-                                        <th></th>
+                                        <th>Solucionador</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -215,7 +215,7 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       <tr>
                                         <th>No. Ticket</th>
                                         <th>Descripción</th>
-                                        <th></th>
+                                        <th>Solución</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -226,17 +226,14 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                           <td><?php echo $idTicket;?></td>
                                           <td>
                                             <p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p>
+                                            <?php require 'pages/modalTicket.php'; ?>
+                                          </td>
+                                          <td>
                                             <div class="row">
-                                              <h4>Solución:</h4>
                                               <p><?php echo $ticketsA['solucion']; ?></p>
                                             </div>
-                                            <?php require 'pages/modalTicket.php'; ?>
+                                          </td>
                                             <span class="pull-left"></span>
-                                            <span class="pull-right">
-
-                                              <i class="fa fa-arrow-circle-right"></i>
-                                            </span>
-
                                             <div class="clearfix"></div>
                                           </td>
                                       </tr>

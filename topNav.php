@@ -27,7 +27,7 @@
             </a>
             <ul class="dropdown-menu dropdown-messages">
                 <li>
-                    <a href="http://webmail.alestraune.net.mx/app/" target="_blank">
+                    <a href="https://login.microsoftonline.com/" target="_blank">
                         <div>
                             <strong>Braniff</strong>
                             <span class="pull-right text-muted">

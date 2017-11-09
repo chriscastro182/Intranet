@@ -7,6 +7,8 @@
     $correo = $_POST['correo'];
     $nomAlt = encryptAndEncode($_POST['contrasena']);
     $nomAlt2 = encryptAndEncode($_POST['contrasena2']);
+    $rh=3;
+// $rh=2;      //Descomentar cuando se vaya a registrar alguien de REcursos Humanos
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +38,7 @@
         $idUsiario++;
       }
         $sql ="INSERT INTO usuario (idUsuario,mail,pass,nombresU,apellidosU,Rol_idRol)
-        VALUES ($idUsiario,'$correo','$nomAlt','$nombres', '$apellidos',  '3')";
+        VALUES ($idUsiario,'$correo','$nomAlt','$nombres', '$apellidos',  '$rh')";
         $resultado = $mysqli->query($sql);
       }
     }else {
@@ -57,8 +59,7 @@
                     $idSoli++;
                     }
                   $sql ="INSERT INTO solicitante (idSolicitante,Usuario_idUsuario,Usuario_Rol_idRol)
-                  VALUES ('$idSoli','$idUsiario','3')";
-                  echo $sql;
+                  VALUES ('$idSoli','$idUsiario','$rh')";
                   $resultado = $mysqli->query($sql);
                   ?>
                 <h3>Registro Guardado Exitosamente</h3>
