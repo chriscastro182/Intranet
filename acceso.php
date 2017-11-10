@@ -15,6 +15,7 @@ $proceso = $mysqli->query("SELECT * FROM Usuario WHERE mail='$correo' AND pass='
           $_SESSION['apellidos']=$f2['apellidosU'];
           $_SESSION['correo']=$f2['mail'];
           $_SESSION['Rol_idRol']=$f2['Rol_idRol'];
+          $_SESSION['Area_idArea']=$f2['Area_idArea'];
         echo "<script>location.href='index.php'</script>";
       }else { ?>
         <div class="alert alert-danger">

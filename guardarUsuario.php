@@ -7,6 +7,7 @@
     $correo = $_POST['correo'];
     $nomAlt = encryptAndEncode($_POST['contrasena']);
     $nomAlt2 = encryptAndEncode($_POST['contrasena2']);
+    $area =$_POST['area'];
     $rh=3;
 // $rh=2;      //Descomentar cuando se vaya a registrar alguien de REcursos Humanos
 ?>
@@ -37,16 +38,16 @@
       while($rows = $resul->fetch_array(MYSQLI_ASSOC)){
         $idUsiario++;
       }
-        $sql ="INSERT INTO usuario (idUsuario,mail,pass,nombresU,apellidosU,Rol_idRol)
-        VALUES ($idUsiario,'$correo','$nomAlt','$nombres', '$apellidos',  '$rh')";
+        $sql ="INSERT INTO usuario (idUsuario,mail,pass,nombresU,apellidosU,Rol_idRol, Area_idArea)
+        VALUES ($idUsiario,'$correo','$nomAlt','$nombres', '$apellidos', '$rh', $area)";
         $resultado = $mysqli->query($sql);
       }
     }else {
       echo '<div class"row" style="text-align:center">
               <h3>Las contraseñas no coinciden</h3>
             </div>';
-    }
-     ?>
+    }  ?>
+    
     <div class="container">
         <div class="row">
             <div class"row" style="text-align:center">

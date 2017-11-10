@@ -1,6 +1,10 @@
 <?php
 require 'includes/conexion.php';
+$sqlRepo="SELECT * FROM categoriareporte ORDER BY categoriareporte.idCategoriaReporte ASC ";
+$resulRepo = $mysqli->query($sqlRepo);
 
+$sqlSist="SELECT * FROM sistemaproceso ORDER BY sistemaproceso.idSistemaProceso ASC ";
+$resulSist = $mysqli->query($sqlSist);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,6 +23,7 @@ require 'includes/conexion.php';
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+          <!-- Todo el form nuevo -->
           <div class="container">
             <div class="row">
               <div class="col-lg-4">
@@ -28,145 +33,98 @@ require 'includes/conexion.php';
               </div>
             </div>
             <br>
-            <div class="row">
-              <form class="form-horizontal" enctype="multipart/form-data" action="guardarReporte.php" method="post" autocomplete="off">
-                <div class="form-group">
-                    <label for="dirigido" class="col-sm-1 control-label">Tipo de requerimiento:</label>
-                    <div class="col-sm-2">
-                      <select class="form-control" name="TipoRequerimiento_idTipoRequerimiento" id="TipoRequerimiento_idTipoRequerimiento">
-                        <?php $sqlTip = "SELECT * FROM TipoRequerimiento";
-                                $resul = $mysqli->query($sqlTip);
-                                  while($rows = $resul->fetch_array(MYSQLI_ASSOC)){ ?>
-                                    <option value="<?php echo $rows['idTipoRequerimiento']; ?>"><?php echo $rows['TipoRequerimiento']; ?></option>
-                                  <?php } ?>
-                      </select>
-                    </div>
-                    <label for="tipoRequerimiento" class="col-sm-1 control-label">Dirigido a:</label>
-                      <div class="col-sm-2">
-                        <select class="form-control" name="CategoriaReporte_idCategoriaReporte" id="CategoriaReporte_idCategoriaReporte">
-                          <?php $sqlCat = "SELECT * FROM CategoriaReporte";
-                                  $resultado = $mysqli->query($sqlCat);
-                                    while($row = $resultado->fetch_array(MYSQLI_ASSOC)){ ?>
-                                      <option value="<?php echo $row['idCategoriaReporte']; ?>"><?php echo $row['nombreCategoriaReporte']; ?></option>
-                                    <?php } ?>
-                        </select>
-                      </div>
-                    <label for="archivo" class="col-sm-1 control-label">Anexar pantalla:</label>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <input type="file" class="form-control" id="archivo" name="archivo" accept="image/*">
-                        </div>
-                      </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
+            <form class="form-horizontal" enctype="multipart/form-data" action="guardarReporte.php" method="post" autocomplete="off">
+              <div class="row">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label for="Descripcion">Descripción de falla o problema:</label>
-                      <textarea class="form-control" name="descripcion" rows="5" id="descripcion" ></textarea>
+                      <label for="prioridad" class="col-sm-3 control-label">Prioridad: </label>
+                        <div class="col-sm-9">
+                          <select class="form-control" name="prioridad">
+                            <option value="Baja">Baja</option>
+                            <option value="Media">Media</option>
+                            <option value="Alta">Alta</option>
+                          </select>
+                        </div>
                     </div>
                   </div>
-                  <div class="col-sm-3">
-                    <br>
-                    <br>
-                    <br>
-                    <input type="submit"class="btn-lg btn-success btn-block" name="botonlg" value="Crear Ticket" />
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="dirigido" class="col-sm-3 control-label">Dirigido: </label>
+                        <div class="col-sm-9">
+                          <select class="form-control" name="dirigido">
+                            <?php while($rowsRepo = $resulRepo->fetch_array(MYSQLI_ASSOC)){ ?>
+                                    <option value="<?php echo $rowsRepo['idCategoriaReporte']; ?>"><?php echo $rowsRepo['nombreCategoriaReporte']; ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="sistema" class="col-sm-3 control-label">Sistema: </label>
+                        <div class="col-sm-9">
+                          <select class="form-control" name="sistema">
+                            <?php while($rowsSist = $resulSist->fetch_array(MYSQLI_ASSOC)){ ?>
+                                    <option value="<?php echo $rowsSist['idSistemaProceso']; ?>"><?php echo $rowsSist['nombreSistemaPro']; ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label for="area" class="col-sm-3 control-label">Area Solicitante: </label>
+                      <div class="col-sm-9">
+                        <div class="well well-sm">
+                          <?php $area=$_SESSION['Area_idArea'];
+                                  $sqlArea="SELECT * FROM area WHERE idArea = '$area'";
+                                  $resulArea = $mysqli->query($sqlArea);
+                                  $rowsArea = $resulArea->fetch_array(MYSQLI_ASSOC); ?>
+                          <input type="hidden" name="area" value="<?php echo $rowsArea['idArea']; ?>">
+                          <h4><?php echo $rowsArea['nombreArea']; ?></h4>
+                        </div>
+                      </div>
                   </div>
                 </div>
-
-              </form>
-            </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label for="dirigido" class="col-sm-3 control-label">Solicita: </label>
+                      <div class="col-sm-9">
+                        <div class="well well-sm"> <?php $nomCompleto = $_SESSION['u_nombre'].' '.$_SESSION['apellidos']; ?>
+                          <h4><?php echo $nomCompleto; ?></h4>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <label for="archivo" class="col-sm-3 control-label">Anexar pantalla:</label>
+                    <div class="col-sm-8">
+                      <div class="form-group">
+                        <input type="file" class="form-control" id="archivo" name="archivo" accept="image/*">
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-9">
+                  <div class="form-group">
+                    <label for="Descripcion">Descripción de falla o problema:</label>
+                    <textarea class="form-control" name="descripcion" rows="5" id="descripcion" ></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <br>
+                  <br>
+                  <br>
+                  <input type="submit"class="btn-lg btn-success btn-block" name="botonlg" value="Crear Ticket" />
+                </div>
+              </div>
+            </form>
           </div>
-            <!-- /.row -->
-            <!-- <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-ticket fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">01</div>
-                                    <div>Ticket</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Solicita un ticket</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">02</div>
-                                    <div>Estado del los tickets</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Detalles</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div> -->
+          <!-- fin del form nuevo -->
+
         </div>
         <!-- /#page-wrapper -->
     </div>

@@ -13,9 +13,11 @@
         require('nav.php');        ?>
         <!-- Navigation -->
         <div id="page-wrapper">
-            <div class="container-fluid">
-              <?php require('slide.php'); ?>
-            </div>
+          <div class="row">
+              <div class="col-lg-12">
+                  <img src="images/BannerDigitalizacion.png" class="page-header" width="100%">
+              </div>
+          </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-4 col-md-6">

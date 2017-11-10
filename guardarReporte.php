@@ -5,40 +5,25 @@ if(!isset($_SESSION))
     }
 	require 'includes/conexion.php';
   $solucionador=0;
-	$CategoriaReporte_idCategoriaReporte = isset($_POST['CategoriaReporte_idCategoriaReporte']) ? $_POST['CategoriaReporte_idCategoriaReporte'] : '';
+	$Area_idArea = isset($_POST['area']) ? $_POST['area'] : '';
 	$TipoRequerimiento_idTipoRequerimiento = isset($_POST['TipoRequerimiento_idTipoRequerimiento']) ? $_POST['TipoRequerimiento_idTipoRequerimiento'] : '';
-	$descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+  $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+  $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+  $SistemaProceso_idSistemaProceso = isset($_POST['sistema']) ? $_POST['sistema'] : '';
   $datetime = date_create()->format('Y-m-d H:i:s');
   $id_insert=0;
 
-  $indexReport= "SELECT * FROM reporte";
+  $indexReport= "SELECT * FROM reporte ORDER BY idReporte ASC";
   $resul = $mysqli->query($indexReport);
   while($row = $resul->fetch_assoc()){
-    $id_insert++;
+    $id_insert=$row['idReporte '];
   }
-    switch ($CategoriaReporte_idCategoriaReporte) {
-      case 1:
-          if ($TipoRequerimiento_idTipoRequerimiento==2) {
-            $solucionador=1;
-          }else {
-            $solucionador=2;
-          }
-          break;
-      case 2:
-          if ($TipoRequerimiento_idTipoRequerimiento==4) {
-            $solucionador=1;
-          }else {
-            $solucionador=4;
-          }
-          break;
-      case 3:
-          $solucionador=3;
-          break;
-      }
+
       require 'pages/querySolicitante.php';
 
-	$sql = "INSERT INTO reporte (idReporte, estatus, descripcion, evidencia, fEmision,  Solucionador_idSolucionador, Solicitante_idSolicitante,TipoRequerimiento_idTipoRequerimiento)
-                            VALUES ('$id_insert', '1', '$descripcion','files/', '$datetime', '$solucionador', '$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento')";
+	$sql = "INSERT INTO reporte(idReporte, estatus, descripcion, evidencia, Solucionador_idSolucionador, Solicitante_idSolicitante, TipoRequerimiento_idTipoRequerimiento, fEmision, SistemaProceso_idSistemaProceso, tipoSolucion_idtipoSolucion, Area_idArea)
+          VALUES ('$id_insert', 1,'$descripcion','files/','$solucionador','$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento','$datetime','$SistemaProceso_idSistemaProceso',1,'$Area_idArea')";
+echo $sql;
 $resultado = $mysqli->query($sql);
 $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
 							  $resultado = $mysqli->query($desc);
