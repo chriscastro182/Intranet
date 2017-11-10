@@ -111,7 +111,7 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                           </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <div class="row">
@@ -142,7 +142,7 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       <tr>
                                         <th>No. Ticket</th>
                                         <th>Descripción</th>
-                                        <th></th>
+                                        <th>Solución</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -152,11 +152,17 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                           <td><?php echo $idTicket;?></td>
                                           <td>
                                             <p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p>
-                                            <div class="row">
+                                          </td>
+                                          <td>
                                                 <form class="form-horizontal" action="cerrarTicket.php" method="post">
-                                                  <div class="form-group">
-                                                    <label for="Solucion">Solución:</label>
-                                                      <textarea class="form-control" name="Solucion" rows="3" ></textarea>
+                                                  <div class="row">
+                                                    <select name="soluValor">
+                                                      <?php $Qsolut = "SELECT * FROM tiposolucion";                      // Consulta de la tabla solucionador
+                                                              $resulSolut = $mysqli->query($Qsolut);                      // Respuesta del Query
+                                                              while ($solucionadores=$resulSolut->fetch_array(MYSQLI_ASSOC)) {   ?>
+                                                                <option value="<?php echo $solucionadores['idtipoSolucion']; ?>"><?php echo $solucionadores['nombreSolucion']; ?> </option>                                                             
+                                                            <?php  }  ?>                                                 
+                                                    </select>
                                                   </div>
                                                   <div class="row">
                                                     <input type="hidden" name="ticket" value="<?php echo $idTicket; ?>">
@@ -165,10 +171,9 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                                     </button>
                                                   </div>
                                                 </form>
-                                            </div>
                                           </td>
                                           <td>
-                                            <?php require 'pages/modalTicket.php'; ?>
+                                            <?php require 'pages/modalTicketTI.php'; ?>
                                             <span class="pull-left"></span>
 
                                               <div class="clearfix"></div>
@@ -183,7 +188,7 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                           </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-2 col-md-4">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
@@ -215,7 +220,6 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                       <tr>
                                         <th>No. Ticket</th>
                                         <th>Descripción</th>
-                                        <th>Solución</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -228,11 +232,11 @@ $idSolucionador= $rowSolucionador['idSolucionador']; // Consulta para obtener el
                                             <p type="button" data-toggle="modal" data-target="#<?php echo $idTicket;?>"><?php echo $ticketsA['descripcion']; ?></p>
                                             <?php require 'pages/modalTicket.php'; ?>
                                           </td>
-                                          <td>
+                                          <!-- <td>
                                             <div class="row">
-                                              <p><?php echo $ticketsA['solucion']; ?></p>
+                                              <p><?php // echo $ticketsA['solucion']; ?></p>
                                             </div>
-                                          </td>
+                                          </td> -->
                                             <span class="pull-left"></span>
                                             <div class="clearfix"></div>
                                           </td>

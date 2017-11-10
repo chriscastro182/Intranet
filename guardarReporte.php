@@ -6,24 +6,27 @@ if(!isset($_SESSION))
 	require 'includes/conexion.php';
   $solucionador=0;
 	$Area_idArea = isset($_POST['area']) ? $_POST['area'] : '';
-	$TipoRequerimiento_idTipoRequerimiento = isset($_POST['TipoRequerimiento_idTipoRequerimiento']) ? $_POST['TipoRequerimiento_idTipoRequerimiento'] : '';
+	$TipoRequerimiento_idTipoRequerimiento = 0;
   $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
-  $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+  $CategoriaReporte_idCategoriaReporte = isset($_POST['dirigido']) ? $_POST['dirigido'] : '';
   $SistemaProceso_idSistemaProceso = isset($_POST['sistema']) ? $_POST['sistema'] : '';
   $datetime = date_create()->format('Y-m-d H:i:s');
   $id_insert=0;
 
   $indexReport= "SELECT * FROM reporte ORDER BY idReporte ASC";
   $resul = $mysqli->query($indexReport);
-  while($row = $resul->fetch_assoc()){
-    $id_insert=$row['idReporte '];
+  if ($row = $resul->fetch_assoc()) {
+    while($row = $resul->fetch_assoc()){
+      $id_insert=$row['idReporte'];
+    }
+    $id_insert++;
   }
 
       require 'pages/querySolicitante.php';
 
 	$sql = "INSERT INTO reporte(idReporte, estatus, descripcion, evidencia, Solucionador_idSolucionador, Solicitante_idSolicitante, TipoRequerimiento_idTipoRequerimiento, fEmision, SistemaProceso_idSistemaProceso, tipoSolucion_idtipoSolucion, Area_idArea)
           VALUES ('$id_insert', 1,'$descripcion','files/','$solucionador','$idSolicitante', '$TipoRequerimiento_idTipoRequerimiento','$datetime','$SistemaProceso_idSistemaProceso',1,'$Area_idArea')";
-echo $sql;
+
 $resultado = $mysqli->query($sql);
 $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaReporte_idCategoriaReporte";
 							  $resultado = $mysqli->query($desc);
