@@ -1,7 +1,6 @@
 <?php
 require 'includes/conexion.php';
 require 'data/Encriptacion.php';
-
 $correo=$_POST['correo'];
 $contrasena=encryptAndEncode($_POST['contrasena']);
 

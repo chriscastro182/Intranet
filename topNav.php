@@ -205,7 +205,7 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
               <?php if(isset($_SESSION['Rol_idRol'])){
-                                echo '<li><a href="#"><i class="fa fa-address-card-o fa-fw"></i>'.$_SESSION['u_nombre'].'</a></li>';
+                                echo '<li><a href="perfil.php"><i class="fa fa-address-card-o fa-fw"></i>'.$_SESSION['u_nombre'].'</a></li>';
                                 echo '<li><a href="editPerfil.php"><i class="fa fa-gear fa-fw"></i> Configuración</a>
                                 </li>';
                                 echo '<li class="divider"></li>';

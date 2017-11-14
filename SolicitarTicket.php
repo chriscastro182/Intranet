@@ -28,8 +28,23 @@ $resulSist = $mysqli->query($sqlSist);
             <div class="row">
               <div class="col-lg-4">
                 <a href="MesaDeAyuda.php">
-                  <button type="button" class="btn btn-primary btn-block" name="button"><i class="fa fa-arrow-left" aria-hidden="true"></i>Volver a la Mesa de ayuda</button>
+                  <button type="button" class="btn btn-primary btn-block" name="button"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i> Volver a la Mesa de ayuda</button>
                 </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <button class="btn btn-danger btn-block" data-toggle="collapse" data-target="#demo"><i class="fa fa-question-circle-o fa-2x" aria-hidden="true"></i> ¿Cómo elegir la prioridad? <br> entre ALTA, MEDIA y BAJA?</button>
+                  <div id="demo" class="collapse">
+                    <div class="container ">
+                      <h4><strong>Prioridad:</strong></h4>
+                      <ul>
+                        <li><strong>Baja:</strong> Son problemas que deben ser resueltos en un lapso no mayor a 4 horas. </li>
+                        <li><strong>Media:</strong> Son problemas que deben ser resueltos en un lapso no mayor a 8 horas.</li>
+                        <li><strong>Alta:</strong> Son problemas de requerimiento mayor que serán resueltos en un lapso mayor a 8 horas.</li>
+                      </ul>
+                    </div>
+                  </div>
               </div>
             </div>
             <br>
@@ -51,7 +66,7 @@ $resulSist = $mysqli->query($sqlSist);
                     <div class="form-group">
                       <label for="dirigido" class="col-sm-3 control-label">Dirigido: </label>
                         <div class="col-sm-9">
-                          <select class="form-control" name="dirigido">
+                          <select class="form-control" id="dirigido" name="dirigido">
                             <?php while($rowsRepo = $resulRepo->fetch_array(MYSQLI_ASSOC)){ ?>
                                     <option value="<?php echo $rowsRepo['idCategoriaReporte']; ?>"><?php echo $rowsRepo['nombreCategoriaReporte']; ?></option>
                             <?php } ?>
@@ -59,7 +74,7 @@ $resulSist = $mysqli->query($sqlSist);
                         </div>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-3">
                     <div class="form-group">
                       <label for="sistema" class="col-sm-3 control-label">Sistema: </label>
                         <div class="col-sm-9">
@@ -98,7 +113,7 @@ $resulSist = $mysqli->query($sqlSist);
                       </div>
                   </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                   <label for="archivo" class="col-sm-3 control-label">Anexar pantalla:</label>
                     <div class="col-sm-8">
                       <div class="form-group">
@@ -108,10 +123,10 @@ $resulSist = $mysqli->query($sqlSist);
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                   <div class="form-group">
                     <label for="Descripcion">Descripción de falla o problema:</label>
-                    <textarea class="form-control" name="descripcion" rows="5" id="descripcion" ></textarea>
+                    <textarea class="form-control" name="descripcion" rows="5" id="descripcion" required></textarea>
                   </div>
                 </div>
                 <div class="col-sm-3">
@@ -124,11 +139,34 @@ $resulSist = $mysqli->query($sqlSist);
             </form>
           </div>
           <!-- fin del form nuevo -->
-
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <script type="text/javascript">
+    setTimeout("validaExaminar()", 10);
+      function validaExaminar(){
+        var indice = document.getElementById('numeroGuias');
+        var link = document.getElementById('des');
+        var x = document.getElementById('Consol');
+        var asociar= document.getElementById('asociar');
+
+          if (x) {
+            if (link.style.visibility === 'hidden') {
+            link.style.visibility = 'visible';
+            asociar.style.visibility = 'hidden';
+            if (indice==0) {
+              link.style.visibility = 'hidden';
+
+            }
+              } else {
+                  link.style.visibility = 'hidden';
+                  asociar.style.visibility = 'visible';
+              }
+          }
+
+      }
+    </script>
 </body>
 
 </html>

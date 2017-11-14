@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" target="_blank">
+                        <a href="archivoDigitalizacion.php" target="_blank">
                             <div class="panel-footer">
                                 <span class="pull-left">Vuelos previamente digitalizados</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
