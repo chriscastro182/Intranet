@@ -2,11 +2,10 @@
     require 'includes/conexion.php';
     require 'data/Encriptacion.php';
 
-    $valida = $_POST['oldPass'];
+    $idUsuario= $_POST['idUsuario'];
+    $valida = encryptAndEncode($_POST['oldPass']);
     $nomAlt = encryptAndEncode($_POST['newPass']);
     $nomAlt2 = encryptAndEncode($_POST['newPass2']);
-    $rh=3;
-// $rh=2;      //Descomentar cuando se vaya a registrar alguien de REcursos Humanos
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,58 +14,39 @@
   </head>
   <body>
     <?php
-    $checkpass=mysqli_query($mysqli,"SELECT * FROM usuario WHERE pass='$valida'");
-    $check_pass=mysqli_num_rows($checkpass);
+    $sql = "SELECT * FROM usuario WHERE pass='$valida'";
+    $checkpass=$mysqli->query($sql);
+    $check_pass = $checkpass->fetch_array(MYSQLI_ASSOC);
+    $stringPass=$check_pass['pass'];
     if($nomAlt==$nomAlt2){
-        if($check_mail!=0){
-            ?>
-            <div class="alert alert-danger">Atencion, ya existe el mail designado para un usuario, verifique sus datos
-                <button type="button" class="close" data-dismiss="alert"
-                    aria-hidden="true">
-                    &times;
-                </button>
-            </div>
-    <?php
-    }
-    else{
-      $idUsiario=0;
-      $sqlU= "SELECT * FROM   usuario";
-      $resul = $mysqli->query($sqlU);
-      while($rows = $resul->fetch_array(MYSQLI_ASSOC)){
-        $idUsiario++;
-      }
-        $sql ="INSERT INTO usuario (idUsuario,mail,pass,nombresU,apellidosU,Rol_idRol, Area_idArea)
-        VALUES ($idUsiario,'$correo','$nomAlt','$nombres', '$apellidos', '$rh', $area)";
-        $resultado = $mysqli->query($sql);
-      }
+        if($valida==$stringPass){
+          $sql ="UPDATE usuario SET pass='$nomAlt' WHERE pass = '$valida' AND idUsuario = '$idUsuario'";
+          $changePass=$mysqli->query($sql);
     }else {
-      echo '<div class"row" style="text-align:center">
-              <h3>Las contraseñas no coinciden</h3>
-            </div>';
-    }  ?>
-
+      echo '<div class="alert alert-danger">Las contraseñas no coinciden, intenta nuevamente.
+          <button type="button" class="close" data-dismiss="alert"
+              aria-hidden="true">
+              &times;
+          </button>
+      </div>';
+        }
+      }?>
     <div class="container">
-        <div class="row">
             <div class"row" style="text-align:center">
-                <?php
-                if($resultado) {
-                  $sql="SELECT * FROM solicitante";
-                  $resultado = $mysqli->query($sql);
-                  $idSoli=0;
-                    while($rowSoli = $resultado->fetch_array(MYSQLI_ASSOC)){
-                    $idSoli++;
-                    }
-                  $sql ="INSERT INTO solicitante (idSolicitante,Usuario_idUsuario,Usuario_Rol_idRol)
-                  VALUES ('$idSoli','$idUsiario','$rh')";
-                  $resultado = $mysqli->query($sql);
-                  ?>
-                <h3>Registro Guardado Exitosamente</h3>
-                <?php } else { echo $resultado;?>
-                <h3>Error al guardar</h3>
-                <a href="registro.php" class="btn btn-primary">Volver a intentar</a>
-                <?php } ?>
-                <a href="index.php" class="btn btn-primary">Regresar</a>
+              <?php if ($changePass): ?>
+                <h3>Contraseña modificada exitosamente</h3>
+                <div class="alert alert-success">Contraseña modificada con éxito.
+                    <button type="button" class="close" data-dismiss="alert"
+                        aria-hidden="true">
+                        &times;
+                    </button>
                 </div>
+              <?php else: ?>
+                <h3>Error al guardar</h3>
+                <a href="editPerfil.php" class="btn btn-primary">Volver a intentar</a>
+              <?php endif; ?>
+                <a href="cerrarSesion.php" class="btn btn-primary">Volver al incio e iniciar con tu nueva contraseña</a>
+            </div>
         </div>
   </body>
 </html>

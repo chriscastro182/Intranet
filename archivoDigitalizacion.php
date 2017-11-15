@@ -35,17 +35,19 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+
                       <?php $sql = "SELECT * FROM vuelodigitalizacion ORDER BY idVueloDigitalizacion ASC";
                       $vuelos=$mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
                       while ($rowVuelos = $vuelos->fetch_array(MYSQLI_ASSOC)) { ?>
+                      <tr>
                         <td><?php echo $rowVuelos['registroVD']; ?></td>
                         <td><?php echo $rowVuelos['nomVuelo']; ?></td>
                         <td><?php echo $rowVuelos['numGuias']; ?></td>
                         <td><a href="detalleVuelo.php?id=<?php echo $rowVuelos['idVueloDigitalizacion']; ?>">Ver a detalle</a></td>
                         <td><?php echo $rowVuelos['idVueloDigitalizacion']; ?></td>
+                      </tr>
                     <?php  } ?>
-                    </tr>
+
                   </tbody>
                 </table>
               </div>

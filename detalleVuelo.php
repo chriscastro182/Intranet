@@ -63,19 +63,23 @@ $validaEstatus="Vuelo Abierto";
                     <tr>
                       <?php require 'includes/conexionDigitalizacion.php';
                       $sql = "SELECT * FROM registrovd WHERE VueloDigitalizacion_idVueloDigitalizacion = '$id'";
+
                       $guias=$mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
                       while ($rowGuias = $guias->fetch_array(MYSQLI_ASSOC)) { $d=$rowGuias['descon']; ?>
+                      <tr>
                         <td><?php echo $rowGuias['guiaMaster']; ?></td>
                         <td><?php echo $rowGuias['guiaHouse']; ?></td>
                         <td><?php echo $rowGuias['descon']; ?></td>
-                    <?php if ($d) {
+                      </tr>
+                    <?php }
+                    if ($d) {
                         $sql = "SELECT * FROM registrodescon WHERE RegistroVD_idRegistroVD = '$id'";
                         $guias=$mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
                         while ($rowGuias = $guias->fetch_array(MYSQLI_ASSOC)) { $d=$rowGuias['descon']; ?>
                           <td><?php echo $rowGuias['guiaMaster']; ?></td>
                           <td><?php echo $rowGuias['guiaHouse']; ?></td>
-                          <td><?php echo $rowGuias['descon']; ?></td>  ?>
-                          }
+                          <td><?php echo $rowGuias['descon']; ?></td>
+                        <?php  }
                         } ?>
                     </tr>
                   </tbody>

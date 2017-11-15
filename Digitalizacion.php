@@ -69,7 +69,7 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
               $registro=$rowVD['registroVD'];
               $ingreso=$rowVD['fecha']; ?>
 
-                <div class="well well-md">
+                <div class="well well-md col-lg-10">
                   <div class="row">
                     <div class="col-lg-6">
                       <h3>Vuelo <?php echo $vuelo; ?> abierto</h3>
@@ -175,7 +175,6 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
                     <input type="text" id="Master" name="Master" class="form-control" value="" placeholder="Número de guía Master por desconsolidar:" required/>
                   </div>
                   <div class="col-sm-4">
-                    <input type="hidden" name="idVuelo" value="<?php echo $idRVD; ?>">
                     <input type="text" id="numHouse" name="numHouse" class="form-control" value="" placeholder="Total de Guías House por capturar:" required/>
                   </div>
                   <div class="col-sm-2">

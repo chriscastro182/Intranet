@@ -38,7 +38,9 @@ if(!isset($_SESSION))
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php if($resultado) {
-
+            echo "idRVD: ".$VueloDigitalizacion_idVueloDigitalizacion;
+            echo "idDescon: ".$idDescon;
+            echo "numHouse: ".$numHouse;
              header( 'Location: DigitalizacionDesconsol.php?idRVD='.$VueloDigitalizacion_idVueloDigitalizacion.'&idDescon='.$idDescon.'&numHouse='.$numHouse );?>
 						<h3>Documento Guardado</h3>
 						<?php  } else { ?>

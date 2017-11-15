@@ -46,6 +46,7 @@ if (isset($_GET['numHouse'])) {
   $Master=$rowCon['guiaMaster'];
 
   $registros= "SELECT * FROM registrodescon WHERE RegistroVD_idRegistroVD = '$RegistroVD_idRegistroVD'";
+  echo $registros;
   $regis = $mysqli->query($registros);
 ?>
 <!DOCTYPE html>
@@ -99,23 +100,29 @@ if (isset($_GET['numHouse'])) {
                           </tr>
                         </thead>
                         <tbody>
-                              <?php if ($regis) {
-                                while ($rowRD = $regis->fetch_array(MYSQLI_ASSOC))  { ?>
+                        <?php if ($regis) { $hideCierre='hidden="hidden"';
+                          while ($rowRD = $regis->fetch_array(MYSQLI_ASSOC))  { ?>
+                            <tr>
+                              <td><?php echo $indiceGuiaH; ?></td>
+                              <td><?php echo $Master; ?></td>
+                              <td><?php echo $rowRD['guiaHouse']; ?></td>
+                              <?php  }
+                              $indiceGuiaH--; ?>
                               <tr>
                                 <td><?php echo $indiceGuiaH; ?></td>
                                 <td><?php echo $Master; ?></td>
-                                <td><?php echo $rowRD['guiaHouse']; ?></td>
-                                <?php  } $indiceGuiaH--; ?>
+                                <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" value="" required/></td>
                               </tr>
-                            <?php if ($indiceGuiaH<1) { ?>
-                                      <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                      </tr>
-                                  <?php  }
-                                    } else{ $hideCierre='hidden="hidden"'; ?>
+                            </tr>
+                          <?php if ($indiceGuiaH==0) { ?>
+                                    <tr>
+                                      <td></td>
+                                      <td></td>
+                                      <td></td>
+                                      <td></td>
+                                    </tr>
+                                  <?php  } ?>
+                          <?php  } else{ $hideCierre='hidden="hidden"'; ?>
                                       <tr>
                                         <td><?php echo $indiceGuiaH; ?></td>
                                         <td><?php echo $Master; ?></td>

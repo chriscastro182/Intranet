@@ -50,11 +50,12 @@
                   <div class="panel-body">
                     <form class="form-horizontal" action="updatePass.php" method="post">
                       <div class="col-lg-8">
-                        <input class="form-control" type="text" name="oldPass" value="" placeholder="Ingrese contraseña anterior.">
+                        <input class="form-control" type="password" name="oldPass" value="" placeholder="Ingrese contraseña anterior.">
                         <br>
-                        <input class="form-control" type="text" name="newPass" value="" placeholder="Ingrese nueva contraseña.">
+                        <input class="form-control" type="password" name="newPass" value="" placeholder="Ingrese nueva contraseña.">
                         <br>
-                        <input class="form-control" type="text" name="newPass2" value="" placeholder="Ingrese nueva contraseña una vez más.">
+                        <input class="form-control" type="password" name="newPass2" value="" placeholder="Ingrese nueva contraseña una vez más.">
+                        <input type="hidden" name="idUsuario" value="<?php echo $idUsuario; ?>">
                       </div>
                       <div class="col-lg-4">
                         <br>
@@ -62,7 +63,7 @@
                         <br>
                         <br>
                         <br>
-                          <button type="button" class="btn btn-lg btn-primary " name="button">Cambiar contraseña</button>
+                          <button type="submit" class="btn btn-lg btn-primary" name="button">Cambiar contraseña</button>
                       </div>
                     </form>
                   </div>

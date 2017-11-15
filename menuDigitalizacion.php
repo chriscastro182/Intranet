@@ -5,7 +5,6 @@
     require('includes/conexion.php');
     require('head.php'); ?>
 </head>
-
 <body>
     <div id="wrapper">
         <!-- Navigation -->
