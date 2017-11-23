@@ -21,6 +21,13 @@
                   <img src="images/BannerDigitalizacion.png" class="page-header" width="100%">
               </div>
           </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <a href="menuDigitalizacion.php">
+                <button type="button" class="btn btn-primary btn-block" name="button"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i> Menú de digitalización</button>
+              </a>
+            </div>
+          </div>
             <!-- /.row -->
             <div class="row">
               <div class="col-lg-9">

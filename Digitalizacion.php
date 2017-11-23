@@ -199,29 +199,26 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
     </div>
     <!-- /#wrapper -->
   <script type="text/javascript">
-  setTimeout("validaExaminar()", 10);
+  setTimeout("validaExaminar()", 5);
     function validaExaminar(){
       var indice = document.getElementById('numeroGuias');
       var link = document.getElementById('des');
       var x = document.getElementById('Consol');
       var asociar= document.getElementById('asociar');
-
+      if (indice==0) {
+        link.style.visibility = 'hidden';
+        asociar.style.visibility = 'visible';
+      }
         if (x) {
           if (link.style.visibility === 'hidden') {
           link.style.visibility = 'visible';
           asociar.style.visibility = 'hidden';
-          if (indice==0) {
-            link.style.visibility = 'hidden';
-
-          }
             } else {
                 link.style.visibility = 'hidden';
                 asociar.style.visibility = 'visible';
             }
         }
-
     }
-
   </script>
 </body>
 

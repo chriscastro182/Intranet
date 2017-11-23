@@ -1,7 +1,5 @@
 <?php
 $id = $_GET['id'];
-echo $id;
-
 require 'includes/conexionDigitalizacion.php';
 $sql = "SELECT * FROM vuelodigitalizacion WHERE idVueloDigitalizacion = '$id'";
 $vuelos=$mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
@@ -33,7 +31,14 @@ $validaEstatus="Vuelo Abierto";
                   <img src="images/BannerDigitalizacion.png" class="page-header" width="100%">
               </div>
           </div>
-            <div class="col-lg-8">
+          <div class="row">
+            <div class="col-lg-4">
+              <a href="archivoDigitalizacion.php">
+                <button type="button" class="btn btn-primary btn-block" name="button"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>Archivo de digitalización</button>
+              </a>
+            </div>
+          </div>
+            <div class="col-lg-12">
               <div class="well well-sm">
                 <div class="row">
                   <div class="col-lg-6">
@@ -49,44 +54,40 @@ $validaEstatus="Vuelo Abierto";
             </div>
             <!-- /.row -->
             <div class="row">
-              <div class="col-lg-10">
+              <div class="col-lg-12">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>Guía Master</th>
                       <th>Guía House</th>
                       <th>Consolidada</th>
-                      <th>Editar</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <?php require 'includes/conexionDigitalizacion.php';
+                    <?php require 'includes/conexionDigitalizacion.php';
                       $sql = "SELECT * FROM registrovd WHERE VueloDigitalizacion_idVueloDigitalizacion = '$id'";
-
                       $guias=$mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
-                      while ($rowGuias = $guias->fetch_array(MYSQLI_ASSOC)) { $d=$rowGuias['descon']; ?>
+                      while ($rowGuias = $guias->fetch_array(MYSQLI_ASSOC)) {
+                        $d=$rowGuias['descon'];  ?>
                       <tr>
                         <td><?php echo $rowGuias['guiaMaster']; ?></td>
-                        <td><?php echo $rowGuias['guiaHouse']; ?></td>
-                        <td><?php echo $rowGuias['descon']; ?></td>
-                      </tr>
-                    <?php }
-                    if ($d) {
-                        $sql = "SELECT * FROM registrodescon WHERE RegistroVD_idRegistroVD = '$id'";
-                        $guias=$mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
-                        while ($rowGuias = $guias->fetch_array(MYSQLI_ASSOC)) { $d=$rowGuias['descon']; ?>
-                          <td><?php echo $rowGuias['guiaMaster']; ?></td>
-                          <td><?php echo $rowGuias['guiaHouse']; ?></td>
-                          <td><?php echo $rowGuias['descon']; ?></td>
+                        <?php  if ($d) {
+                          $idMaster= $rowGuias['idRegistroVD']; ?>
+                            <td>
+                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?php echo $idMaster; ?>">Detalles</button>
+                              <?php require 'pages\modalDesconoslidadas.php'; ?>
+                            </td>
+                          <td><?php echo "Desconsolidado"; ?></td>
                         <?php  }
-                        } ?>
-                    </tr>
+                       else { ?>
+                        <td><?php echo $rowGuias['guiaHouse']; ?></td>
+                        <td>Consolidado</td>
+                    <?php  } ?>
+
+                      </tr>
+                    <?php  }  ?>
                   </tbody>
                 </table>
-              </div>
-              <div class="col-lg-2">
-                <button type="button" class="btn btn-primary btn-block" name="button">Imprimir</button>
               </div>
             </div>
         </div>
