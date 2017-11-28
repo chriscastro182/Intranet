@@ -128,7 +128,10 @@
                             $visibilidad="";
                           endif; ?>
                     <div class="col-lg-2">
-                      <?php echo $row['fechaPost']; ?>
+                      <?php $date = $row['fechaPost'];
+                      $phpdate = strtotime( $date );
+                      $mysqldate = date( 'd/m/Y g:i A', $phpdate );
+                      echo $mysqldate ?>
                     </div>
                     <div class="col-lg-10">
                       <ul>
