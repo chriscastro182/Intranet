@@ -13,8 +13,9 @@ if(!isset($_SESSION))
   $indexReport= "SELECT * FROM post";
   $resul = $mysqli->query($indexReport);
   while($row = $resul->fetch_assoc()){
-    $id_insert++;
+    $id_insert=$row['idPost'];
   }
+  $id_insert++;
   $sql = "INSERT INTO post (idPost, tituloPost, contenidoPost, fechaPost, imagenPost)
                       VALUES ('$id_insert', '$titulo', '$contenido', '$datetime','post/')";
 	$resultado = $mysqli->query($sql);
