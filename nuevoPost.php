@@ -48,7 +48,7 @@ if (isset($_SESSION['Rol_idRol'])!=2 || isset($_SESSION['Rol_idRol'])!=1) {
                   <div class="col-sm-3">
                     <div class="form-group">
                       <label for="archivo" class="col-sm-1 control-label">Anexar foto:</label>
-                      <input type="file" class="form-control" id="archivo" name="archivo" accept="image/*">
+                      <input type="file" class="form-control" id="archivo" name="archivo" accept="application/pdf,image/*">
                     </div>
                     <input type="submit"class="btn-lg btn-success btn-block" name="botonlg" value="Publicar" />
                   </div>
@@ -60,5 +60,4 @@ if (isset($_SESSION['Rol_idRol'])!=2 || isset($_SESSION['Rol_idRol'])!=1) {
     </div>
     <!-- /#wrapper -->
 </body>
-
 </html>

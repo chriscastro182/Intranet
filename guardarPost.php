@@ -21,7 +21,6 @@ if(!isset($_SESSION))
 	if($_FILES["archivo"]["error"]>0){
 		echo "Error al cargar archivo";
 		} else {
-
 		$permitidos = array("image/jpg","image/png","application/pdf", "image/jpeg");
 		$limite_kb = 20024;
 

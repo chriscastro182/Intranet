@@ -117,7 +117,7 @@ $resulSist = $mysqli->query($sqlSist);
                   <label for="archivo" class="col-sm-3 control-label">Anexar pantalla:</label>
                     <div class="col-sm-8">
                       <div class="form-group">
-                        <input type="file" class="form-control" id="archivo" name="archivo" accept="image/*">
+                        <input type="file" class="form-control" id="archivo" name="archivo" accept="application/pdf,image/*">
                       </div>
                     </div>
                 </div>
