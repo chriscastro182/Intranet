@@ -26,7 +26,7 @@
                      <ul class="nav nav-second-level">
 
                          <li>
-                             <a href="#"><i class="fa fa-birthday-cake fa-fw"></i>Cumpleaños</a>  
+                             <a href="#"><i class="fa fa-birthday-cake fa-fw"></i>Cumpleaños</a>
 
                          </li>
                          <li>
@@ -201,6 +201,24 @@
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-users fa-fw"></i> Redes sociales<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <a href="https://www.facebook.com/InterpuertoMMx/" target="_blank">
+                      <div class="panel-footer">
+                          <i class="fa fa-facebook-official fa-fw"></i>
+                          <span class="pull-left">Facebook</span>
+                          <div class="clearfix"></div>
+                      </div>
+                    <a href="https://twitter.com/interpuerto" target="_blank">
+                      <div class="panel-footer">
+                          <i class="fa fa-twitter fa-fw"></i>
+                          <span class="pull-left">Twitter</span>
+                          <div class="clearfix"></div>
+                      </div>
+                  </a>
+                </ul>
             </li>
         </ul>
     </div>

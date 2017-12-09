@@ -67,28 +67,20 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-cloud fa-5x"></i>
+                                    <i class="fa fa-exchange  fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">R</div>
-                                    <div>Redes sociales</div>
+                                    <div class="huge">T</div>
+                                    <div>Transferencias</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="https://www.facebook.com/InterpuertoMMx/" target="_blank">
-                            <div class="panel-footer">
-                                <i class="fa fa-facebook-official fa-fw"></i>
-                                <span class="pull-left">Facebook</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                          <a href="https://twitter.com/interpuerto" target="_blank">
-                            <div class="panel-footer">
-                                <i class="fa fa-twitter fa-fw"></i>
-                                <span class="pull-left">Twitter</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
+                        <a href="menuTransferencia.php">
+                          <div class="panel-footer">
+                              <span class="pull-left">Solicitar una transferencia</span>
+                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                              <div class="clearfix"></div>
+                          </div>
                         </a>
                     </div>
                 </div>

@@ -1,0 +1,1 @@
+INSERT INTO `condiciondecarga` (`idCondicion`, `condicion`) VALUES ('1', 'En buen estado'), ('2', 'Empaque aplastado'), ('3', 'Empaque humedo'), ('4', 'Con faltante'), ('5', 'RefrigeraciÃ³n'), ('6', 'Empaque roto'), ('7', 'Cinta diferente');
