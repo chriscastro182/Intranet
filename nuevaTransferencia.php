@@ -7,7 +7,7 @@ if(!isset($_SESSION))
 if (isset($_SESSION['Rol_idRol'])!=2 || isset($_SESSION['Rol_idRol'])!=1) {
   header("Location:login.php");
 }
-$sqlC= "SELECT * FROM   condiciondecarga";
+$sqlC= "SELECT * FROM condiciondecarga";
 $resul = $mysqli->query($sqlC);
 
 ?>
@@ -65,25 +65,25 @@ $resul = $mysqli->query($sqlC);
                         <div class="col-sm-4 col-md-4 col-xs-4">
                           <div class="form-group"> <!-- Costo de transferencia -->
                         		<label class="control-label requiredField " for="costo">Costo de transferencia</label>
-                        		<input class="form-control " id="costo" name="costo" type="text"/>
+                        		<input class="form-control " id="costo" name="costo" type="text" required/>
                         	</div>
                         </div>
                         <div class="col-sm-2 col-md-2 col-xs-2">
                           <div class="form-group"> <!-- Peso -->
                         		<label class="control-label" for="subject">Peso: </label>
-                        		<input class="form-control" id="peso" name="peso" type="number"/>
+                        		<input class="form-control" id="peso" name="peso" type="text" required/>
                         	</div>
                         </div>
                         <div class="col-sm-2 col-md-2 col-xs-2">
                           <div class="form-group"> <!-- Piezas -->
                         		<label class="control-label" for="Piezas">Piezas: </label>
-                        		<input class="form-control" id="Piezas" name="Piezas" type="number"/>
+                        		<input class="form-control" id="Piezas" name="Piezas" type="number" required/>
                         	</div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-xs-4">
                           <div class="form-group"> <!-- Piezas -->
                         		<label class="control-label" for="fEntrada">Fecha de entrada: </label>
-                        		<input class="form-control" id="fEntrada" name="fEntrada" type="date"/>
+                        		<input class="form-control" id="fEntrada" name="fEntrada" type="date" required/>
                         	</div>
                         </div>
                       </div>
@@ -103,23 +103,23 @@ $resul = $mysqli->query($sqlC);
                         </div>
                         <div class="col-sm-6 col-md-6 col-xs-6">
                           <!-- aquí iría el registro -->
-                          <div class="form-group"> <!-- Registro -->
+                          <!-- <div class="form-group">  
                         		<label class="control-label " for="Registro">Registro:</label>
-                            <input class="form-control" id="Registro" placeholder="0001" name="Registro" type="text"/>
-                        	</div>
+                            <input class="form-control" id="Registro" placeholder="0001" name="Registro" type="text" required/>
+                        	</div> -->
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-sm-5 col-md-5 col-xs-5">
                           <div class="form-group"> <!-- Contenido -->
                         		<label class="col-sm-5 col-md-5 col-xs-5 control-label " for="Contenido">Contenido:</label>
-                            <input class="form-control" id="Contenido" placeholder="Por ejemplo: Consol" name="Contenido" type="text"/>
+                            <input class="form-control" id="Contenido" placeholder="Por ejemplo: Consol" name="Contenido" type="text" required/>
                         	</div>
                         </div>
                         <div class="col-sm-7 col-md-7 col-xs-7">
                           <div class="form-group"> <!-- Consignatario -->
                         		<label class="col-sm-4 col-md-4 col-xs-4 control-label " for="Consignatario">Consignatario: </label>
-                            <input class="form-control" id="Consignatario" placeholder="Nombre del consignatario" name="Consignatario" type="text"/>
+                            <input class="form-control" id="Consignatario" placeholder="Nombre del consignatario" name="Consignatario" type="text" required/>
                         	</div>
                         </div>
                       </div>
@@ -127,10 +127,7 @@ $resul = $mysqli->query($sqlC);
                         <div class="col-md-7">
                           <div class="form-group"> <!-- La mercancía se transfiere a -->
                             <label class=" control-label" for="transfiere">La mercancía se transfiere a solicitud escrita de: </label>
-                            <!-- <div class="col-sm-8 col-md-8 col-xs-8">
-
-                            </div> -->
-                            <input class="form-control" id="transfiere" placeholder="Por ejemplo: SCHENKER" name="transfiere" type="text"/>
+                            <input class="form-control" id="transfiere" placeholder="Por ejemplo: SCHENKER" name="transfiere" type="text" required/>
                           </div>
                         </div>
                         <div class="col-md-5">
@@ -138,7 +135,7 @@ $resul = $mysqli->query($sqlC);
                             <label class=" control-label" for="responsable">Responsable del almacén que entrega: </label>
                             <!-- <div class="col-sm-8 col-md-8 col-xs-8">
                             </div> -->
-                            <input class="form-control" id="responsable" placeholder="Por ejemplo: Juan Pérez" name="responsable" type="text"/>
+                            <input class="form-control" id="responsable" placeholder="Por ejemplo: Juan Pérez" name="responsable" type="text" required/>
                           </div>
                         </div>
                       </div>
@@ -146,14 +143,14 @@ $resul = $mysqli->query($sqlC);
                         <div class="col-md-5">
                           <div class="form-group">
                             <label for="correo">Correo electrónico de solicitud de transferencia: </label>
-                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Escriba el correo electrónico">
+                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Escriba el correo electrónico" required>
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="archivo" class="control-label">Anexar foto de gafete:</label>
                             <div class="col-sm-10">
-                              <input type="file" class=" form-control" id="archivo" name="archivo" accept="application/pdf,image/*">
+                              <input type="file" class=" form-control" id="archivo" name="archivo" accept="application/pdf,image/*" required>
                             </div>
                           </div>
                         </div>
@@ -173,13 +170,13 @@ $resul = $mysqli->query($sqlC);
                         <div class="col-sm-5 col-md-5 col-xs-5">
                           <div class="form-group"> <!-- pesoBascula -->
                         		<label class="control-label " for="pesoBascula">Peso báscula almacén:</label>
-                            <input class="form-control" id="pesoBascula" placeholder="0.00 KG" name="pesoBascula" type="text"/>
+                            <input class="form-control" id="pesoBascula" placeholder="0.00 KG" name="pesoBascula" type="text" required/>
                           </div>
                         </div>
                         <div class="col-sm-7 col-md-7 col-xs-7">
                           <div class="form-group"> <!-- Ubicación -->
                         		<label class="col-sm-4 col-md-4 col-xs-4 control-label " for="Ubicacion">Ubicación: </label>
-                            <input class="form-control" id="Ubicacion" placeholder="Posición en el almacén (RACK)" name="Ubicacion" type="text"/>
+                            <input class="form-control" id="Ubicacion" placeholder="Posición en el almacén (RACK)" name="Ubicacion" type="text" required/>
                         	</div>
                         </div>
                       </div>

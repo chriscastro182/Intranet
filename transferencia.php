@@ -7,7 +7,14 @@ if(!isset($_SESSION))
 if (isset($_SESSION['Rol_idRol'])!=2 || isset($_SESSION['Rol_idRol'])!=1) {
   header("Location:login.php");
 }
-$sqlTrans="SELECT * FROM transferencias where idTransferencia = 1";
+$guias = isset($_POST['guias']) ? $_POST['guias'] : '';
+$registro = isset($_POST['registro']) ? $_POST['registro'] : 0;
+if ($registro!=0) {
+  $sqlTrans="SELECT * FROM transferencias where idTransferencia = $registro";
+}else {
+  $sqlTrans="SELECT * FROM transferencias where guiaMaster = $guias ";
+}
+
 $resulTrans = $mysqli->query($sqlTrans);
 $rowTrans = $resulTrans->fetch_assoc();
  $rowTrans['idTransferencia'];
@@ -174,7 +181,7 @@ $resul = $mysqli->query($sqlC);
                     <label for="">Peso báscula de almacen: <u> <?php echo $rowTrans['pesobascula']; ?> Kg.</u></label>
                   </div>
                   <div class="col-sm-6 col-md-6 col-lg-6">
-                    <label for="">Ubicación en el almacén: <u> RSack <?php echo $rowTrans['ubicacion']; ?> </u></label>
+                    <label for="">Ubicación en el almacén: <u> Rack <?php echo $rowTrans['ubicacion']; ?> </u></label>
                   </div>
                 </div>
               <div class="panel-footer">
