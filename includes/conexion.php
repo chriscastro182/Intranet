@@ -7,4 +7,5 @@ $mysqli= new mysqli($servidor,$usuario,$contrasenha,$db);
 if($mysqli->connect_error){
     die('Error en la conexion'.$mysqli->connect_error);
 }
+date_default_timezone_set('America/Mexico_City');
  ?>

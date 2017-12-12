@@ -24,13 +24,13 @@ $resul = $mysqli->query($sqlC);
         <div id="page-wrapper">
           <div class="container">
             <div class="row">
-              <div class="col-lg-3">
-                <img src="images/IMMlogo.png" class="page-header" width="100%">
+              <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">
+                <img src="images/IMMlogo.png" class="page-header" width="50%">
               </div>
-              <div class="col-lg-9">
+              <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5">
                 <br>
                 <br>
-                <h1>Nueva transferencia de carga entre almacenes:</h1>
+                <h3>Nueva transferencia de carga entre almacenes:</h3>
               </div>
             </div>
             <div class="row">
@@ -40,7 +40,7 @@ $resul = $mysqli->query($sqlC);
                     <h3 class="panel-title">Captura de datos</h3>
                   </div>
                   <div class="panel-body">
-                    <form class="form-horizontal" enctype="multipart/form-data" action="#" method="post" autocomplete="off">
+                    <form class="form-horizontal" enctype="multipart/form-data" action="guardarTransferencia.php" method="post" autocomplete="off">
                       <div class="row">
                         <div class="col-sm-4">
                           <div class="form-group"> <!-- Guía master -->
@@ -54,21 +54,27 @@ $resul = $mysqli->query($sqlC);
                         		<input class="form-control" id="house" name="house" type="number"/>
                         	</div>
                         </div>
-                        <div class="col-sm-4">
-                          <div class="form-group"> <!-- Guía house -->
-                        		<label class="control-label requiredField " for="costo">Costo de transferencia<span class="asteriskField">*</span></label>
-                        		<input class="form-control " id="costo" name="house" type="number"/>
+                        <div class="col-sm-4 col-md-4 col-xs-4">
+                          <div class="form-group"> <!-- Guía directa -->
+                        		<label class="control-label" for="directa">Guía directa: </label>
+                        		<input class="form-control" id="directa" name="directa" type="number"/>
                         	</div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-sm-4 col-md-4 col-xs-4">
+                          <div class="form-group"> <!-- Costo de transferencia -->
+                        		<label class="control-label requiredField " for="costo">Costo de transferencia</label>
+                        		<input class="form-control " id="costo" name="costo" type="text"/>
+                        	</div>
+                        </div>
+                        <div class="col-sm-2 col-md-2 col-xs-2">
                           <div class="form-group"> <!-- Peso -->
                         		<label class="control-label" for="subject">Peso: </label>
                         		<input class="form-control" id="peso" name="peso" type="number"/>
                         	</div>
                         </div>
-                        <div class="col-sm-4 col-md-4 col-xs-4">
+                        <div class="col-sm-2 col-md-2 col-xs-2">
                           <div class="form-group"> <!-- Piezas -->
                         		<label class="control-label" for="Piezas">Piezas: </label>
                         		<input class="form-control" id="Piezas" name="Piezas" type="number"/>
@@ -85,47 +91,40 @@ $resul = $mysqli->query($sqlC);
                       <div class="row">
                         <div class="col-sm-6 col-md-6 col-xs-6">
                           <div class="form-group"> <!-- Condiciones -->
-                        		<label class="control-label " for="message">Condiciones en que se recibe la mercancía:</label>
-                            <div class="col-md-10 col-sm-10 col-lg-10">
-                              <select class="form-control col-sm-6 col-md-6 col-xs-6" id="sel1">
+                        		<label class="control-label" for="condiciones">Condiciones en que se recibe la mercancía:</label>
+                            <div class="col-md-11 col-sm-11 col-lg-11">
+                              <select class="form-control " id="condiciones" name="condiciones">
                                 <?php while($rowsCond = $resul->fetch_array(MYSQLI_ASSOC)){
-                                  echo '<option>'.$rowsCond['condicion'].'</option>';
+                                  echo '<option value="'.$rowsCond['idCondicion'].'">'.$rowsCond['condicion'].'</option>';
                                 } ?>
                               </select>
                             </div>
                           </div>
                         </div>
                         <div class="col-sm-6 col-md-6 col-xs-6">
-                          <div class="form-group">
-                            <label for="archivo" class="control-label">Anexar foto de gafete:</label>
-                            <div class="col-sm-10">
-                              <input type="file" class=" form-control" id="archivo" name="archivo" accept="application/pdf,image/*">
-                            </div>
-                          </div>
+                          <!-- aquí iría el registro -->
+                          <div class="form-group"> <!-- Registro -->
+                        		<label class="control-label " for="Registro">Registro:</label>
+                            <input class="form-control" id="Registro" placeholder="0001" name="Registro" type="text"/>
+                        	</div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-sm-5 col-md-5 col-xs-5">
                           <div class="form-group"> <!-- Contenido -->
                         		<label class="col-sm-5 col-md-5 col-xs-5 control-label " for="Contenido">Contenido:</label>
-                            <!-- <div class="col-sm-7 col-md-7 col-xs-7">
-
-                            </div> -->
                             <input class="form-control" id="Contenido" placeholder="Por ejemplo: Consol" name="Contenido" type="text"/>
                         	</div>
                         </div>
                         <div class="col-sm-7 col-md-7 col-xs-7">
                           <div class="form-group"> <!-- Consignatario -->
                         		<label class="col-sm-4 col-md-4 col-xs-4 control-label " for="Consignatario">Consignatario: </label>
-                            <!-- <div class="col-sm-8 col-md-8 col-xs-8">
-
-                            </div> -->
                             <input class="form-control" id="Consignatario" placeholder="Nombre del consignatario" name="Consignatario" type="text"/>
                         	</div>
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-10">
+                        <div class="col-md-7">
                           <div class="form-group"> <!-- La mercancía se transfiere a -->
                             <label class=" control-label" for="transfiere">La mercancía se transfiere a solicitud escrita de: </label>
                             <!-- <div class="col-sm-8 col-md-8 col-xs-8">
@@ -134,22 +133,38 @@ $resul = $mysqli->query($sqlC);
                             <input class="form-control" id="transfiere" placeholder="Por ejemplo: SCHENKER" name="transfiere" type="text"/>
                           </div>
                         </div>
+                        <div class="col-md-5">
+                          <div class="form-group"> <!-- Responsable del almacén que entrega: -->
+                            <label class=" control-label" for="responsable">Responsable del almacén que entrega: </label>
+                            <!-- <div class="col-sm-8 col-md-8 col-xs-8">
+                            </div> -->
+                            <input class="form-control" id="responsable" placeholder="Por ejemplo: Juan Pérez" name="responsable" type="text"/>
+                          </div>
+                        </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-5">
                           <div class="form-group">
-                            <label for="correo">Correo electrónico: </label>
-                            <input type="email" class="form-control" id="" placeholder="Escriba el correo electrónico">
+                            <label for="correo">Correo electrónico de solicitud de transferencia: </label>
+                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Escriba el correo electrónico">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label class="col-md-6 control-label " for="transfiere"> Avería: </label>
+                            <label for="archivo" class="control-label">Anexar foto de gafete:</label>
+                            <div class="col-sm-10">
+                              <input type="file" class=" form-control" id="archivo" name="archivo" accept="application/pdf,image/*">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label class="control-label " for="averia"> Avería: </label>
                             <label class="radio-inline">
-                                <input type="radio" name="optradio">Si
+                                <input type="radio" name="averia" value="1">Si
                               </label>
                               <label class="radio-inline">
-                                <input type="radio" name="optradio">No
+                                <input type="radio" name="averia" value="0">No
                               </label>
                           </div>
                         </div>
@@ -163,8 +178,8 @@ $resul = $mysqli->query($sqlC);
                         </div>
                         <div class="col-sm-7 col-md-7 col-xs-7">
                           <div class="form-group"> <!-- Ubicación -->
-                        		<label class="col-sm-4 col-md-4 col-xs-4 control-label " for="Ubicación">Ubicación: </label>
-                            <input class="form-control" id="Ubicación" placeholder="Posición en el almacén (RACK)" name="Ubicación" type="text"/>
+                        		<label class="col-sm-4 col-md-4 col-xs-4 control-label " for="Ubicacion">Ubicación: </label>
+                            <input class="form-control" id="Ubicacion" placeholder="Posición en el almacén (RACK)" name="Ubicacion" type="text"/>
                         	</div>
                         </div>
                       </div>
