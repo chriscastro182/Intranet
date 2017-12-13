@@ -33,11 +33,12 @@
     }
     else{
       $idUsiario=0;
-      $sqlU= "SELECT * FROM   usuario";
+      $sqlU= "SELECT * FROM usuario";
       $resul = $mysqli->query($sqlU);
       while($rows = $resul->fetch_array(MYSQLI_ASSOC)){
-        $idUsiario++;
+        $idUsiario=$rows['idUsuario'];
       }
+      $idUsiario++;
         $sql ="INSERT INTO usuario (idUsuario,mail,pass,nombresU,apellidosU,Rol_idRol, Area_idArea)
         VALUES ($idUsiario,'$correo','$nomAlt','$nombres', '$apellidos', '$rh', $area)";
         $resultado = $mysqli->query($sql);
@@ -47,7 +48,7 @@
               <h3>Las contraseñas no coinciden</h3>
             </div>';
     }  ?>
-    
+
     <div class="container">
         <div class="row">
             <div class"row" style="text-align:center">
