@@ -37,7 +37,7 @@ $desc="SELECT * FROM categoriareporte WHERE idCategoriaReporte = $CategoriaRepor
 								$headers =  'MIME-Version: 1.0' . "\r\n";
 								$headers .= 'From: '.$nombreUsr.'<'.$correoUsr.'>' . "\r\n";
 								$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-								$envio=mail('soporte.sistemas@braniff.com',$asunto, $descripcion, $headers);
+								$envio=mail('soporte.imm@interpuerto.com',$asunto, $descripcion, $headers);
 								if ($envio) {
 								  echo '<div class="alert alert-success">
 										  <strong>Mensaje enviado!</strong> Revisa el estatus del ticket para dar seguimiento al mismo.
