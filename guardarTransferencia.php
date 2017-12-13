@@ -37,7 +37,7 @@ if(!isset($_SESSION))
   $sql="INSERT INTO transferencias (idTransferencia, guiaMaster, guiaHouse, registro, costotransferencia, peso, guiaDirecta, averia, setransfiere, fecha, piezas, consignatario, contenido, ubicacion, pesobascula, observaciones, fechaentrada, almacenqueentrega, correo, gafete, fk_condiciondecarga)
                               VALUES ('$id_insert','$master','$house','$Registro','$costo','$peso','$directa','$averia',
                                 '$transfiere','$fecha','$Piezas','$Consignatario','$Contenido','$Ubicacion','$pesoBascula','$Observaciones','$fEntrada','$responsable','$correo','gafetes/', $condiciones)";
-echo $sql;
+
   $resultado = $mysqli->query($sql);
 	if($_FILES["archivo"]["error"]>0){
 		echo "Error al cargar archivo";
@@ -81,14 +81,14 @@ echo $sql;
 	<head>
 		<?php require ('head.php'); ?>
 	</head>
-
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php if($resultado) { ?>
 						<h3>Publicación guardada Satisfactoriamente</h3>
-						<?php } else { ?>
+						<?php echo "<script>location.href='menuTransferencia.php'</script>";
+           } else { ?>
 						<h3>Error al guardar la publicación</h3>
 					<?php } ?>
 					<a href="menuTransferencia.php" class="btn btn-primary">Regresar</a>
