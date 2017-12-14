@@ -87,11 +87,11 @@ if(!isset($_SESSION))
 				<div class="row" style="text-align:center">
 					<?php if($resultado) { ?>
 						<h3>Publicación guardada Satisfactoriamente</h3>
-						<?php echo "<script>location.href='menuTransferencia.php'</script>";
+						<?php echo "<script>location.href='transferencia.php?id='.$id_insert.'</script>";
            } else { ?>
 						<h3>Error al guardar la publicación</h3>
 					<?php } ?>
-					<a href="menuTransferencia.php" class="btn btn-primary">Regresar</a>
+					<a href="transferencia.php?id=<?php echo $id_insert; ?>"  class="btn btn-primary">Regresar</a>
 				</div>
 			</div>
 		</div>

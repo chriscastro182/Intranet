@@ -1,5 +1,6 @@
 <?php
 require 'includes/conexion.php';
+
 if(!isset($_SESSION))
     {
         session_start();
@@ -9,6 +10,7 @@ if (isset($_SESSION['Rol_idRol'])!=2 || isset($_SESSION['Rol_idRol'])!=1) {
 }
 $guias = isset($_POST['guias']) ? $_POST['guias'] : '';
 $registro = isset($_POST['registro']) ? $_POST['registro'] : 0;
+$registro = $_GET['id'];
 if ($registro!=0) {
   $sqlTrans="SELECT * FROM transferencias where idTransferencia = $registro";
 }else {
@@ -73,11 +75,11 @@ $resul = $mysqli->query($sqlC);
                           <label for="titulo">Guía house: <u><?php echo  $rowTrans['guiaHouse']; ?></u></label>
                         </div>
                       </div>
-                      <div class="col-sm-3">
+                      <!-- <div class="col-sm-3">
                         <div class="form-group">
-                          <label for="titulo">Registro: <u><?php echo  $rowTrans['registro']; ?></u></label>
+                          <label for="titulo">Registro: <u></u></label>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="col-sm-3">
                         <div class="form-group">
                           <label for="titulo">Fecha de entrada: <u><?php echo  $rowTrans['fechaentrada']; ?></u></label>

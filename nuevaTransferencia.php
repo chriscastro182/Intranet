@@ -9,7 +9,7 @@ if (isset($_SESSION['Rol_idRol'])!=2 || isset($_SESSION['Rol_idRol'])!=1) {
 }
 $sqlC= "SELECT * FROM condiciondecarga";
 $resul = $mysqli->query($sqlC);
-
+$min= date_create()->format('Y-m-d');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -88,9 +88,9 @@ $resul = $mysqli->query($sqlC);
                         	</div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-xs-4">
-                          <div class="form-group"> <!-- Piezas -->
+                          <div class="form-group"> <!-- Fecha de entrada -->
                         		<label class="control-label" for="fEntrada">Fecha de entrada: </label>
-                        		<input class="form-control" id="fEntrada" name="fEntrada" type="date" required/>
+                        		<input class="form-control" id="fEntrada" name="fEntrada" type="date" min="<?php echo $min; ?>" required/>
                         	</div>
                         </div>
                       </div>
