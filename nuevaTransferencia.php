@@ -110,10 +110,10 @@ $min= date_create()->format('Y-m-d');
                         </div>
                         <div class="col-sm-6 col-md-6 col-xs-6">
                           <!-- aquí iría el registro -->
-                          <!-- <div class="form-group">
-                        		<label class="control-label " for="Registro">Registro:</label>
-                            <input class="form-control" id="Registro" placeholder="0001" name="Registro" type="text" required/>
-                        	</div> -->
+                          <div class="form-group">
+                        		<label class="control-label " for="valorMercancia">Valor de Mercancía:</label>
+                            <input class="form-control" id="valorMercancia" placeholder="$ 0.00 " name="valorMercancia" type="text" required/>
+                        	</div>
                         </div>
                       </div>
                       <div class="row">

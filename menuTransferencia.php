@@ -61,7 +61,7 @@
                                     <label for="guia">Búsqueda por guía master</label>
                                   </div>
                                   <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="guias" name="guias" placeholder="guía master o house o directa" >
+                                    <input type="text" class="form-control" id="guias" name="guias" placeholder="Escribe la guía master por buscar" >
                                   </div>
                                 </div>
                                 <div class="form-group">

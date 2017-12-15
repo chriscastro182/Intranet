@@ -4,9 +4,12 @@ if(!isset($_SESSION))
         session_start();
     }
 	require 'includes/conexion.php';
+  //
+  // date_default_timezone_set('America/Mexico_City');
+
   $master = isset($_POST['master']) ? $_POST['master'] : '';
   $house = isset($_POST['house']) ? $_POST['house'] : '';
-  $Registro = isset($_POST['Registro']) ? $_POST['Registro'] : '';
+  $valorMercancia = isset($_POST['valorMercancia']) ? $_POST['valorMercancia'] : '';
   $directa = isset($_POST['directa']) ? $_POST['directa'] : 'NULL';
   $costo = isset($_POST['costo']) ? $_POST['costo'] : '';
   $peso = isset($_POST['peso']) ? $_POST['peso'] : '';
@@ -34,8 +37,8 @@ if(!isset($_SESSION))
   }
 
   $id_insert++;
-  $sql="INSERT INTO transferencias (idTransferencia, guiaMaster, guiaHouse, registro, costotransferencia, peso, guiaDirecta, averia, setransfiere, fecha, piezas, consignatario, contenido, ubicacion, pesobascula, observaciones, fechaentrada, almacenqueentrega, correo, gafete, fk_condiciondecarga)
-                              VALUES ('$id_insert','$master','$house','$Registro','$costo','$peso','$directa','$averia',
+  $sql="INSERT INTO transferencias (idTransferencia, guiaMaster, guiaHouse, valorMercancia, costotransferencia, peso, guiaDirecta, averia, setransfiere, fecha, piezas, consignatario, contenido, ubicacion, pesobascula, observaciones, fechaentrada, almacenqueentrega, correo, gafete, fk_condiciondecarga)
+                              VALUES ('$id_insert','$master','$house','$valorMercancia','$costo','$peso','$directa','$averia',
                                 '$transfiere','$fecha','$Piezas','$Consignatario','$Contenido','$Ubicacion','$pesoBascula','$Observaciones','$fEntrada','$responsable','$correo','gafetes/', $condiciones)";
 
   $resultado = $mysqli->query($sql);
@@ -61,20 +64,17 @@ if(!isset($_SESSION))
           $sql= "UPDATE transferencias SET gafete = '$archivo' WHERE idTransferencia = $id_insert";
           $resultado = $mysqli->query($sql);
 					} else {
-					echo "Error al guardar archivo";
-				}
-
+					       echo "Error al guardar archivo";
+				    }
 				} else {
 				echo "Archivo ya existe";
 			}
 
 			} else {
-
 			echo "Archivo no permitido o excede el tamaño";
 		}
 
 	}
-
 ?>
 
 <html lang="es">
@@ -85,7 +85,8 @@ if(!isset($_SESSION))
 		<div class="container">
 			<div class="row">
 				<div class="row" style="text-align:center">
-					<?php if($resultado) { ?>
+					<?php
+          if($resultado) { ?>
 						<h3>Publicación guardada Satisfactoriamente</h3>
 						<?php echo "<script>location.href='transferencia.php?id='.$id_insert.'</script>";
            } else { ?>

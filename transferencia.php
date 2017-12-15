@@ -8,9 +8,13 @@ if(!isset($_SESSION))
 if (isset($_SESSION['Rol_idRol'])!=2 || isset($_SESSION['Rol_idRol'])!=1) {
   header("Location:login.php");
 }
+$registro = isset($_GET['id']) ? $_GET['id'] : 0;
+if (!$registro) {
+  $registro = isset($_POST['registro']) ? $_POST['registro'] : 0;
+}
 $guias = isset($_POST['guias']) ? $_POST['guias'] : '';
-$registro = isset($_POST['registro']) ? $_POST['registro'] : 0;
-$registro = $_GET['id'];
+
+
 if ($registro!=0) {
   $sqlTrans="SELECT * FROM transferencias where idTransferencia = $registro";
 }else {
@@ -20,6 +24,12 @@ if ($registro!=0) {
 $resulTrans = $mysqli->query($sqlTrans);
 $rowTrans = $resulTrans->fetch_assoc();
  $rowTrans['idTransferencia'];
+
+ $objEntrada=new DateTime($rowTrans['fechaentrada']);
+ $fechaEntrada = date_format($objEntrada, 'd-m-Y');
+
+ $fecha = new DateTime($rowTrans['fecha']);
+$hora = date_format($fecha, 'H:i:s');
 
 $sqlC= "SELECT * FROM condiciondecarga";
 $resul = $mysqli->query($sqlC);
@@ -35,6 +45,7 @@ $resul = $mysqli->query($sqlC);
         <?php //require('nav.php'); ?>
         <!-- Navigation -->
         <div  id="page-wrapper">
+          <a href="menuTransferencia.php">Atrás</a>
             <div class="row ">
                 <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">
                     <img src="images/IMMlogo.png" class="page-header" width="50%">
@@ -53,10 +64,10 @@ $resul = $mysqli->query($sqlC);
               <div class="panel-body">
                 <div class="row ">
                     <div class="col-sm-6 col-md-6 col-lg-6">
-                      <h4>Fecha: <u><?php echo  $rowTrans['fecha']; ?></u></h4>
+                      <h4>Fecha: <u><?php echo date_format($fecha, 'd-m-Y');  ?></u></h4>
                     </div>
                     <div class="col-sm-3 col-md-3 col-lg-3">
-                      <h4>Hora: <u>18:01:54</u></h4>
+                      <h4>Hora: <u><?php echo $hora; ?></u></h4>
                     </div>
                     <div class="col-sm-3 col-md-3 col-lg-3">
                       <h4>Folio: <u><?php echo  $rowTrans['idTransferencia']; ?></u></h4>
@@ -75,14 +86,14 @@ $resul = $mysqli->query($sqlC);
                           <label for="titulo">Guía house: <u><?php echo  $rowTrans['guiaHouse']; ?></u></label>
                         </div>
                       </div>
-                      <!-- <div class="col-sm-3">
-                        <div class="form-group">
-                          <label for="titulo">Registro: <u></u></label>
-                        </div>
-                      </div> -->
                       <div class="col-sm-3">
                         <div class="form-group">
-                          <label for="titulo">Fecha de entrada: <u><?php echo  $rowTrans['fechaentrada']; ?></u></label>
+                          <label for="valorMercancia">Valor de la mercancía: <u>$ <?php echo  $rowTrans['valorMercancia']; ?></u></label>
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label for="titulo">Fecha de entrada: <u><?php echo  $fechaEntrada; ?></u></label>
                         </div>
                       </div>
                     </div>
@@ -104,7 +115,7 @@ $resul = $mysqli->query($sqlC);
                       </div>
                       <div class="col-sm-2">
                         <div class="form-group">
-                          <label for="titulo">Peso:  <u><?php echo  $rowTrans['peso']; ?></u></label>
+                          <label for="Peso">Peso:  <u><?php echo  $rowTrans['peso']; ?> kg.</u></label>
                         </div>
                       </div>
                     </div>
@@ -119,7 +130,6 @@ $resul = $mysqli->query($sqlC);
                           <div class="col-sm-6">
                             <label for=""><u><?php echo  $rowTrans['setransfiere']; ?></u></label>
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -179,10 +189,13 @@ $resul = $mysqli->query($sqlC);
                     </div>
                   </div>
                 <div class="row">
-                  <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="col-sm-4 col-md-4 col-lg-4">
                     <label for="">Peso báscula de almacen: <u> <?php echo $rowTrans['pesobascula']; ?> Kg.</u></label>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="col-sm-4 col-md-4 col-lg-4">
+                    <label for="">Correo electrónico del solicitante: <u>  <?php echo $rowTrans['correo']; ?> </u></label>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4">
                     <label for="">Ubicación en el almacén: <u> Rack <?php echo $rowTrans['ubicacion']; ?> </u></label>
                   </div>
                 </div>
@@ -208,7 +221,7 @@ $resul = $mysqli->query($sqlC);
                   <h4>Firma</h4>
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4">
-                  <label for="">Almacén que entrega</label>
+                  <label for="">Almacén que recibe: IMM</label>
                   <br>
                   <br>
                   <br>
