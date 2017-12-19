@@ -87,7 +87,7 @@ if(!isset($_SESSION))
 				<div class="row" style="text-align:center">
 					<?php
           if($resultado) {
-            $descripcion= 'Prueba de solicitud de guía'
+            $descripcion= 'Prueba de solicitud de guía';
             $asunto='Solicitud de transferencia';
             $headers =  'MIME-Version: 1.0' . "\r\n";
             $headers .= 'From: Interpuerto Multimodal de México <omar.chavez@interpuerto.com>' . "\r\n";
