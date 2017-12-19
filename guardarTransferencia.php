@@ -86,7 +86,19 @@ if(!isset($_SESSION))
 			<div class="row">
 				<div class="row" style="text-align:center">
 					<?php
-          if($resultado) { ?>
+          if($resultado) {
+            $descripcion= 'Prueba de solicitud de guía'
+            $asunto='Solicitud de transferencia';
+            $headers =  'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'From: Interpuerto Multimodal de México <omar.chavez@interpuerto.com>' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $envio=mail($correo,$asunto, $descripcion, $headers);
+            if ($envio) {
+              echo '<div class="alert alert-success">
+                  <strong>Mensaje enviado!</strong> Revisa el estatus del ticket para dar seguimiento al mismo.
+                </div>';
+            }
+            ?>
 						<h3>Publicación guardada Satisfactoriamente</h3>
 						<?php echo "<script>location.href='transferencia.php?id='.$id_insert.'</script>";
            } else { ?>
