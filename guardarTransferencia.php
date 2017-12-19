@@ -90,7 +90,7 @@ if(!isset($_SESSION))
             $guiaMaster='Guía Master número: '.$master;
             $guiaHouse='Guía House número: '.$house;
             $guiaDirecta='Guía Directa número: '.$directa;
-            $descripcion= 'Solicitud de transferencia de IMM con '$guiaMaster.' '.$guiaHouse.' '.$guiaDirecta;
+            $descripcion= 'Solicitud de transferencia de IMM con '.$guiaMaster.' '.$guiaHouse.' '.$guiaDirecta;
             $asunto='Solicitud de transferencia';
             $headers =  'MIME-Version: 1.0' . "\r\n";
             $headers .= 'From: Interpuerto Multimodal de México <omar.chavez@interpuerto.com>' . "\r\n";
