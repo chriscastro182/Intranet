@@ -59,7 +59,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
           </div>
           <!-- row -->
           <div class="row">
-            <div class="col-sm-11 col-md-11 col-lg-11">
+            <div class="col-sm-10">
               <form  class="form-horizontal" method="POST" action="guardar.php">
                   <!-- Aquí van los campos -->
                     <table class="table table-bordered table-condensed">
@@ -101,14 +101,14 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                       </tbody>
                     </table>
                   </div>
-              <div class="col-sm-1 col-md-1 col-lg-1">
-                <button class="btn  btn-primary " type="submit">  Calcular y <br> <i class="fa fa-floppy-o "></i> guardar</button>
+              <div class="col-sm-2">
+                <button class="btn  btn-primary btn-block" type="submit"> <i class="fa fa-floppy-o fa-2x"></i> Calcular y <br> guardar</button>
               </div>
             </form>
           </div>
           <!-- row -->
           <div class="row" <?php echo $mostrar; ?>>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-10">
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -145,13 +145,11 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                         <?php } ?>
                     </tbody>
                   </table>
-                  <a href="informeExcel.php?oficio=<?php echo $valor; ?>" class="btn btn-success btn-block" type="button" name="excel"><i class="fa fa-file-excel-o fa-2x"></i> Descargar informe en EXCEL</a>
-
               </div>
+            <div class="col-sm-2">
+              <a href="informeExcel.php?oficio=<?php echo $valor; ?>" class="btn btn-success btn-block" type="button" name="excel"><i class="fa fa-file-excel-o fa-2x"></i> Descargar <br> informe en EXCEL</a>
+            </div>
           </div>
-          <footer>
-              <p>Cálculo de abandono</p>
-            </footer>
         </div>
       </div>
   </body>
