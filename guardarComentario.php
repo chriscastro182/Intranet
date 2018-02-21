@@ -13,8 +13,10 @@ if(!isset($_SESSION))
   $indexReport= "SELECT * FROM comentario";
   $resul = $mysqli->query($indexReport);
   while($row = $resul->fetch_assoc()){
-    $id_insert++;
+    $id_insert=$row['idcomentario'];
   }
+  $id_insert++;
+  
   $sql = "INSERT INTO comentario (idcomentario, comentario, fechaComentario, Usuario_idUsuario, Post_idPost)
                       VALUES ('$id_insert', '$comentario', '$datetime', '$idUsuario', $idPost)";
 	$resultado = $mysqli->query($sql); ?>

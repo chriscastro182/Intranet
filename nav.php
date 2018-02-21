@@ -102,16 +102,21 @@
                 <ul class="nav nav-second-level">
 
                     <li>
-                        <a href="http://10.181.131.97:8081/login.aspx?ReturnUrl=%2f" target="_blank">Control de inventarios</a>
+                        <a href="http://10.181.131.97:8081/login.aspx?ReturnUrl=%2f" target="_blank"><i class="fa fa-list-ul" aria-hidden="true"> Control de inventarios</i></a>
                     </li>
                     <li>
-                        <a href="https://webservice.aaadam.com.mx/Formatos/" target="_blank">Servicio de Gafetes</a>
+                        <a href="https://webservice.aaadam.com.mx/Formatos/" target="_blank"><i class="fa fa-user-circle" aria-hidden="true"> Servicio de Gafetes</i></a>
                     </li>
                     <li>
-                        <a href="https://go.reachcore.com/portal" target="_blank">Consulta de Facturas</a>
+                        <a href="https://go.reachcore.com/portal" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"> Consulta de Facturas</i></a>
                     </li>
                     <li>
-                        <a href="#">Correos <span class="fa arrow"></span></a>
+                      <a href="descargas/mesadeserviciosat.pdf" download="mesadeserviciosat.pdf">
+                        <i class="fa fa-download fa-fw"></i>Mesa de servicios SAT</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-envelope" aria-hidden="true"> Correos </i>
+                          <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                           <li>
                               <a href="https://login.microsoftonline.com/" target="_blank">Correo Braniff</a>
@@ -122,7 +127,47 @@
                         </ul>
                         <!-- /.nav-third-level -->
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-file-pdf-o"> Reglas Generales C.E. 2018</i>
+                          <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                          <li>
+                            <a href="descargas/ReglasDeComercio/RGCE - DOF 2018.pdf" download="RGCE - DOF 2018.pdf">
+                              <i class="fa fa-download fa-fw"></i>RGCE-DOF</a>
+                          </li>
+                          <li>
+                            <a href="descargas/ReglasDeComercio/ANEXO 1_REGLAS Generales de Comercio Exterior para 2018..pdf" download="Anexo1.pdf">
+                              <i class="fa fa-download fa-fw"></i>Anexo 1</a>
+                          </li>
+                          <li>
+                            <a href="descargas/ReglasDeComercio/ANEXO 2_REGLAS Generales de Comercio Exterior para 2018..pdf" download="Anexo1.pdf">
+                              <i class="fa fa-download fa-fw"></i>Anexo 2</a>
+                          </li>
+                          <li>
+                            <a href="descargas/ReglasDeComercio/ANEXO 3_REGLAS Generales de Comercio Exterior para 2018..pdf" download="Anexo1.pdf">
+                              <i class="fa fa-download fa-fw"></i>Anexo 3</a>
+                          </li>
+                          <li>
+                            <a href="descargas/ReglasDeComercio/ANEXO 4_REGLAS Generales de Comercio Exterior para 2018..pdf" download="Anexo1.pdf">
+                              <i class="fa fa-download fa-fw"></i>Anexo 4</a>
+                          </li>
+                          <li>
+                            <a href="descargas/ReglasDeComercio/ANEXO 5_REGLAS Generales de Comercio Exterior para 2018..pdf" download="Anexo1.pdf">
+                              <i class="fa fa-download fa-fw"></i>Anexo 5</a>
+                          </li>
+                          <li>
+                            <a href="descargas/ReglasDeComercio/ANEXO 6_REGLAS Generales de Comercio Exterior para 2018..pdf" download="Anexo1.pdf">
+                              <i class="fa fa-download fa-fw"></i>Anexo 6</a>
+                          </li>
+                          <li>
+                            <a href="descargas/ReglasDeComercio/ANEXO 7_REGLAS Generales de Comercio Exterior para 2018..pdf" download="Anexo1.pdf">
+                              <i class="fa fa-download fa-fw"></i>Anexo 7</a>
+                          </li>
+                        </ul>
+                        <!-- /.nav-third-level -->
+                    </li>
                 </ul>
+
                 <!-- /.nav-second-level -->
             </li>
 
