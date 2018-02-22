@@ -8,3 +8,5 @@ INSERT INTO `usuario` (`idUsuario`, `mail`, `pass`, `nombresU`, `apellidosU`, `f
 (6, 'teresa.fuentes@braniff.com', '2cfoOan4iAEavar/VOw2mg==', 'Teresa ', 'Fuentes ', NULL, 3, 10),
 (7, 'fernando.gonzalez@braniff.com', 'eveCqJt1BcADFS6Id8xsLg==', 'fernando', 'gonzalez', NULL, 3, 4),
 (8, 'recursos.humanos@interpuerto.com', '9l99CGyma6PB4l7S+1pIXg==', 'RH', 'Recursos Humanos', NULL, 2, 2)
+​INSERT INTO `usuario` (`idUsuario`, `mail`, `pass`, `nombresU`, `apellidosU`, `fNacimiento`, `Rol_idRol`, `Area_idArea`) VALUES 
+(12, 'rocio.juarez@interpuerto.com', 'eveCqJt1BcADFS6Id8xsLg==', 'Rocio', 'JuÃ¡rez', NULL, 2, 2);
