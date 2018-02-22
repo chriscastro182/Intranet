@@ -20,7 +20,7 @@
 <link href="vendor/morrisjs/morris.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="vendor/font-awesome/on-server/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
 
 <!-- jQuery -->
 <script src="vendor/jquery/jquery.min.js"></script>
@@ -39,6 +39,9 @@
 <!-- Custom Theme JavaScript -->
 <script src="dist/js/sb-admin-2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script defer src="vendor/font-awesome/svg-with-js/js/fontawesome-all.js"></script>
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

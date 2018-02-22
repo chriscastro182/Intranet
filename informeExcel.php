@@ -4,7 +4,7 @@ if (!isset($_GET['oficio'])) {
   $_GET['oficio']=0;
 }
 $valor = $_GET['oficio'];
-$query = "SELECT * FROM registroabandono WHERE oficioAduana = $valor ";
+$query = "SELECT * FROM registroabandono WHERE Oficio_idOficio = $valor ";
 $resultado = $mysqli->query($query);
 
 if ($resultado->num_rows >0) {
@@ -26,7 +26,7 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
     ->setCategory("Reporte excel"); //Categorias
 
   $tituloReporte = "Reporte de mercancía en abandono";
-  $titulosColumnas = array('Consecutivo', 'Fecha de ingreso', 'Guia Master', 'Guia House', 'Piezas', 'Peso', 'Descripcion', 'Oficio de Aduana', 'Fecha de salida','Dias totales', 'Estatus', 'Derechos', 'Tipo de mercancía');
+  $titulosColumnas = array('Expediente', 'Clave única', 'Fecha de ingreso', 'Guia Master', 'Guia House', 'Piezas', 'Peso', 'Descripcion', 'Fecha de salida','Dias totales', 'Estatus', 'Derechos', 'Tipo de mercancía');
 
   // Se combinan las celdas A1 hasta D1, para colocar ahí el titulo del reporte
   $objPHPExcel->setActiveSheetIndex(0)
@@ -53,14 +53,14 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
        $i = 4; //Numero de fila donde se va a comenzar a rellenar
        while ($fila = $resultado->fetch_array()) {
            $objPHPExcel->setActiveSheetIndex(0)
-               ->setCellValue('A'.$i, $fila['idRegistroAbandono'])
-               ->setCellValue('B'.$i, $fila['f_ingreso'])
-               ->setCellValue('C'.$i, $fila['guiaMaster'])
-               ->setCellValue('D'.$i, $fila['guiaHouse'])
-               ->setCellValue('E'.$i, $fila['piezas'])
-               ->setCellValue('F'.$i, $fila['peso'])
-               ->setCellValue('G'.$i, $fila['descripcion'])
-               ->setCellValue('H'.$i, $fila['oficioAduana'])
+               ->setCellValue('A'.$i, $fila['expediente'])
+               ->setCellValue('B'.$i, $fila['claveUnica'])
+               ->setCellValue('C'.$i, $fila['f_ingreso'])
+               ->setCellValue('D'.$i, $fila['guiaMaster'])
+               ->setCellValue('E'.$i, $fila['guiaHouse'])
+               ->setCellValue('F'.$i, $fila['piezas'])
+               ->setCellValue('G'.$i, $fila['peso'])
+               ->setCellValue('H'.$i, $fila['descripcion'])
                ->setCellValue('I'.$i, $fila['f_salida'])
                ->setCellValue('J'.$i, $fila['diasTotales'])
                ->setCellValue('K'.$i, $fila['estatus'])
