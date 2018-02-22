@@ -1,9 +1,5 @@
 <?php
 require("includes/conexion.php");
-$mostrar="";
-if (!isset($_GET['id'])) {
-  $mostrar="hidden";
-}
 
 $valor = $_GET['id'];
 if(!isset($_SESSION))
@@ -25,6 +21,14 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
 
             $sqlRegistro = "SELECT * FROM registroabandono WHERE Oficio_idOficio = '$valor'";
             $resultadoRegistro = $mysqli->query($sqlRegistro);
+
+            $row_cnt = mysqli_num_rows($resultadoRegistro);
+            if ($row_cnt) {
+              $mostrar="";
+              echo "entró el puto if de que no está vacío el objeto >:V";
+            }else {
+              $mostrar="hidden";
+            }
         }
           ?>
       <div id="wrapper">
@@ -36,7 +40,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
             </div>
 
           </div>
-          <div class="row" <?php echo $mostrar; ?>>
+          <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                   <table class="table table-striped">
                     <thead>
