@@ -1,23 +1,23 @@
 <?php
 require("includes/conexion.php");
 
-
 $ingreso="";
 $salida="";
 
+$expediente = $_POST['expediente'];
+$claveUnica = $_POST['claveUnica'];
 $ingreso = isset($_POST['ingreso']) ? $_POST['ingreso'] : '';
 $guiaMaster = $_POST['guiaMaster'];
 $guiaHouse = $_POST['guiaHouse'];
 $piezas = $_POST['piezas'];
 $peso = isset($_POST['peso']) ? $_POST['peso'] : '';
 $descripcion = $_POST['descripcion'];
-$oficioAduana = $_POST['oficioAduana'];
 $salida = isset($_POST['salida']) ? $_POST['salida'] : '';
 $diasTotales = isset($_POST['diasTotales']) ? $_POST['diasTotales'] : '';
 $estatus = $_POST['estatus'];
 $derechos = 0;
 $excepcion = isset($_POST['excepcion']) ? $_POST['excepcion'] : '';
-
+$idOficio = $_POST['idOficio'];
 function diffDias(){
   $fUno=strtotime($ingreso=isset($_POST['ingreso']) ? $_POST['ingreso'] : '');
   $fDos=strtotime($salida=isset($_POST['salida']) ? $_POST['salida'] : '');
@@ -55,10 +55,11 @@ function calcTarifa(){
     return 36.20;
   }
 }
-$sql = "INSERT INTO registroabandono (f_ingreso, guiaMaster, guiaHouse, piezas, peso, descripcion, oficioAduana, f_salida, diasTotales, estatus, derechos, excepcion)
-                        VALUES ('$ingreso','$guiaMaster','$guiaHouse','$piezas','$peso','$descripcion','$oficioAduana','$salida','$diasTotales','$estatus','$derechos','$excepcion')";
+$sql = "INSERT INTO registroabandono (expediente, claveUnica, f_ingreso, guiaMaster, guiaHouse, piezas, peso, descripcion,f_salida, diasTotales, estatus, derechos, excepcion, Oficio_idOficio)
+                        VALUES ('$expediente', '$claveUnica','$ingreso','$guiaMaster','$guiaHouse','$piezas','$peso','$descripcion','$salida','$diasTotales','$estatus','$derechos','$excepcion','$idOficio')";
 
 $resultado = $mysqli->query($sql);
+
 ?>
 
 <html lang="es">
@@ -70,7 +71,7 @@ $resultado = $mysqli->query($sql);
         <?php if($resultado) {?>
           <script type="text/javascript">MensajeExito()</script>
           <div id="snackbar">Registro Guardado Exitosamente</div>
-          <?php header( 'Location: abandono.php?oficioAduana='.$oficioAduana.'' );
+          <?php header( 'Location: oficio.php?id='.$idOficio.'' );
         } else { ?>
             <h3>ERROR AL GUARDAR</h3>
           <?php } ?>

@@ -23,7 +23,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-file-text fa-5x"></i>
+                                    <i class="fa fa-file fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">D</div>
@@ -45,7 +45,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-money fa-5x"></i>
+                                    <i class="far fa-money-bill-alt fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">A</div>
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="abandono.php" target="_blank">
+                        <a href="menuAbandono.php" target="_blank">
                             <div class="panel-footer">
                                 <span class="pull-left">Realizar un cálculo</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -67,7 +67,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-exchange  fa-5x"></i>
+                                    <i class="fas fa-exchange-alt  fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">T</div>

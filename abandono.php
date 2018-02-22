@@ -1,12 +1,11 @@
 <?php
 require("includes/conexion.php");
 $mostrar="";
-if (!isset($_GET['oficioAduana'])) {
-  $_GET['oficioAduana']=0;
+if (!isset($_GET['id'])) {
   $mostrar="hidden";
 }
 
-$valor = $_GET['oficioAduana'];
+$id = $_GET['id'];
 if(!isset($_SESSION))
     {
         session_start();
@@ -20,12 +19,9 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
   <body>
     <?php
       require("includes/conexion.php");
-        if(!empty($valor)){
-          $oficioAduana = $valor;
-          if(!empty($valor)){
-            $sql = "SELECT * FROM registroabandono WHERE oficioAduana = '$oficioAduana'";
+        if(!empty($id)){
+            $sql = "SELECT * FROM registroabandono WHERE Oficio_idOficio = '$id'";
             $resultado = $mysqli->query($sql);
-          }
         }
           ?>
       <div id="wrapper">
@@ -59,19 +55,19 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
           </div>
           <!-- row -->
           <div class="row">
-            <div class="col-sm-10">
               <form  class="form-horizontal" method="POST" action="guardar.php">
-                  <!-- Aquí van los campos -->
-                    <table class="table table-bordered table-condensed">
+                <!-- Aquí van los campos -->
+                <table class="table table-bordered table-condensed">
                       <thead>
                         <tr>
+                          <th>Expediente</th>
+                          <th>Clave única</th>
                           <th>Fecha de <br> Ingreso</th>
                           <th>GuíaMaster</th>
                           <th>GuíaHouse</th>
                           <th>Piezas</th>
                           <th>Peso</th>
                           <th>Descripcion</th>
-                          <th>Oficio de Aduana</th>
                           <th>Fecha de <br> Salida</th>
                           <th>Estatus</th>
                           <th>Tipo de mercancía</th>
@@ -79,13 +75,14 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                       </thead>
                       <tbody>
                           <tr>
+                             <td><input type="text" id="expediente" name="expediente" class="form-control" required/></td>
+                             <td><input type="text" id="claveUnica" name="claveUnica" class="form-control" required/></td>
                              <td><input type="date" id="ingreso" name="ingreso" class="form-control" required/></td>
                              <td><input type="text" id="guiaMaster" name="guiaMaster" class="form-control" required/></td>
                              <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" required/></td>
                              <td><input type="number" id="piezas" name="piezas"class="form-control" min="1" required/></td>
-                             <td><input type="number" name="peso" class="form-control" id="peso" min="1" max="100000" required></td>
+                             <td><input type="text" name="peso" class="form-control" id="peso" min="1" max="100000" required></td>
                              <td><input type="text" id="descripcion" name="descripcion" class="form-control"/></td>
-                             <td><input type="text" id="oficioAduana" name="oficioAduana" class="form-control"/></td>
                              <td><input type="date" id="salida" name="salida"  class="form-control" required/></td>
                              <td><select class="form-control" id="estatus" name="estatus">
                                   <option value="Inactivo">Inactivo</option>
@@ -100,25 +97,26 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                           </tr>
                       </tbody>
                     </table>
-                  </div>
-              <div class="col-sm-2">
-                <button class="btn  btn-primary btn-block" type="submit"> <i class="fa fa-floppy-o fa-2x"></i> Calcular y <br> guardar</button>
-              </div>
-            </form>
           </div>
+          <div class="col-sm-3 col-md-3 col-lg-3 pull-right">
+            <button class="btn  btn-primary btn-lg" type="submit"><i class="far fa-save "></i>  Calcular y guardar</button>
+            <input type="hidden" name="idOficio" value="<?php echo $id ?>">
+          </div>
+            </form>
           <!-- row -->
           <div class="row" <?php echo $mostrar; ?>>
-            <div class="col-sm-10">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                   <table class="table table-striped">
                     <thead>
                       <tr>
+                        <th>Expediente</th>
+                        <th>Clave única</th>
                         <th>Fecha de Ingreso</th>
                         <th>Guía Master</th>
                         <th>Guía <br>House</th>
                         <th>Piezas</th>
                         <th>Peso</th>
                         <th>Descripcion</th>
-                        <th>Oficio de Aduana</th>
                         <th>Fecha de Salida</th>
                         <th>Total de días</th>
                         <th>Estatus</th>
@@ -129,13 +127,14 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                     <tbody>
                   <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
                         <tr>
+                          <td><?php echo $row['expediente']; ?></td>
+                          <td><?php echo $row['claveUnica']; ?></td>
                           <td><?php echo $row['f_ingreso']; ?></td>
                           <td><?php echo $row['guiaMaster']; ?></td>
                           <td><?php echo $row['guiaHouse']; ?></td>
                           <td><?php echo $row['piezas']; ?></td>
                           <td><?php echo $row['peso']; ?></td>
                           <td><?php echo $row['descripcion']; ?></td>
-                          <td><?php echo $row['oficioAduana']; ?></td>
                           <td><?php echo $row['f_salida']; ?></td>
                           <td><?php echo $row['diasTotales']; ?></td>
                           <td><?php echo $row['estatus']; ?></td>
@@ -145,11 +144,12 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                         <?php } ?>
                     </tbody>
                   </table>
+                  <a href="informeExcel.php?oficio=<?php echo $id; ?>" class="btn btn-success btn-block" type="button" name="excel"><i class="far fa-file-excel fa-2x"></i> Descargar informe en EXCEL</a>
               </div>
-            <div class="col-sm-2">
-              <a href="informeExcel.php?oficio=<?php echo $valor; ?>" class="btn btn-success btn-block" type="button" name="excel"><i class="fa fa-file-excel-o fa-2x"></i> Descargar <br> informe en EXCEL</a>
-            </div>
           </div>
+          <footer>
+              <p>Cálculo de abandono</p>
+            </footer>
         </div>
       </div>
   </body>

@@ -23,7 +23,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-exchange fa-5x"></i>
+                                    <i class="fas fa-exchange-alt fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">Nueva</div>
@@ -45,7 +45,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-file-pdf-o fa-5x"></i>
+                                    <i class="fas fa-file-pdf fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">Consultar</div>

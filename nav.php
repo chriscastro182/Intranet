@@ -22,7 +22,7 @@
              if(isset($_SESSION['Rol_idRol'])) {
                if(($_SESSION['Rol_idRol'])==2) { ?>
                  <li>
-                     <a href="#"><i class="fa fa-desktop fa-fw"></i> Recursos H.<span class="fa arrow"></span></a>
+                     <a href="#"><i class="fa fa-desktop fa-fw"></i> Recursos H.<span class="fas fa-angle-right  pull-right  pull-right"></span></a>
                      <ul class="nav nav-second-level">
 
                          <li>
@@ -46,7 +46,7 @@
              if(isset($_SESSION['Rol_idRol'])) {
                if(($_SESSION['Rol_idRol'])==1) { ?>
                  <li>
-                     <a href="#"><i class="fa fa-desktop fa-fw"></i> TI<span class="fa arrow"></span></a>
+                     <a href="#"><i class="fa fa-desktop fa-fw"></i> TI<span class="fas fa-angle-right  pull-right"></span></a>
                      <ul class="nav nav-second-level">
                          <li>
                              <a href="https://trello.com/b/CUOZ15r6/actividades" target="_blank"><i class="fa fa-trello fa-fw"></i>Trello </a>
@@ -70,7 +70,7 @@
           } ?>
 
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadísticas (Próximamente)<span class="fa arrow"></span></a>
+                <a href="#"><i class="fas fa-chart-line fa-fw"></i> Estadísticas (Próximamente)<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="#">Gráficas</a>
@@ -82,7 +82,7 @@
                 <!-- /.nav-second-level -->
             </li>
              <li>
-                <a href="tables.html"><i class="fa fa-rocket fa-fw"></i> Aplicaciones<span class="fa arrow"></span></a>
+                <a href="tables.html"><i class="fa fa-rocket fa-fw"></i> Aplicaciones<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="MesaDeAyuda.php"><i class="fa fa-life-ring fa-fw"></i>Mesa de ayuda</a>
@@ -98,7 +98,7 @@
             <!-- Sevicios -->
 
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Servicios<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Servicios<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
 
                     <li>
@@ -116,7 +116,7 @@
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-envelope" aria-hidden="true"> Correos </i>
-                          <span class="fa arrow"></span></a>
+                          <span class="fas fa-angle-right  pull-right"></span></a>
                         <ul class="nav nav-third-level">
                           <li>
                               <a href="https://login.microsoftonline.com/" target="_blank">Correo Braniff</a>
@@ -129,7 +129,7 @@
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-file-pdf-o"> Reglas Generales C.E. 2018</i>
-                          <span class="fa arrow"></span></a>
+                          <span class="fas fa-angle-right  pull-right"></span></a>
                         <ul class="nav nav-third-level">
                           <li>
                             <a href="descargas/ReglasDeComercio/RGCE - DOF 2018.pdf" download="RGCE - DOF 2018.pdf">
@@ -174,11 +174,11 @@
             <!-- Procesos -->
 
             <li>
-                <a href="#"><i class="fa fa-book" aria-hidden="true"></i> Procesos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-book" aria-hidden="true"></i> Procesos<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
 
                     <li>
-                        <a href="#">TI <span class="fa arrow"></span></a>
+                        <a href="#">TI <span class="fas fa-angle-right  pull-right"></span></a>
                         <ul class="nav nav-third-level">
                           <li>
                               <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>Comunicaciones</a>
@@ -197,7 +197,7 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-edit fa-fw"></i> Formatos<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                       <a href="descargas/Solicitud de pago.xls" download="Solicitud de pago.xls">
@@ -217,7 +217,7 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-microchip" aria-hidden="true"></i> Manuales<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-microchip" aria-hidden="true"></i> Manuales<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
                       <a href="Manuales/Live Animals Regulations.pdf" download="Live Animals Regulations.pdf">
@@ -236,7 +236,7 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="registro.php">Registro de usuario</a>
@@ -248,7 +248,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-              <a href="#"><i class="fa fa-users fa-fw"></i> Redes sociales<span class="fa arrow"></span></a>
+              <a href="#"><i class="fa fa-users fa-fw"></i> Redes sociales<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
                   <a href="https://www.facebook.com/InterpuertoMMx/" target="_blank">
                       <div class="panel-footer">
