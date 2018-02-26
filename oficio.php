@@ -25,7 +25,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
             $row_cnt = mysqli_num_rows($resultadoRegistro);
             if ($row_cnt) {
               $mostrar="";
-              echo "entró el puto if de que no está vacío el objeto >:V";
+             
             }else {
               $mostrar="hidden";
             }
@@ -50,6 +50,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                         <th>Fecha</th>
                         <th>Fecha de <br> notificación</th>
                         <th>Observación</th>
+                        <th>Destino</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -60,6 +61,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                           <td><?php echo $row['fechaoficio']; ?></td>
                           <td><?php echo $row['fechaNotificacion']; ?></td>
                           <td><?php echo $row['observacion']; ?></td>
+                          <td><?php echo $row['destino']; ?></td>
                         </tr>
                         <?php } ?>
                     </tbody>
@@ -116,7 +118,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                              <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" required/></td>
                              <td><input type="number" id="piezas" name="piezas"class="form-control" min="1" required/></td>
                              <td><input type="number" name="peso" class="form-control" id="peso" min="1" max="100000" required></td>
-                             <td><input type="text" id="descripcion" name="descripcion" class="form-control"/></td>
+                             <td><input type="text" id="descripcion" name="descripcion" class="form-control"/></td>                             
                              <td><input type="date" id="salida" name="salida"  class="form-control" required/></td>
                              <td>
                                <select class="form-control" id="estatus" name="estatus">

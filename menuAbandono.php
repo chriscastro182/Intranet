@@ -60,6 +60,18 @@
                                   </div>
                                   <div class="form-group">
                                     <div class="col-sm-3">
+                                      <label for="fechaNotificacion">Destino de mercancía</label>
+                                    </div>
+                                    <div class="col-sm-9 col-md-9">
+                                       <select name="destino" class="form-control">
+                                         <option value="Transferencia">Transferencia</option>
+                                         <option value="Destrucción">Destrucción</option>
+                                         <option value="Donación">Donación</option>
+                                       </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-sm-3">
                                       <label for="observacion">Observación</label>
                                     </div>
                                     <div class="col-sm-9">
