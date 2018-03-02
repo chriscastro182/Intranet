@@ -4,6 +4,10 @@ if (!isset($_GET['oficio'])) {
   $_GET['oficio']=0;
 }
 $valor = $_GET['oficio'];
+
+$query="SELECT * FROM Oficio WHERE idOficio = $valor";
+$resOficio = $mysqli->query($query);
+
 $query = "SELECT * FROM registroabandono WHERE Oficio_idOficio = $valor ";
 $resultado = $mysqli->query($query);
 
@@ -26,7 +30,7 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
     ->setCategory("Reporte excel"); //Categorias
 
   $tituloReporte = "Reporte de mercancía en abandono";
-  $titulosColumnas = array('Expediente', 'Clave única', 'Fecha de ingreso', 'Guia Master', 'Guia House', 'Piezas', 'Peso', 'Descripcion', 'Fecha de salida','Dias totales', 'Estatus', 'Derechos', 'Tipo de mercancía');
+  $titulosColumnas = array('Oficio', 'Observación', 'Destino', 'Fecha de notificación', 'Fecha de ingreso', 'Fecha de salida', 'Expediente', 'Clave única', 'Guia Master', 'Guia House', 'Piezas', 'Peso', 'Descripcion', 'Dias totales', 'Estatus', 'Tipo de mercancía', 'Derechos',  'Total ');
 
   // Se combinan las celdas A1 hasta D1, para colocar ahí el titulo del reporte
   $objPHPExcel->setActiveSheetIndex(0)
@@ -46,27 +50,41 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
         ->setCellValue('J3',  $titulosColumnas[9])  //Titulo de las columnas
         ->setCellValue('K3',  $titulosColumnas[10])
         ->setCellValue('L3',  $titulosColumnas[11])
-        ->setCellValue('M3',  $titulosColumnas[12]);
+        ->setCellValue('M3',  $titulosColumnas[12])
+        ->setCellValue('N3',  $titulosColumnas[13])  //Titulo de las columnas
+        ->setCellValue('O3',  $titulosColumnas[14])
+        ->setCellValue('P3',  $titulosColumnas[15])
+        ->setCellValue('Q3',  $titulosColumnas[16])
+        ->setCellValue('R3',  $titulosColumnas[17]);
 
         //Se agregan los datos desde MySQL
-
+        $oficio = $resOficio->fetch_assoc();
+//$oficio = $resOficio->fetch_array();
        $i = 4; //Numero de fila donde se va a comenzar a rellenar
+       $totalDerechos=0;
        while ($fila = $resultado->fetch_array()) {
+         $totalDerechos+=$fila['derechos'];
            $objPHPExcel->setActiveSheetIndex(0)
-               ->setCellValue('A'.$i, $fila['expediente'])
-               ->setCellValue('B'.$i, $fila['claveUnica'])
-               ->setCellValue('C'.$i, $fila['f_ingreso'])
-               ->setCellValue('D'.$i, $fila['guiaMaster'])
-               ->setCellValue('E'.$i, $fila['guiaHouse'])
-               ->setCellValue('F'.$i, $fila['piezas'])
-               ->setCellValue('G'.$i, $fila['peso'])
-               ->setCellValue('H'.$i, $fila['descripcion'])
-               ->setCellValue('I'.$i, $fila['f_salida'])
-               ->setCellValue('J'.$i, $fila['diasTotales'])
-               ->setCellValue('K'.$i, $fila['estatus'])
-               ->setCellValue('L'.$i, $fila['derechos'])
-               ->setCellValue('M'.$i, $fila['excepcion']);
+               ->setCellValue('A'.$i, $oficio['oficio'])
+               ->setCellValue('B'.$i, $oficio['observacion'])
+               ->setCellValue('C'.$i, $oficio['destino'])
+               ->setCellValue('D'.$i, $oficio['fechaNotificacion'])
+               ->setCellValue('E'.$i, $fila['f_ingreso'])
+               ->setCellValue('F'.$i, $fila['f_salida'])
+               ->setCellValue('G'.$i, $fila['expediente'])
+               ->setCellValue('H'.$i, $fila['claveUnica'])
+               ->setCellValue('I'.$i, $fila['guiaMaster'])
+               ->setCellValue('J'.$i, $fila['guiaHouse'])
+               ->setCellValue('K'.$i, $fila['piezas'])
+               ->setCellValue('L'.$i, $fila['peso'])
+               ->setCellValue('M'.$i, $fila['descripcion'])
+               ->setCellValue('N'.$i, $fila['diasTotales'])
+               ->setCellValue('O'.$i, $fila['estatus'])
+               ->setCellValue('Q'.$i, $fila['excepcion'])
+               ->setCellValue('P'.$i, $fila['derechos'])
+               ->setCellValue('R'.$i, $totalDerechos);
            $i++;
+
        }
        $estiloTituloReporte = array(
        'font' => array(
@@ -158,11 +176,11 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
            )
        )
    ));
-   $objPHPExcel->getActiveSheet()->getStyle('A1:M1')->applyFromArray($estiloTituloReporte);
-   $objPHPExcel->getActiveSheet()->getStyle('A3:M3')->applyFromArray($estiloTituloColumnas);
-   $objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:M".($i-1));
+   $objPHPExcel->getActiveSheet()->getStyle('A1:R1')->applyFromArray($estiloTituloReporte);
+   $objPHPExcel->getActiveSheet()->getStyle('A3:R3')->applyFromArray($estiloTituloColumnas);
+   $objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:R".($i-1));
    //Aquí se asignará el ancho de el formato
-   for($i = 'A'; $i <= 'M'; $i++){
+   for($i = 'A'; $i <= 'R'; $i++){
     $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension($i)->setAutoSize(TRUE);
 
     }

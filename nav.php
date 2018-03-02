@@ -102,10 +102,10 @@
                 <ul class="nav nav-second-level">
 
                     <li>
-                        <a href="http://10.181.131.97:8081/login.aspx?ReturnUrl=%2f" target="_blank"><i class="fa fa-list-ul" aria-hidden="true"> Control de inventarios</i></a>
+                        <a href="http://10.181.131.97:8081/login.aspx?ReturnUrl=%2f" target="_blank"><i class="fas fa-list-ul"></i> Control de inventarios</i></a>
                     </li>
                     <li>
-                        <a href="https://webservice.aaadam.com.mx/Formatos/" target="_blank"><i class="fa fa-user-circle" aria-hidden="true"> Servicio de Gafetes</i></a>
+                        <a href="https://webservice.aaadam.com.mx/Formatos/" target="_blank"><i class="far fa-user-circle"></i> Servicio de Gafetes</a>
                     </li>
                     <li>
                         <a href="https://go.reachcore.com/portal" target="_blank"><i class="fa fa-file-text-o" aria-hidden="true"> Consulta de Facturas</i></a>
@@ -220,16 +220,36 @@
                 <a href="#"><i class="fa fa-microchip" aria-hidden="true"></i> Manuales<span class="fas fa-angle-right  pull-right"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
-                      <a href="Manuales/Live Animals Regulations.pdf" download="Live Animals Regulations.pdf">
-                        <i class="fa fa-download fa-fw"></i>Live Animals Regulations</a>
+                      <a href="Manuales/DGR 2017/Live Animals Regulations 2017 43rd Ed.pdf" download="Live Animals Regulations 2017 43rd Ed.pdf">
+                        <i class="fa fa-download fa-fw"></i>Live Animals Regulations 2017</a>
                   </li>
                   <li>
-                      <a href="Manuales/Perishable Cargo Regulations.pdf" download="Perishable Cargo Regulations.pdf">
-                        <i class="fa fa-download fa-fw"></i>Perishable Cargo Regulations</a>
+                      <a href="Manuales/DGR 2017/Perishable Cargo Regulations 2017 16th Ed.pdf" download="Perishable Cargo Regulations 2017 16th Ed.pdf">
+                        <i class="fa fa-download fa-fw"></i>Perishable Cargo Regulations 2017</a>
                   </li>
                   <li>
-                      <a href="Manuales/Temperature Controls Regulations.pdf" download="Temperature Controls Regulations.pdf">
-                        <i class="fa fa-download fa-fw"></i>Temperature Controls Regulations</a>
+                      <a href="Manuales/DGR 2017/Temperature Controls Regulations 2017 5th Ed.pdf" download="Temperature Controls Regulations 2017 5th Ed.pdf">
+                        <i class="fa fa-download fa-fw"></i>Temperature Controls Regulations2017</a>
+                  </li>
+                  <li>
+                      <a href="Manuales/DGR 2017/The Air Cargo Tariff Manual North America Rates.pdf" download="The Air Cargo Tariff Manual North America Rates">
+                        <i class="fa fa-download fa-fw"></i>The Air Cargo Tariff Manual North America Rates 2017</a>
+                  </li>
+                  <li>
+                      <a href="Manuales/DGR 2018/Live  Animals Regulations 2018 44th Ed.pdf" download="Live  Animals Regulations 2018 44th Ed.PDF">
+                        <i class="fa fa-download fa-fw"></i>Live  Animals Regulations 2018 44th Ed</a>
+                  </li>
+                  <li>
+                      <a href="Manuales/DGR 2018/Dangerous Good Regulations 2018 59th Ed.pdf" download="Dangerous Good Regulations 2018 59th Ed.PDF">
+                        <i class="fa fa-download fa-fw"></i>Dangerous Good Regulations 2018 59th Ed</a>
+                  </li>
+                  <li>
+                      <a href="Manuales/DGR 2018/Perishable Cargo Regulations 2018 17th Ed.pdf" download="Perishable Cargo Regulations 2018 17th Ed.PDF">
+                        <i class="fa fa-download fa-fw"></i>Perishable Cargo Regulations 2018 17th Ed</a>
+                  </li>
+                  <li>
+                      <a href="Manuales/DGR 2018/Temperature Control Regulations 2018 6th Ed.pdf" download="Temperature Control Regulations 2018 6th Ed.PDF">
+                        <i class="fa fa-download fa-fw"></i>Temperature Control Regulations 2018 6th Ed</a>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->

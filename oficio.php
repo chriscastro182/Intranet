@@ -94,7 +94,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
               <form  class="form-horizontal" method="POST" action="guardar.php">
                 <!-- Aquí van los campos -->
                 <table class="table table-bordered table-condensed">
-                      <thead>
+                      <thead> <?php $hoy = date('d-m-Y'); ?>
                         <tr>
                           <th>Expediente</th>
                           <th>Clave única</th>
@@ -104,22 +104,22 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                           <th>Piezas</th>
                           <th>Peso</th>
                           <th>Descripcion</th>
-                          <th>Fecha de <br> Salida</th>
+                          <th>Fecha de <br> Salida <?php echo $hoy; ?></th>
                           <th>Estatus</th>
                           <th>Tipo de mercancía</th>
                         </tr>
                       </thead>
                       <tbody>
-                          <tr>
+                          <tr> 
                              <td><input type="text" id="expediente" name="expediente" class="form-control" required/></td>
                              <td><input type="text" id="claveUnica" name="claveUnica" class="form-control" required/></td>
                              <td><input type="date" id="ingreso" name="ingreso" class="form-control" required/></td>
                              <td><input type="text" id="guiaMaster" name="guiaMaster" class="form-control" required/></td>
                              <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" required/></td>
                              <td><input type="number" id="piezas" name="piezas"class="form-control" min="1" required/></td>
-                             <td><input type="number" name="peso" class="form-control" id="peso" min="1" max="100000" required></td>
+                             <td><input type="text" name="peso" class="form-control" id="peso" required></td>
                              <td><input type="text" id="descripcion" name="descripcion" class="form-control"/></td>                             
-                             <td><input type="date" id="salida" name="salida"  class="form-control" required/></td>
+                             <td><input type="date" id="salida" name="salida" max="<?php echo $hoy; ?>" class="form-control" required/></td>
                              <td>
                                <select class="form-control" id="estatus" name="estatus">
                                   <option value="Inactivo">Inactivo</option>
