@@ -25,7 +25,6 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
             $row_cnt = mysqli_num_rows($resultadoRegistro);
             if ($row_cnt) {
               $mostrar="";
-             
             }else {
               $mostrar="hidden";
             }
@@ -118,8 +117,13 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                              <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" required/></td>
                              <td><input type="number" id="piezas" name="piezas"class="form-control" min="1" required/></td>
                              <td><input type="text" name="peso" class="form-control" id="peso" required></td>
+<<<<<<< HEAD
                              <td><input type="text" id="descripcion" name="descripcion" class="form-control"/></td>                             
                              <td><input type="date" id="salida" name="salida" max="<?php echo $hoy; ?>" class="form-control" required/></td>
+=======
+                             <td><input type="text" id="descripcion" name="descripcion" class="form-control"/></td>
+                             <td><input type="date" id="salida" name="salida"  class="form-control" required/></td>
+>>>>>>> f2719d4136c01e023474da757232dffd7ceebf8e
                              <td>
                                <select class="form-control" id="estatus" name="estatus">
                                   <option value="Inactivo">Inactivo</option>
