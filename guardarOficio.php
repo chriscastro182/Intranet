@@ -13,7 +13,7 @@ $observacion = isset($_POST['observacion']) ? $_POST['observacion'] : '';
 
 $sql = "INSERT INTO Oficio (oficio, fechaoficio, fechaNotificacion, observacion, destino)
                         VALUES ('$oficio','$fechaOficio','$fechaNotificacion','$observacion', '$destino')";
-//echo $sql;
+echo $sql;
 $resultado = $mysqli->query($sql);
 $id=$mysqli->insert_id;
 ?>

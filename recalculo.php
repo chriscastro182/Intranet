@@ -34,12 +34,6 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
         <?php require("nav.php"); ?>
         <div id="page-wrapper">
           <div class="row">
-            <div class="col-lg-12">
-                <img src="images/BannerAbandono.png" class="page-header" width="100%">
-            </div>
-
-          </div>
-          <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                   <table class="table table-striped">
                     <thead>
@@ -119,6 +113,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                              <td><input type="text" name="peso" class="form-control" id="peso" required></td>
                              <td><input type="text" id="descripcion" name="descripcion" class="form-control"/></td>
                              <td><input type="date" id="salida" name="salida" max="<?php echo $hoy; ?>" class="form-control" required/></td>
+
                              <td>
                                <select class="form-control" id="estatus" name="estatus">
                                   <option value="Inactivo">Inactivo</option>
@@ -135,7 +130,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                       </tbody>
                     </table>
           </div>
-          <div class="col-sm-2 col-md-2 col-lg-2 pull-right">
+          <div class="col-sm-3 col-md-3 col-lg-3 pull-right">
             <input type="hidden" name="idOficio" value="<?php echo $idOficio; ?>">
             <button class="btn  btn-primary btn-lg" type="submit"><i class="far fa-save "></i>  Calcular y guardar</button>
           </div>
@@ -158,11 +153,37 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                         <th>Total de días</th>
                         <th>Estatus</th>
                         <th>Derechos</th>
+                        <th>Derechos correcto</th>
                         <th>Tipo de mercancía</th>
                       </tr>
                     </thead>
                     <tbody>
-                  <?php while($rowRegistro = $resultadoRegistro->fetch_array(MYSQLI_ASSOC)) { ?>
+                  <?php while($rowRegistro = $resultadoRegistro->fetch_array(MYSQLI_ASSOC)) {
+                      $fUno=strtotime($rowRegistro['f_ingreso']);
+                      $fDos=strtotime($rowRegistro['f_salida']);
+                      $diasTotales=ceil(abs($fDos - $fUno) / 86400);  //función que calcula la diferencia en días entre
+                      echo $diasTotales;
+                      $derechos3=0;
+                      $derechos2=0;
+                      $derechos1=0;
+                      $diasTemp=$diasTotales-60;
+                      if ($diasTemp>45) {
+                        $diasTemp-=45;
+                        $tarifa= 36.20;
+                        $derechos3=$tarifa*$diasTemp;
+                      }
+                      if ($diasTemp>15 && $diasTemp <=45) {
+                        $diasTemp-=30;
+                        $tarifa= 22.34;
+                        $derechos2=$tarifa*$diasTemp;
+                      }
+                      if ($diasTemp>0 && $diasTemp <=15) {
+                        $diasTemp-=15;
+                        $tarifa= 11.46;
+                        $derechos1=$tarifa*$diasTemp;
+                      }
+
+                    ?>
                         <tr>
                           <td><?php echo $rowRegistro['expediente']; ?></td>
                           <td><?php echo $rowRegistro['claveUnica']; ?></td>
@@ -176,6 +197,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                           <td><?php echo $rowRegistro['diasTotales']; ?></td>
                           <td><?php echo $rowRegistro['estatus']; ?></td>
                           <td><?php echo $rowRegistro['derechos']; ?></td>
+                          <td><?php echo $derechos1+$derechos2+$derechos3; ?></td>
                           <td><?php echo $rowRegistro['excepcion']; ?></td>
                         </tr>
                         <?php } ?>

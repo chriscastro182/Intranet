@@ -23,8 +23,25 @@ function diffDias(){
   $fDos=strtotime($salida=isset($_POST['salida']) ? $_POST['salida'] : '');
   return ceil(abs($fDos - $fUno) / 86400);
 }
-  $diasTotales=diffDias(); //función vacía que calcula la diferencia en días entre
+  $diasTotales=diffDias(); //función que calcula la diferencia en días entre
   $pesoC=0;              // Fecha de ingreso y Fecha de salida, asignándola a $diasTotales
+
+  $diasTemp=$diasTotales-60;
+  if ($diasTemp>45) {
+    $diasTemp-=45;
+    $tarifa= 36.20;
+    $derechos3=$tarifa*$diasTemp;
+  }
+  if ($diasTemp>15 && $diasTemp <=45) {
+    $diasTemp-=15;
+    $tarifa= 22.34;
+    $derechos3=$tarifa*$diasTemp;
+  }
+  if ($diasTemp>0 && $diasTemp <=15) {
+    $diasTemp-=15;
+    $tarifa= 22.34;
+    $derechos3=$tarifa*$diasTemp;
+  }
   if($excepcion=="Efectos Personales"){
     $pesoC=$peso/100;
     $tarifaEf=18.60*$pesoC;
