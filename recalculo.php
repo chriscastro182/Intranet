@@ -162,7 +162,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                       $fUno=strtotime($rowRegistro['f_ingreso']);
                       $fDos=strtotime($rowRegistro['f_salida']);
                       $diasTotales=ceil(abs($fDos - $fUno) / 86400);  //función que calcula la diferencia en días entre
-                      echo $diasTotales;
+                      
                       $derechos3=0;
                       $derechos2=0;
                       $derechos1=0;
