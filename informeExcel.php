@@ -63,8 +63,8 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
        $i = 4; //Numero de fila donde se va a comenzar a rellenar
        $totalDerechos=0;
        while ($fila = $resultado->fetch_array()) {
-         $fUno=strtotime($oficio['f_ingreso']);
-         $fDos=strtotime($oficio['f_salida']);
+         $fUno=strtotime($fila['f_ingreso']);
+         $fDos=strtotime($fila['f_salida']);
          $diasTotales=ceil(abs($fDos - $fUno) / 86400);  //función que calcula la diferencia en días entre
 
          $derechos3=0;
