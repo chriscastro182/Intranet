@@ -33,24 +33,23 @@ function diffDias(){
     $derechos3=$tarifa*$diasTemp;
   }
   if ($diasTemp>15 && $diasTemp <=45) {
-    $diasTemp-=15;
+    $diasTemp-=30;
     $tarifa= 22.34;
-    $derechos3=$tarifa*$diasTemp;
+    $derechos2=$tarifa*$diasTemp;
   }
   if ($diasTemp>0 && $diasTemp <=15) {
     $diasTemp-=15;
-    $tarifa= 22.34;
-    $derechos3=$tarifa*$diasTemp;
+    $tarifa= 11.46;
+    $derechos1=$tarifa*$diasTemp;
   }
+  $derechos=$derechos1+$derechos2+$derechos3;
   if($excepcion=="Efectos Personales"){
     $pesoC=$peso/100;
     $tarifaEf=18.60*$pesoC;
     $derechos=$tarifaEf*$diasTotales;
   }else {
     $pesoC=$peso/500;
-    // Función vacía que le da valor a la variable $tarifa
-    $tarifa=calcTarifa();
-    $tarifa=$pesoC*$tarifa;
+
     if($excepcion=="Especial"){
       $tarifaEs=$tarifa*2; // $tarifaEs representa al doble aplicado en mercancía Especial
                           //NO CONFUNDIR con $tarifaef que aplica para mercancía de Efectos Personales.
@@ -59,19 +58,6 @@ function diffDias(){
         $derechos=$tarifa*$diasTotales;
     }
   }
-function calcTarifa(){
-  $diasTotales=diffDias();
-  $tarifa=0;
-  if ($diasTotales<=15) {
-    return 11.46;
-  }
-  elseif ($diasTotales>15 && $diasTotales <=45) {
-    return 22.34;
-  }
-  elseif ($diasTotales>45) {
-    return 36.20;
-  }
-}
 $sql = "INSERT INTO registroabandono (expediente, claveUnica, f_ingreso, guiaMaster, guiaHouse, piezas, peso, descripcion,f_salida, diasTotales, estatus, derechos, excepcion, Oficio_idOficio)
                         VALUES ('$expediente', '$claveUnica','$ingreso','$guiaMaster','$guiaHouse','$piezas','$peso','$descripcion','$salida','$diasTotales','$estatus','$derechos','$excepcion','$idOficio')";
 

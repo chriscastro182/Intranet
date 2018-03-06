@@ -30,7 +30,7 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
     ->setCategory("Reporte excel"); //Categorias
 
   $tituloReporte = "Reporte de mercancía en abandono";
-  $titulosColumnas = array('Oficio', 'Observación', 'Destino', 'Fecha de notificación', 'Fecha de ingreso', 'Fecha de salida', 'Expediente', 'Clave única', 'Guia Master', 'Guia House', 'Piezas', 'Peso', 'Descripcion', 'Dias totales', 'Estatus', 'Tipo de mercancía', 'Derechos',  'Total ');
+  $titulosColumnas = array('Oficio', 'Observación', 'Destino', 'Fecha de notificación', 'Fecha de ingreso', 'Fecha de salida', 'Expediente', 'Clave única', 'Guia Master', 'Guia House', 'Piezas', 'Peso', 'Descripcion', 'Dias totales', 'Estatus', 'Tipo de mercancía', 'Derechos',  'Derechos correcto ');
 
   // Se combinan las celdas A1 hasta D1, para colocar ahí el titulo del reporte
   $objPHPExcel->setActiveSheetIndex(0)
@@ -63,6 +63,30 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
        $i = 4; //Numero de fila donde se va a comenzar a rellenar
        $totalDerechos=0;
        while ($fila = $resultado->fetch_array()) {
+         $fUno=strtotime($oficio['f_ingreso']);
+         $fDos=strtotime($oficio['f_salida']);
+         $diasTotales=ceil(abs($fDos - $fUno) / 86400);  //función que calcula la diferencia en días entre
+
+         $derechos3=0;
+         $derechos2=0;
+         $derechos1=0;
+         $diasTemp=$diasTotales-60;
+         if ($diasTemp>45) {
+           $diasTemp-=45;
+           $tarifa= 36.20;
+           $derechos3=$tarifa*$diasTemp;
+         }
+         if ($diasTemp>15 && $diasTemp <=45) {
+           $diasTemp-=30;
+           $tarifa= 22.34;
+           $derechos2=$tarifa*$diasTemp;
+         }
+         if ($diasTemp>0 && $diasTemp <=15) {
+           $diasTemp-=15;
+           $tarifa= 11.46;
+           $derechos1=$tarifa*$diasTemp;
+         }
+         $DERECHOS=$derechos1+$derechos2+$derechos3;
          $totalDerechos+=$fila['derechos'];
            $objPHPExcel->setActiveSheetIndex(0)
                ->setCellValue('A'.$i, $oficio['oficio'])
@@ -82,7 +106,7 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
                ->setCellValue('O'.$i, $fila['estatus'])
                ->setCellValue('Q'.$i, $fila['excepcion'])
                ->setCellValue('P'.$i, $fila['derechos'])
-               ->setCellValue('R'.$i, $totalDerechos);
+               ->setCellValue('R'.$i, $DERECHOS);
            $i++;
 
        }
