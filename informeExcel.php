@@ -30,7 +30,7 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
     ->setCategory("Reporte excel"); //Categorias
 
   $tituloReporte = "Reporte de mercancía en abandono";
-  $titulosColumnas = array('Oficio', 'Observación', 'Destino', 'Fecha de notificación', 'Fecha de ingreso', 'Fecha de salida', 'Expediente', 'Clave única', 'Guia Master', 'Guia House', 'Piezas', 'Peso', 'Descripcion', 'Dias totales', 'Estatus', 'Tipo de mercancía', 'Derechos',  'Derechos correcto ');
+  $titulosColumnas = array('Oficio', 'Observación', 'Destino', 'Fecha de notificación', 'Fecha de ingreso', 'Fecha de salida', 'Expediente', 'Clave única', 'Guia Master', 'Guia House', 'Piezas', 'Peso', 'Descripcion', 'Dias totales', 'Estatus', 'Tipo de mercancía', 'Derechos');
 
   // Se combinan las celdas A1 hasta D1, para colocar ahí el titulo del reporte
   $objPHPExcel->setActiveSheetIndex(0)
@@ -54,65 +54,14 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
         ->setCellValue('N3',  $titulosColumnas[13])  //Titulo de las columnas
         ->setCellValue('O3',  $titulosColumnas[14])
         ->setCellValue('P3',  $titulosColumnas[15])
-        ->setCellValue('Q3',  $titulosColumnas[16])
-        ->setCellValue('R3',  $titulosColumnas[17]);
+        ->setCellValue('Q3',  $titulosColumnas[16]);
 
         //Se agregan los datos desde MySQL
         $oficio = $resOficio->fetch_assoc();
 //$oficio = $resOficio->fetch_array();
        $i = 4; //Numero de fila donde se va a comenzar a rellenar
        while ($fila = $resultado->fetch_array()) {
-         $fUno=strtotime($fila['f_ingreso']);
-         $fDos=strtotime($fila['f_salida']);
-         $diasTotales=ceil(abs($fDos - $fUno) / 86400);  //función que calcula la diferencia en días entre
-         $peso=$fila['peso'];
-         $excepcion=$fila['excepcion'];
-           $pesoC=0;              // Fecha de ingreso y Fecha de salida, asignándola a $diasTotales
-           $pesoC=$peso/500;
-           settype($pesoC, "integer"); // aquí está el multiplicador de la tarifa (por cada quinientos kilos)
 
-           if ($pesoC<1) {
-             $pesoC=1; //validación para que se multiplique por uno en dado caso de que sea menor a 1
-           }
-
-           $diasTemp=$diasTotales-60; // La resta de los 60 días que causan abandono
-           $derechos3=0;
-           $derechos2=0;
-           $derechos1=0;
-           $cont1=0;
-           $cont2=0;
-           $cont3=0;
-           for ($i=1; $i <=$diasTemp; $i++) {  //$i es igual a números naturales
-
-             if ($i <=15) { // primera condición (cláusula a)
-               $derechos1+=11.46*$pesoC;
-             }
-
-             if ($i>15 && $i <=45) { // condición de (cláusula b)
-               $derechos2+=22.34*$pesoC;
-             }
-
-             if ($i>45) { //Condición última de días
-               $derechos3+=36.20*$pesoC;
-             }
-
-           }
-
-           $derechos=$derechos1+$derechos2+$derechos3; // Cálculo final de todas las variables
-
-           if($excepcion=="Efectos Personales"){
-             $pesoC=$peso/100;
-             settype($pesoC, "integer");
-             if ($pesoC<1) {
-               $pesoC=1;
-             }
-             $tarifaEf=18.60*$peso; // aquí está el multiplicador de la tarifa (por cada cien kilos)
-             $derechos=$tarifaEf*$diasTotales;
-           }
-           if($excepcion=="Especial"){
-             $derechos=$derechos*2; // $tarifaEs representa al doble aplicado en mercancía Especial
-           }
-         $derechos=$derechos1+$derechos2+$derechos3;
            $objPHPExcel->setActiveSheetIndex(0)
                ->setCellValue('A'.$i, $oficio['oficio'])
                ->setCellValue('B'.$i, $oficio['observacion'])
@@ -130,8 +79,7 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
                ->setCellValue('N'.$i, $fila['diasTotales'])
                ->setCellValue('O'.$i, $fila['estatus'])
                ->setCellValue('Q'.$i, $fila['excepcion'])
-               ->setCellValue('P'.$i, $fila['derechos'])
-               ->setCellValue('R'.$i, $derechos);
+               ->setCellValue('P'.$i, $fila['derechos']);
            $i++;
 
        }
