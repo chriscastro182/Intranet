@@ -21,8 +21,9 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
   $indexVuelo= "SELECT * FROM vuelodigitalizacion";
   $resul = $mysqli->query($indexVuelo);
   while($row = $resul->fetch_assoc()){
-    $id_insert++;
+    $id_insert=$row['idVueloDigitalizacion'];
   }
+  $id_insert++;
 
   if (isset($_POST['numGuiasM'])) {
     $idRVD=$id_insert;

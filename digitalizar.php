@@ -16,8 +16,9 @@ if(!isset($_SESSION))
   $indexRegistro= "SELECT * FROM registrovd";
   $resul = $mysqli->query($indexRegistro);
   while($row = $resul->fetch_assoc()){
-    $id_insert++;
+    $id_insert=$row['idRegistroVD'];
   }
+  $id_insert++;
   $sql = "INSERT INTO registrovd(idRegistroVD, guiaMaster, guiaHouse, descon, VueloDigitalizacion_idVueloDigitalizacion)
                 VALUES ($id_insert,$guiaMaster,'$guiaHouse', $Consol, $VueloDigitalizacion_idVueloDigitalizacion)";
 echo $sql;
