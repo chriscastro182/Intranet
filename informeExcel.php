@@ -38,7 +38,8 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
 
   // Se combinan las celdas A1 hasta D1, para colocar ahí el titulo del reporte
   $objPHPExcel->setActiveSheetIndex(0)
-      ->mergeCells('A1:D1', 'A2:D2');
+              ->mergeCells('A1:D1')
+              ->mergeCells('A2:D2');
 
       // Se agregan los titulos del reporte
     $objPHPExcel->setActiveSheetIndex(0)
@@ -122,13 +123,13 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
            'strike'    => false,
            'size' =>12,
            'color'     => array(
-               'rgb' => 'FFFFFF'
+               'rgb' => 'FF220835'
            )
        ),
        'fill' => array(
          'type'  => PHPExcel_Style_Fill::FILL_SOLID,
          'color' => array(
-               'argb' => 'FF220835')
+               'argb' => 'FFFFFF')
      ),
        'borders' => array(
            'allborders' => array(
