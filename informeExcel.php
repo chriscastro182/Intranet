@@ -38,8 +38,8 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
 
   // Se combinan las celdas A1 hasta D1, para colocar ahí el titulo del reporte
   $objPHPExcel->setActiveSheetIndex(0)
-              ->mergeCells('A1:D1')
-              ->mergeCells('A2:D2');
+              ->mergeCells('A1:K1')
+              ->mergeCells('A2:K2');
 
       // Se agregan los titulos del reporte
     $objPHPExcel->setActiveSheetIndex(0)
@@ -205,7 +205,7 @@ $objPHPExcel->getProperties()->setCreator("Interpuerto Multimodal de México") /
        )
    ));
    $objPHPExcel->getActiveSheet()->getStyle('A1:P1')->applyFromArray($estiloTituloReporte);
-   $objPHPExcel->getActiveSheet()->getStyle('A2:D2')->applyFromArray($estiloDescripcion);
+   $objPHPExcel->getActiveSheet()->getStyle('A2:K2')->applyFromArray($estiloDescripcion);
    $objPHPExcel->getActiveSheet()->getStyle('A3:P3')->applyFromArray($estiloTituloColumnas);
    $objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:P".($i-1));
    //Aquí se asignará el ancho de el formato
