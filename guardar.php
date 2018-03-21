@@ -32,7 +32,7 @@ function diffDias(){
     $pesoC=1; //validación para que se multiplique por uno en dado caso de que sea menor a 1
   }
 
-  $diasTemp=$diasTotales-60; // La resta de los 60 días que causan abandono
+  $diasTemp=$diasTotales; // La resta de los 60 días que causan abandono restar 60 si es local
   $derechos3=0;
   $derechos2=0;
   $derechos1=0;
