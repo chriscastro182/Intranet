@@ -25,7 +25,9 @@ $id = $_GET['id'];
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-
+            <div class="row">
+              <a class="btn btn-primary btn-lg" href="detalleVuelo.php?id=<?php echo $idRVD; ?>"><i class="fas fa-arrow-circle-left"></i> Atrás</a> 
+            </div>
             <!-- /.row -->
             <div class="row">
               <div class="col-sm-10">
@@ -66,7 +68,7 @@ $id = $_GET['id'];
                                    </div>
                               </td>
                               <td><input type="text" id="guiaMaster" name="guiaMaster" class="form-control" value="<?php echo $rowRegistro['guiaMaster']; ?>" required/></td>
-                              <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" value="<?php echo $rowRegistro['guiaHouse']; ?>" required/></td>
+                              <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" value="<?php echo $rowRegistro['guiaHouse']; ?>" /></td>
                               <td>
                                 <a href="#" data-href="eliminarRegistroDigitalizacion.php?id=<?php echo $rowRegistro['idRegistroVD']; ?>
                                   " data-toggle="modal" data-target="#confirm-delete">

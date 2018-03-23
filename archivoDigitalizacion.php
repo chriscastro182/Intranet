@@ -30,7 +30,7 @@
           </div>
             <!-- /.row -->
             <div class="row">
-              <div class="col-lg-9">
+              <div class="col-lg-10">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -39,6 +39,7 @@
                       <th>Total G Master</th>
                       <th>Detalles</th>
                       <th>Editar</th>
+                      <th>Eliminar</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -52,9 +53,14 @@
                         <td><?php echo $rowVuelos['numGuias']; ?></td>
                         <td><a href="detalleVuelo.php?id=<?php echo $rowVuelos['idVueloDigitalizacion']; ?>">Ver a detalle</a></td>
                         <td><?php echo '<a href="editarDigitalizacion.php?id='.$rowVuelos['idVueloDigitalizacion'].'"><i class="fas fa-edit "></i></a>'; ?></td>
+                        <th>
+                          <a href="#" data-href="eliminarRegistroVuelo.php?id=<?php echo $rowVuelos['idVueloDigitalizacion']; ?>
+                            " data-toggle="modal" data-target="#confirm-delete">
+                              <i class="fas fa-trash-alt"></i>
+                          </a>
+                        </th>
                       </tr>
                     <?php  } ?>
-
                   </tbody>
                 </table>
               </div>
@@ -67,7 +73,34 @@
 
     </div>
     <!-- /#wrapper -->
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
 
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Eliminar Registro</h4>
+          </div>
+
+          <div class="modal-body">
+            ¿Desea eliminar este registro de vuelo?
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-danger btn-ok">Borrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+
+        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+      });
+    </script>
 
 
 </body>

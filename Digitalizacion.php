@@ -123,7 +123,8 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
                                 $claveConsol=$rowRegis['descon'];
                                 if ($claveConsol==0) {
                                   $consolidacion="Consolidado";
-                                  $rutaModificar='<a href="editarDigitalizacionM.php?id='.$rowRegis['idRegistroVD'].'"><i class="fas fa-edit"></i></a>';
+                                  $rutaModificar="";
+                                  //'<a href="editarDigitalizacionM.php?id='.$rowRegis['idRegistroVD'].'"><i class="fas fa-edit"></i></a>';
                                 }else {
                                   $consolidacion="Desconsolidado";
                                   $rutaModificar='<a href="editarDigitalizacionH.php?id='.$rowRegis['idRegistroVD'].'"><i class="fas fa-edit"></i></a>';
