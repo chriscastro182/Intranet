@@ -51,7 +51,7 @@
                         <td><?php echo $rowVuelos['nomVuelo']; ?></td>
                         <td><?php echo $rowVuelos['numGuias']; ?></td>
                         <td><a href="detalleVuelo.php?id=<?php echo $rowVuelos['idVueloDigitalizacion']; ?>">Ver a detalle</a></td>
-                        <td><?php echo $rowVuelos['idVueloDigitalizacion']; ?></td>
+                        <td><?php echo '<a href="editarDigitalizacion.php?id='.$rowVuelos['idVueloDigitalizacion'].'"><i class="fas fa-edit "></i></a>'; ?></td>
                       </tr>
                     <?php  } ?>
 

@@ -46,7 +46,7 @@ if (isset($_GET['numHouse'])) {
   $Master=$rowCon['guiaMaster'];
 
   $registros= "SELECT * FROM registrodescon WHERE RegistroVD_idRegistroVD = '$RegistroVD_idRegistroVD'";
-  echo $registros;
+  //echo $registros;
   $regis = $mysqli->query($registros);
   $indexTabla= $indiceGuiaH;
 ?>

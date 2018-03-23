@@ -76,9 +76,12 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
                       <h3>Vuelo <?php echo $vuelo; ?> abierto</h3>
                       <h4>Registro número: <?php echo $registro; ?></h4>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                       <?php $mysqltime = date ("d-m-Y", strtotime($ingreso)); ?>
                       <h3>Fecha: <?php echo $mysqltime; ?></h3>
+                    </div>
+                    <div class="col-lg-1">
+                      <?php echo '<a href="editarDigitalizacion.php?id='.$rowVD['idVueloDigitalizacion'].'"><i class="fas fa-edit fa-2x"></i></a>'; ?>
                     </div>
                 </div>
               </div>
@@ -105,10 +108,12 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
                       <table class="table table-bordered table-condensed" style="text-align: center">
                         <thead>
                           <tr>
-                            <th># de Guías restantes por capturar</th>
+                            <th># de Guías restantes</th>
+                            <th>Consolidación</th>
                             <th>GuíaMaster</th>
                             <th>GuíaHouse</th>
-                            <th>Consolidación</th>
+                            <th></th>
+                            <th></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -118,16 +123,25 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
                                 $claveConsol=$rowRegis['descon'];
                                 if ($claveConsol==0) {
                                   $consolidacion="Consolidado";
+                                  $rutaModificar='<a href="editarDigitalizacionM.php?id='.$rowRegis['idRegistroVD'].'"><i class="fas fa-edit"></i></a>';
                                 }else {
                                   $consolidacion="Desconsolidado";
+                                  $rutaModificar='<a href="editarDigitalizacionH.php?id='.$rowRegis['idRegistroVD'].'"><i class="fas fa-edit"></i></a>';
                                 }
                               ?>
                             <tr>
                                 <td><?php echo $numGuiasM; ?></td>
+                                <td><?php echo $consolidacion; ?></td>
                                <td><?php echo $rowRegis['guiaMaster']; ?></td>
                                <td><?php echo $rowRegis['guiaHouse']; ?></td>
-                               <td><?php echo $consolidacion; ?></td>
-                            </tr>
+                               <td><?php echo $rutaModificar; ?></td>
+                               <td>
+                                 <a href="#" data-href="eliminarRegistroDigitalizacion.php?id=<?php echo $rowRegis['idRegistroVD']; ?>
+                                   " data-toggle="modal" data-target="#confirm-delete">
+                                     <i class="fas fa-trash-alt"></i>
+                                 </a>
+                               </td>
+                             </tr>
                         <?php
                             $guiaMaster = $rowRegis['guiaMaster'];
                             $guiaHouse = $rowRegis['guiaHouse'];
@@ -140,20 +154,21 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
                               <td></td>
                               <td></td>
                               <td></td>
+                              <td></td>
                             </tr>
                           <?php else: $hideCierre='hidden="hidden"'; $hideAsociar=""; ?>
                             <tr>
                               <td><?php echo $numGuiasM; ?></td>
-                              <td><input type="text" id="guiaMaster" name="guiaMaster" class="form-control" value="" required/></td>
-                               <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" value="" required/></td>
-                               <td>
-                                   <div class="form-group">
-                                      <select class="form-control" id="Consol" name="Consol" onchange="validaExaminar()">
-                                        <option selected="selected" value="0">Consolidado</option>
-                                        <option value="1">Desconsolidad</option>
-                                      </select>
-                                    </div>
-                               </td>
+                              <td>
+                                  <div class="form-group">
+                                     <select class="form-control" id="Consol" name="Consol" onchange="validaExaminar()">
+                                       <option selected="selected" value="0">Consolidado</option>
+                                       <option value="1">Desconsolidad</option>
+                                     </select>
+                                   </div>
+                              </td>
+                              <td><input type="text" id="guiaMaster" name="guiaMaster" class="form-control"  required/></td>
+                              <td><input type="text" id="guiaHouse" name="guiaHouse" class="form-control" required/></td>
                             </tr>
                           <?php endif; ?>
                         </tbody>
@@ -165,7 +180,7 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
                   <input type="hidden" name="idVuelo" value="<?php echo $idRVD; ?>">
 
                   <div class="row" <?php echo $hideAsociar; ?>>
-                    <button class="btn btn-lg btn-success btn-block " id="asociar" type="submit"><i class="fa fa-file-text fa-fw"></i>Asociar Guía</button>
+                    <button class="btn btn-lg btn-success btn-block " id="asociar" type="submit"><i class="fas fa-tasks"></i> Asociar Guía</button>
                   </div>
                 </div>
               </form>
@@ -199,6 +214,34 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Eliminar Registro</h4>
+					</div>
+
+					<div class="modal-body">
+						¿Desea eliminar este registro?
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<a class="btn btn-danger btn-ok">Borrar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    <script>
+			$('#confirm-delete').on('show.bs.modal', function(e) {
+				$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+
+				$('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+			});
+		</script>
   <script type="text/javascript">
   setTimeout("validaExaminar()", 5);
     function validaExaminar(){
