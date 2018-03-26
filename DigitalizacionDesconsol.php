@@ -13,9 +13,9 @@ if (isset($_GET['numHouse'])) {
   $RegistroVD_idRegistroVD=$_GET['idDescon'];
   $indiceGuiaH=$_GET['numHouse'];
   $idRVD=$_GET['idRVD'];
-  // echo '$RegistroVD_idRegistroVD: '.$RegistroVD_idRegistroVD;
-  // echo 'indiceGuiaH: '.$indiceGuiaH;
-  // echo 'idRVD'.$idRVD;
+  echo 'RegistroVD_idRegistroVD: '.$RegistroVD_idRegistroVD;
+  echo 'indiceGuiaH: '.$indiceGuiaH;
+  echo 'idRVD'.$idRVD;
   }else {
     $guiaHouse  = isset($_POST['guiaHouse']) ? $_POST['guiaHouse'] : '';
     $indiceGuiaH = isset($_POST['numHouse']) ? $_POST['numHouse'] : 0;
@@ -46,7 +46,7 @@ if (isset($_GET['numHouse'])) {
   $Master=$rowCon['guiaMaster'];
 
   $registros= "SELECT * FROM registrodescon WHERE RegistroVD_idRegistroVD = '$RegistroVD_idRegistroVD'";
-  //echo $registros;
+  echo $registros;
   $regis = $mysqli->query($registros);
   $indexTabla= $indiceGuiaH;
 ?>

@@ -88,10 +88,10 @@
                         <a href="MesaDeAyuda.php"><i class="fa fa-life-ring fa-fw"></i>Mesa de ayuda</a>
                     </li>
                     <li>
-                        <a href="abandono.php"><i class="fa fa-money fa-fw"></i>Cálculo de abandono</a>
+                        <a href="abandono.php"><i class="far fa-money-bill-alt"></i> Cálculo de abandono</a>
                     </li>
                     <li>
-                        <a href="menuDigitalizacion.php"><i class="fa fa-file-text fa-fw"></i> Digitalización</a>
+                        <a href="menuDigitalizacion.php"><i class="far fa-file"></i> Digitalización</a>
                     </li>
                 </ul>
             </li>

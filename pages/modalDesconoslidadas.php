@@ -17,6 +17,8 @@
               <th>No.</th>
               <th>Guía Master</th>
               <th>Guía House</th>
+              <th></th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -25,6 +27,15 @@
                   <td><?php echo $rowGuiasDes['numDesconsol']+1; ?></td>
                   <td><?php echo $rowGuias['guiaMaster']; ?></td>
                   <td><?php echo $rowGuiasDes['guiaHouse']; ?></td>
+                  <td><a href="editarDigitalizacionH.php?id=<?php echo $rowGuiasDes['idRegistroDescon']; ?>" >
+                      <i class="fas fa-edit"></i>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="eliminarRegistroDescon.php?id=<?php echo $rowGuiasDes['idRegistroDescon']; ?>" >
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                  </td>
                 </tr>
             <?php } ?>
             </tbody>
