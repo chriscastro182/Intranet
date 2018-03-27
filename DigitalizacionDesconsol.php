@@ -25,8 +25,9 @@ if (isset($_GET['numHouse'])) {
     $indexDesconsol= "SELECT * FROM registrodescon";
     $resul = $mysqli->query($indexDesconsol);
     while($row = $resul->fetch_assoc()){
-      $idDesconsol++;
+      $idDesconsol=$row['idRegistroDescon'];
     }
+    $idDesconsol++;
     $registros= "SELECT * FROM registrodescon WHERE RegistroVD_idRegistroVD = '$RegistroVD_idRegistroVD'";
     $regis = $mysqli->query($registros);
     while($rowNumDes= $regis->fetch_assoc()){

@@ -68,6 +68,9 @@ $validaEstatus= $rowVuelos['estatusVD'];
                       " data-toggle="modal" data-target="#confirm-deleteV">
                         <i class="fas fa-trash-alt fa-2x"></i>
                     </a>
+                    <br>
+                    <br>
+                    <?php echo '<a href="Digitalizacion.php?idRVD='.$rowVuelos['idVueloDigitalizacion'].'"><i class="fas fa-plus fa-2x"></i></a>'; ?>
                   </div>
                 </div>
               </div>
