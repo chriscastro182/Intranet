@@ -3,8 +3,8 @@
     echo "Error al cargar archivo";
     } else {
     $permitidos = array("application/pdf");
-    $limite_kb = 500024;
-    if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024){
+    $limite_kb = 100000000;
+    if(in_array($_FILES["archivo"]["type"], $permitidos) ){
       $ruta = 'PDFs/'.$idVuelo.'/';
       $archivo = $ruta.$_FILES["archivo"]["name"];
       if(!file_exists($ruta)){

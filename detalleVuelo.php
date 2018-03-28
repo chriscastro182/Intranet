@@ -70,7 +70,11 @@ $validaEstatus= $rowVuelos['estatusVD'];
                     </a>
                     <br>
                     <br>
-                    <?php echo '<a href="Digitalizacion.php?idRVD='.$rowVuelos['idVueloDigitalizacion'].'"><i class="fas fa-plus fa-2x"></i></a>'; ?>
+                    <?php
+                    if ($rowVuelos['estatusVD']!=5) {
+                      echo '<a href="Digitalizacion.php?idRVD='.$rowVuelos['idVueloDigitalizacion'].'"><i class="fas fa-plus fa-2x"></i></a>';
+                    }
+                     ?>
                   </div>
                 </div>
               </div>
