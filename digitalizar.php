@@ -20,7 +20,7 @@ if(!isset($_SESSION))
   }
   $id_insert++;
   $sql = "INSERT INTO registrovd(idRegistroVD, guiaMaster, guiaHouse, descon, VueloDigitalizacion_idVueloDigitalizacion)
-                VALUES ($id_insert,$guiaMaster,'$guiaHouse', $Consol, $VueloDigitalizacion_idVueloDigitalizacion)";
+                VALUES ($id_insert,'$guiaMaster','$guiaHouse', $Consol, $VueloDigitalizacion_idVueloDigitalizacion)";
 echo $sql;
 $resultado = $mysqli->query($sql);
 // if ($Consol==0 || $numeroGuias==0) {
