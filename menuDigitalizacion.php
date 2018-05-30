@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require 'pages/validaSesion.php'; ?>
 <html lang="es">
 <head>
     <?php

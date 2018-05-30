@@ -180,7 +180,7 @@ if (!isset($_GET['idRVD']) ) { //Sí no hay una guía de registro previa es porq
                   <input type="hidden" id="numeroGuias" name="numeroGuias" class="form-control" value="<?php echo $numGuiasM; ?>">
                   <input type="hidden" name="idVuelo" value="<?php echo $idRVD; ?>">
 
-                  <div class="row" <?php echo $hideAsociar; ?>>
+                  <div class="row" style="position: fixed;" <?php echo $hideAsociar; ?>>
                     <button class="btn btn-lg btn-success btn-block " id="asociar" type="submit"><i class="fas fa-tasks"></i> Asociar Guía</button>
                   </div>
                 </div>
