@@ -140,7 +140,7 @@ if (isset($_GET['numHouse'])) {
                     <input type="hidden" id="numHouse" name="numHouse" class="form-control" value="<?php echo $indiceGuiaH; ?>">
                     <input type="hidden" id="idVuelo" name="idVuelo" value="<?php echo $idRVD; ?>">
                     <input type="hidden" id="idDescon" name="idDescon" value="<?php echo $RegistroVD_idRegistroVD; ?>">
-                    <div class="row" >
+                    <div class="row" style="position:fixed;">
                       <button class="btn btn-lg btn-success btn-block " id="asociar" type="submit"><i class="fa fa-file-text fa-fw"></i>Asociar Guía Desconsolidada</button>
                     </div>
                   </div>
