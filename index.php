@@ -110,6 +110,12 @@
             <div class="row">
                 <div class="col-lg-12">
                   <h5>Noticias</h5>
+                  <div class="row" style="margin: 0px auto; text-align:center;">
+                    <video width="640" height="480" controls>
+                      <source src="images/aniversario.mp4" type="video/mp4">
+                      Remembranza a un año de .
+                    </video>
+                  </div>
                   <div class="row">
                     <?php  $indexReport= "SELECT * FROM post ORDER BY idPost DESC ";
                         $resul = $mysqli->query($indexReport);
