@@ -114,12 +114,14 @@
                             </div>
                         </div>
                           <a href="#">
-                            <div class="panel-footer">
-                                <i class="fa fa-plane fa-fw"></i>
-                                <span class="pull-left">Búsqueda por vuelo</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
+                            <a href="BusquedaDigitalizacion.php">
+                              <div class="panel-footer">
+                                  <i class="fa fa-plane fa-fw"></i>
+                                  <span class="pull-left">Búsqueda por vuelo</span>
+                                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                  <div class="clearfix"></div>
+                              </div>
+                            </a>
                         </a>
                     </div>
                 </div>
