@@ -53,15 +53,15 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                 for ($i=1; $i <=$diasTemp; $i++) {  //$i es igual a números naturales
 
                   if ($i <=15) { // primera condición (cláusula a)
-                    $derechos1+=11.46*$pesoC;
+                    $derechos1+=12.80*$pesoC;
                   }
 
                   if ($i>15 && $i <=45) { // condición de (cláusula b)
-                    $derechos2+=22.34*$pesoC;
+                    $derechos2+=24.94*$pesoC;
                   }
 
                   if ($i>45) { //Condición última de días
-                    $derechos3+=36.20*$pesoC;
+                    $derechos3+=40.42*$pesoC;
                   }
 
                 }
@@ -74,7 +74,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                   if ($pesoC<1) {
                     $pesoC=1;
                   }
-                  $tarifaEf=18.60*$peso; // aquí está el multiplicador de la tarifa (por cada cien kilos)
+                  $tarifaEf=20.76*$peso; // aquí está el multiplicador de la tarifa (por cada cien kilos)
                   $derechos=$tarifaEf*$diasTotales;
                 }
                 if($excepcion=="Especial"){
