@@ -104,10 +104,21 @@
                         </div>
                           <a href="#">
                             <div class="panel-footer">
-                                <i class="fas fa-file-alt fa-fw"></i></i>
-                                <span class="pull-left">Búsqueda por Oficio</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
+                              <form class="form-horizontal" id="formBuquedaOficio" action="busquedaOficioAbandono.php" method="POST">
+                                  <div class="form-group">
+                                    <div class="col-sm-3">
+                                      <label for="oficio">Consecutivo:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <input type="text" form="formBuquedaOficio" class="form-control" id="idOficio" name="idOficio" placeholder="(Id) Ej. 2, 4, 9" required>
+                                    </div>
+                                  </div>
+                                  <button class="btn btn-info btn-group-justified">
+                                    <span class="pull-left">Búsqueda por Oficio</span>
+                                    <span class="pull-right"><i class="fa fa-search"></i><i class="fas fa-file-alt fa-fw"></i></i></span>
+                                    <div class="clearfix"></div>
+                                  </button>
+                                </form>       
                             </div>
                         </a>
                     </div>
@@ -127,10 +138,22 @@
                         </div>
                           <a href="#">
                             <div class="panel-footer">
-                                <i class="fas fa-file-alt fa-fw"></i></i>
-                                <span class="pull-left"></span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
+
+                                <form class="form-horizontal" id="formBuquedaRecalculo" action="busquedaRecalculoAbandono.php" method="POST">
+                                  <div class="form-group">
+                                    <div class="col-sm-3">
+                                      <label for="Recalculo">Consecutivo:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <input type="text" form="formBuquedaRecalculo" class="form-control" id="idOficio" name="idOficio" placeholder="(Id) Ej. 2, 4, 9" required>
+                                    </div>
+                                  </div>
+                                  <button class="btn btn-danger btn-group-justified">
+                                    <span class="pull-left">Calcular con tarifa vigente</span>
+                                    <span class="pull-right"><i class="fa fa-sort-numeric-down"></i><i class="fas fa-file-alt fa-fw"></i></i></span>
+                                    <div class="clearfix"></div>
+                                  </button>
+                                </form>       
                             </div>
                         </a>
                     </div>

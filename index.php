@@ -121,15 +121,20 @@
                         $resul = $mysqli->query($indexReport);
                         $renglones=0;
                         $visibilidad= "hidden";
-                        while($row = $resul->fetch_assoc()){ $renglones++;?>
-                          <?php if ($renglones!=0):
+                        while($row = $resul->fetch_assoc()){ 
+                            $renglones++; 
+                             if ($renglones!=0):
                             $visibilidad="";
                           endif; ?>
                     <div class="col-lg-2">
-                      <?php $date = $row['fechaPost'];
-                      $phpdate = strtotime( $date );
-                      $mysqldate = date( 'd/m/Y g:i A', $phpdate );
-                      echo $mysqldate ?>
+                      <?php 
+                      if ($row['fechaPost']!=null) {
+                          $date = $row['fechaPost'];
+                        $phpdate = strtotime( $date );
+                        $mysqldate = date( 'd/m/Y g:i A', $phpdate );
+                        echo $mysqldate;
+                      }
+                    ?>
                     </div>
                     <div class="col-lg-10">
                       <ul>

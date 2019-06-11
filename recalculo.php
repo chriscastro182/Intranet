@@ -21,7 +21,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
 
             $sqlRegistro = "SELECT * FROM registroabandono WHERE Oficio_idOficio = '$valor'";
             $resultadoRegistro = $mysqli->query($sqlRegistro);
-
+            $numError = $numCambio =0;
             $row_cnt = mysqli_num_rows($resultadoRegistro);
             if ($row_cnt) {
               $mostrar="";
@@ -83,21 +83,22 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
               $derechos=$derechos1+$derechos2+$derechos3;
               $sqlUp = "UPDATE registroabandono SET derechos=$derechos WHERE idRegistroAbandono = $id";
               $resultadoUp = $mysqli->query($sqlUp);
-
-              if ($resultadoUp) { ?>
-                <div class="alert alert-success fade in alert-dismissible">
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                  <strong>Registros actualizados!</strong> .
-                </div>
-        <?php      } else {
-          echo '<div class="alert alert-danger fade in alert-dismissible">
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                  <strong>Valio verga la pata del Mameitor!</strong> No se pudieron actualizar a la nueva tarifa.
-                </div>';
-        }
+              
+              if ($resultadoUp) { $numCambio++;     } else {
+                echo '<div class="alert alert-danger fade in alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>¡ERROR!</strong> No se pudieron actualizar a la nueva tarifa.
+                      </div>';
+                      $numError++;
+              }
             }
-        }
-          ?>
+        } ?>
+      <div class="alert alert-success fade in alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Registros actualizados!</strong> <br> Registros modificador: <?php echo $numCambio; ?> <br> Registros errores: <?php echo $numError; ?>. 
+        <br>
+        <a href="menuAbandono.php" class="btn btn-success">Volver al menú</a>
+      </div>
       <div id="wrapper">
         <?php require("nav.php"); ?>
         <div id="page-wrapper">
@@ -115,16 +116,16 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                       </tr>
                     </thead>
                     <tbody>
-                  <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
-                        <tr> <?php $idOficio=$row['idOficio']; ?>
-                        <td><?php echo $idOficio ?></td>
-                          <td><?php echo $row['oficio']; ?></td>
-                          <td><?php echo $row['fechaoficio']; ?></td>
-                          <td><?php echo $row['fechaNotificacion']; ?></td>
-                          <td><?php echo $row['observacion']; ?></td>
-                          <td><?php echo $row['destino']; ?></td>
-                        </tr>
-                        <?php } ?>
+                <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
+                      <tr> 
+                        <td><?php echo $row['idOficio']; ?></td>
+                        <td><?php echo $row['oficio']; ?></td>
+                        <td><?php echo $row['fechaoficio']; ?></td>
+                        <td><?php echo $row['fechaNotificacion']; ?></td>
+                        <td><?php echo $row['observacion']; ?></td>
+                        <td><?php echo $row['destino']; ?></td>
+                      </tr>
+                <?php } ?>
                     </tbody>
                   </table>
               </div>
