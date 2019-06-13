@@ -166,7 +166,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                           <td><?php echo $rowRegistro['diasTotales']; ?></td>
                           <td><?php echo $rowRegistro['estatus']; ?></td>
                           <td><?php echo $rowRegistro['derechos']; ?></td>
-                          <td><?php echo $rowRegistro['excepcion']; ?></td>
+                          <td><?php echo $rowRegistro['excepcion']; ?></td>                          
                         </tr>
                         <?php } ?>
                     </tbody>

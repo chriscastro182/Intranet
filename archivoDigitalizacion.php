@@ -39,7 +39,8 @@
                       <th>Total G Master</th>
                       <th>Detalles</th>
                       <th>Editar</th>
-                      <th>Eliminar</th>
+                      <th>Eliminar</th><!-- <i class="fas fa-file-alt fa-5x"></i> -->
+                      <th>Adjuntar más <i class="fas fa-file-alt"></i></a></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -59,6 +60,11 @@
                               <i class="fas fa-trash-alt"></i>
                           </a>
                         </th>
+                        <td>
+                          <a href="adjuntarArchivosDigitalizacion.php?id=<?php echo $rowVuelos['idVueloDigitalizacion']; ?>" >
+                              <i class="fas fa-file-alt"></i>
+                          </a>
+                        </td>
                       </tr>
                     <?php  } ?>
                   </tbody>

@@ -159,6 +159,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                         <th>Estatus</th>
                         <th>Derechos</th>
                         <th>Tipo de mercancía</th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -177,6 +178,7 @@ if (isset($_SESSION['Rol_idRol'])==FALSE) {
                           <td><?php echo $rowRegistro['estatus']; ?></td>
                           <td><?php echo $rowRegistro['derechos']; ?></td>
                           <td><?php echo $rowRegistro['excepcion']; ?></td>
+                          <td><a href="editRegistroAbandono.php?id=<?php echo $rowRegistro['idRegistroAbandono']; ?>"><i class="fas fa-pencil-alt"></i></a></td>
                         </tr>
                         <?php } ?>
                     </tbody>
