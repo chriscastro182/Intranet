@@ -52,13 +52,24 @@ $validaEstatus= $rowVuelos['estatusVD'];
                         echo "No cuenta con archivo PDF";
                       }else {
                           echo '<a href="'.$rowVuelos['documentoVD'].'" target="_blank"><i class="fas fa-file-pdf "></i> PDF asociado</a>';
-                      }
-                      ?>
+                      }                      
+                      if($rowVuelos['docTrans']!=null) { ?>
+                            <a href="<?php echo $rowVuelos['docTrans'] ?>" target="_blank"><i class="fas fa-file-pdf "></i> PDF de Transferencias</a>
+                      <?php } ?>  
                     </h4>
                   </div>
                   <div class="col-lg-5">
                     <h3>Vuelo: <?php echo $rowVuelos['nomVuelo']; ?></h3>
                     <h4>Estatus: <?php echo $validaEstatus; ?></h4>
+                    <h4>
+                      <?php if($rowVuelos['docPrevio']!=null) { ?>
+                            <a href="<?php echo $rowVuelos['docPrevio'] ?>" target="_blank"><i class="fas fa-file-pdf "></i> PDF de Previos</a>
+                      <?php } ?>  
+
+                      <?php if($rowVuelos['docSalidas']!=null) { ?>
+                            <a href="<?php echo $rowVuelos['docSalidas'] ?>" target="_blank"><i class="fas fa-file-pdf "></i> PDF de Salidas</a>
+                      <?php } ?>  
+                    </h4>
                   </div>
                   <div class="col-lg-1">
                     <?php echo '<a href="editarDigitalizacion.php?id='.$rowVuelos['idVueloDigitalizacion'].'"><i class="fas fa-edit fa-2x"></i></a>'; ?>

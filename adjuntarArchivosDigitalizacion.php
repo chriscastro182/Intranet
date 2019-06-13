@@ -62,18 +62,31 @@
                   <div class="col-lg-6">
                     <h3>Registro: <?php echo $obj->registroVD; ?></h3>
                     <h4>Fecha: <?php echo $obj->fecha; ?></h4>
-                    <h4><?php
-                      if ($obj->documentoVD=="PDFdigital/") {
+                    <h4>
+                    <?php if ($obj->documentoVD=="PDFdigital/") {
                         echo "No cuenta con archivo PDF";
                       }else {
-                          echo '<a href="'.$obj->documentoVD.'" target="_blank"><i class="fas fa-file-pdf "></i> PDF asociado</a>';
+                          echo '<a href="'.$obj->documentoVD.'" target="_blank"><i class="fas fa-file-pdf "></i> PDF de Vuelo asociado</a>';
                       }
-                      ?>
+                      if($obj->docTrans!=null) { ?>
+                            <a href="<?php echo $obj->docTrans ?>" target="_blank"><i class="fas fa-file-pdf "></i> PDF de Transferencias</a>
+                      <?php } ?> 
                     </h4>
                   </div>
                   <div class="col-lg-5">
                     <h3>Vuelo: <?php echo $obj->nomVuelo; ?></h3>
                     <h4>Estatus: <?php echo $validaEstatus; ?></h4>
+                    <h4>
+                      <?php if($obj->docPrevio!=null) { ?>
+                            <a href="<?php echo $obj->docPrevio ?>" target="_blank"><i class="fas fa-file-pdf "></i> PDF de Previos</a>
+                      <?php } ?>  
+
+                      <?php if($obj->docSalidas!=null) { ?>
+                            <a href="<?php echo $obj->docSalidas ?>" target="_blank"><i class="fas fa-file-pdf "></i> PDF de Salidas</a>
+                      <?php } ?>  
+
+                      
+                    </h4>
                   </div>
                   <div class="col-lg-1">
                     <?php echo '<a href="editarDigitalizacion.php?id='.$obj->idVueloDigitalizacion.'"><i class="fas fa-edit fa-2x"></i></a>'; ?>
@@ -96,30 +109,44 @@
             </div>
             <!-- /.row -->
             <div class="row">
-              <?php if($obj->docPrevio==null) {?>
+              <?php if($obj->docPrevio==null) { ?>
                       <form id="previoForm" action="adjuntarPrevio.php" method="post" enctype="multipart/form-data" autocomplete="off">
                             <input type="hidden" name="idVuelo" value="<?php echo $obj->idVueloDigitalizacion; ?>">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label class="" for="previo">Previos</label>
-                            <input type="file" form="previoForm" name="previo" id="previo" accept="application/pdf" >
+                            <input type="file" form="previoForm" name="previo" id="previo" accept="application/pdf" required>
                           </div>  
-                          <button class="btn btn-success" type="submit">Adjuntar Previo</button>
+                          <button class="btn btn-warning" type="submit">Adjuntar Previo</button>
                         </div>
                       </form>
               <?php } ?>    
-              <form action="" method="post" enctype="multipart/form-data">
-                <div class="col-md-6">
-                  <div class="form-group">
-                        <label class="" for="">Salidas</label>
-                        <input type="file" name="salida" id="">
-                  </div>  
-                  <button class="btn btn-success" type="submit">Adjuntar Salida</button>
-                </div>
-              </form>
-                
 
-              
+              <?php if($obj->docSalidas==null) { ?>
+                <form action="adjuntarSalida.php" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="idVuelo" value="<?php echo $obj->idVueloDigitalizacion; ?>">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                          <label class="" for="">Salidas</label>
+                          <input type="file" name="salida" id="salida"  accept="application/pdf" required>
+                    </div>  
+                    <button class="btn btn-success" type="submit">Adjuntar Salida</button>
+                  </div>
+                </form>
+              <?php } ?>   
+
+              <?php if($obj->docTrans==null) { ?>
+                <form action="adjuntarTrans.php" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="idVuelo" value="<?php echo $obj->idVueloDigitalizacion; ?>">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                          <label class="" for="">Transferencias</label>
+                          <input type="file" name="trans" id="trans"  accept="application/pdf" required>
+                    </div>  
+                    <button class="btn btn-primary" type="submit">Adjuntar Transferencias</button>
+                  </div>
+                </form>
+              <?php } ?>   
             </div>
         </div>
         <!-- /#page-wrapper -->

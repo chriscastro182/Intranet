@@ -30,7 +30,7 @@
           </div>
             <!-- /.row -->
             <div class="row">
-              <div class="col-lg-10">
+              <div class="col-lg-12">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -40,7 +40,8 @@
                       <th>Detalles</th>
                       <th>Editar</th>
                       <th>Eliminar</th><!-- <i class="fas fa-file-alt fa-5x"></i> -->
-                      <th>Adjuntar más <i class="fas fa-file-alt"></i></a></th>
+                      <th><i class="fa fa-upload" aria-hidden="true"></i> <i class="fas fa-file-alt"></i>  Previos y salidas </a></th>
+                      <th><i class="fa fa-upload" aria-hidden="true"></i> <i class="fas fa-file-alt"></i> Transferencias </a></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -61,9 +62,18 @@
                           </a>
                         </th>
                         <td>
-                          <a href="adjuntarArchivosDigitalizacion.php?id=<?php echo $rowVuelos['idVueloDigitalizacion']; ?>" >
-                              <i class="fas fa-file-alt"></i>
-                          </a>
+                          <?php if($rowVuelos['docPrevio']==null || $rowVuelos['docSalidas'] == null) { ?>
+                            <a href="adjuntarArchivosDigitalizacion.php?id=<?php echo $rowVuelos['idVueloDigitalizacion']; ?>" >
+                                <i class="fas fa-file-alt"></i>
+                            </a>
+                          <?php } ?> 
+                        </td>
+                        <td>
+                          <?php if($rowVuelos['docTrans'] == null) { ?>
+                            <a href="adjuntarArchivosDigitalizacion.php?id=<?php echo $rowVuelos['idVueloDigitalizacion']; ?>" >
+                                <i class="fas fa-file-alt"></i>
+                            </a>
+                          <?php } ?> 
                         </td>
                       </tr>
                     <?php  } ?>
