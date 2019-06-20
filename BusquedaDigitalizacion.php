@@ -95,12 +95,14 @@ require 'pages/validaSesion.php';
       }
     });
     $("#guiaMaster").keyup(function(event){
-        $.ajax({
+      let guiaMaster = $('#guiaMaster').val();
+        if (guiaMaster.length >4) {
+          $.ajax({
             url: 'busMaster.php',
             datatType : 'json',
             type: 'POST',
             data: {
-                'guiaMaster' : $('#guiaMaster').val(),
+                'guiaMaster' : guiaMaster,
             },
 
             success:function(response) {
@@ -111,15 +113,18 @@ require 'pages/validaSesion.php';
               console.log('error: '+response);
               $('#response').html('');
             }
-        });
+          });
+        }
       });
     $("#guiaHouse").keyup(function(event){
-        $.ajax({
+      let guiaHouse = $('#guiaHouse').val();
+        if (guiaHouse.length >3) {
+          $.ajax({
             url: 'busHouse.php',
             datatType : 'json',
             type: 'POST',
             data: {
-                'guiaHouse' : $('#guiaHouse').val(),
+                'guiaHouse' : guiaHouse,
             },
 
             success:function(response) {
@@ -130,7 +135,8 @@ require 'pages/validaSesion.php';
               console.log('error: '+response);
               $('#response').html('');
             }
-        });
+          });
+        }
       });
   </script>
 </body>

@@ -16,9 +16,7 @@
                 <a href="index.php"><i class="fa fa-sticky-note fa-fw"></i> Noticias</a>
             </li>
             <?php
-            if (!isset($_SESSION)) {
-              session_start();
-            }
+            
              if(isset($_SESSION['Rol_idRol'])) {
                if(($_SESSION['Rol_idRol'])==2) { ?>
                  <li>
@@ -40,9 +38,7 @@
           } ?>
 
             <?php
-            if (!isset($_SESSION)) {
-              session_start();
-            }
+           
              if(isset($_SESSION['Rol_idRol'])) {
                if(($_SESSION['Rol_idRol'])==1) { ?>
                  <li>

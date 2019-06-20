@@ -1,7 +1,4 @@
-<?php if(!isset($_SESSION))
-    {
-        session_start();
-    }  ?>
+<?php if(!isset($_SESSION)){ session_start(); }  ?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

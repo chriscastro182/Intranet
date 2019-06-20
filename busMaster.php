@@ -8,7 +8,7 @@ $guia= '%'.$guia.'%';
   $registroQery = $mysqli->query($registro);
   $return='
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-12">
           <table class="table table-bordered table-condensed" style="text-align: center">
             <thead>
               <tr>
@@ -17,8 +17,9 @@ $guia= '%'.$guia.'%';
                 <th>Fecha</th>
                 <th>GuíaMaster</th>
                 <th>GuíaHouse</th>
-                <th>Vuelo</th>
-                <th>PDF</th>
+                <th>FILE <i class="fa fa-plane" aria-hidden="true"></i></th>
+                <th><i class="fa fa-paperclip" aria-hidden="true"></i> previos y salidas</th>
+                <th>Ver archivos</th>
               </tr>
             </thead>
             <tbody>';
@@ -34,14 +35,31 @@ $guia= '%'.$guia.'%';
                   <td>'.$rowVD['fecha'].'</td>
                   <td>'.$rowRegistroM['guiaMaster'].'</td>
                   <td>'.$rowRegistroM['guiaHouse'].'</td>
-                 <td></td>
                  <td>
                    <a target="_blank" href="'.$rowVD['documentoVD'].'">
                        <i class="fas fa-file-pdf"></i>
                    </a>
-                 </td>
-               </tr>';
-
+                 </td>';
+                 if ($rowRegistroM['docPrevio']==null || $rowRegistroM['docSalida'] ==null) {                   
+                   $return.='<td>
+                              <a href="adjuntarArchivosMasterDigitalizacion.php?id='.$rowRegistroM['idRegistroVD'].'">
+                                  <i class="fa fa-paperclip" aria-hidden="true"></i>
+                              </a>
+                            </td>
+                            <td>
+                              <a href="adjuntarArchivosMasterDigitalizacion.php?id='.$rowRegistroM['idRegistroVD'].'">
+                                  <i class="fa fa-eye" aria-hidden="true"></i>
+                              </a>
+                            </td>';
+                 } else {
+                   $return.='<td></td>
+                            <td>
+                              <a href="adjuntarArchivosMasterDigitalizacion.php?id='.$rowRegistroM['idRegistroVD'].'">
+                                  <i class="fa fa-eye" aria-hidden="true"></i>
+                              </a>
+                            </td>';
+                 }
+    $return.='</tr>';
     }
     $return.='</tbody>
           </table>
