@@ -30,7 +30,7 @@ if(!isset($_SESSION))
 		var_dump($_FILES["averia"]["error"]);
 		} else {
 		$permitidos = array("application/pdf");
-		$limite_kb = 2024;
+		$limite_kb = 20024;
 
 		if(in_array($_FILES["averia"]["type"], $permitidos) && $_FILES["averia"]["size"] <= $limite_kb * 1024){
 

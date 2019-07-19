@@ -28,7 +28,7 @@ if(!isset($_SESSION))
 		var_dump($_FILES["trans"]["error"]);
 		} else {
 		$permitidos = array("application/pdf");
-		$limite_kb = 2024;
+		$limite_kb = 20024;
 
 		if(in_array($_FILES["trans"]["type"], $permitidos) && $_FILES["trans"]["size"] <= $limite_kb * 1024){
 
